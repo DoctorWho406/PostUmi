@@ -34,7 +34,7 @@ namespace GGJam_2021 {
                 position = position
             };
             sprite.scale = new Vector2(0.3f);
-            sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height);
+            sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
             target = -Vector2.One;
             hunger = 1f;
             paranoia = 1f;

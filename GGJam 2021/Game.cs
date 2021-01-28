@@ -15,7 +15,7 @@ namespace GGJam_2021 {
 
         public static void Init() {
             //Init Window
-            Window = new Window(/*1920, 1080,*/ "GGJam 2021"/*, false*/);
+            Window = new Window(/*1920, 1080,*/ "GGJam 2021"/*, true*/);
             //Disable VSync
             Window.SetVSync(false);
             //Set WindowCenter
