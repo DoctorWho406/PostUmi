@@ -10,6 +10,11 @@ namespace GGJam_2021 {
             Window = new Window(1920, 1080, "GGJam 2021", true);
             //Disable VSync
             Window.SetVSync(false);
+            LoadAssets();
+        }
+
+        private static void LoadAssets() {
+            //AddTexture
         }
 
         public static void Play() {

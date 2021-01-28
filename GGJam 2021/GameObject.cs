@@ -2,7 +2,7 @@
 using OpenTK;
 
 namespace GGJam_2021 {
-    class GameObject {
+    abstract class GameObject {
         protected Vector2 position {
             get => sprite.position;
             set => sprite.position = value;
@@ -11,7 +11,9 @@ namespace GGJam_2021 {
         protected Sprite sprite;
         protected Texture texture;
 
-        //ctor
+        protected GameObject(Vector2 position) {
+            this.position = position;
+        }
 
         public virtual void Update() {
             sprite.position += speed * Game.DeltaTime;

@@ -7,6 +7,12 @@ namespace GGJam_2021 {
 
         private Animation animation;
 
+        public AnimatedObject(Vector2 position, Vector2 size, int rowsSpriteSheet, int columnsSpriteSheet, int fps) : base(position) {
+            Size = size;
+            sprite = new Sprite(size.X, size.Y);
+            animation = new Animation(this, rowsSpriteSheet, columnsSpriteSheet, fps);
+        }
+
         public override void Update() {
             base.Update();
             animation.Update();
