@@ -2,35 +2,39 @@
 using OpenTK;
 
 
-namespace GGJam_2021 {
+namespace GGJam_2021
+{
 
-    enum Stat {
+    enum Stat
+    {
         Hunger,
         Paranoia,
         Count
     }
-
-    class Player {
+    class Player
+    {
         public bool isAlive => hunger > 0 && paranoia > 0;
-        public float hunger {
+        public float hunger
+        {
             get; private set;
         }
-
-        public float paranoia {
+        public float paranoia
+        {
             get; private set;
         }
-
         private Texture texture;
         private Sprite sprite;
-
+        
         private Vector2 target;
         private Vector2 speed;
         private Slider paranoiaSlider, hungherSlider;
 
 
-        public Player(Vector2 position, Vector2 size, int rowsSpriteSheet = 1, int columnsSpriteSheet = 1, int fps = 60) {
+        public Player(Vector2 position, Vector2 size, int rowsSpriteSheet = 1, int columnsSpriteSheet = 1, int fps = 60)
+        {
             texture = TextureManager.GetTexture("Player");
-            sprite = new Sprite(texture.Width, texture.Height) {
+            sprite = new Sprite(texture.Width, texture.Height)
+            {
                 position = position
             };
             sprite.scale = new Vector2(0.3f);
@@ -42,21 +46,28 @@ namespace GGJam_2021 {
             hungherSlider = new Slider(new Vector2(25, Game.Window.Height - 75), Stat.Hunger);
         }
 
-        public void Input() {
-            if (Game.Window.MouseLeft) {
+        public void Input()
+        {
+            if (Game.Window.MouseLeft)
+            {
                 target = Game.Window.MousePosition;
             }
         }
 
-        public void Update() {
-            if (target != -Vector2.One) {
+        public void Update()
+        {
+            if (target != -Vector2.One)
+            {
                 sprite.position += speed * Game.DeltaTime;
                 Vector2 distance = target - sprite.position;
-                if (distance.Length <= Constants.offsetFromTarge) {
+                if (distance.Length <= Constants.offsetFromTarge)
+                {
                     sprite.position = target;
                     target = -Vector2.One;
                     speed = Vector2.Zero;
-                } else {
+                }
+                else
+                {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                 }
             }
@@ -64,12 +75,14 @@ namespace GGJam_2021 {
             //Decrese hungry and paranoia
             hunger -= Constants.hungerDecrease * Game.DeltaTime;
             paranoia -= Constants.paranoiaDecrease * Game.DeltaTime;
+
             //Update Slider
             paranoiaSlider.Update();
             hungherSlider.Update();
         }
 
-        public void Draw() {
+        public void Draw()
+        {
             sprite.DrawTexture(texture);
             //Draw Slider
             paranoiaSlider.Draw();
