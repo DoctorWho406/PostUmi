@@ -29,8 +29,8 @@ namespace GGJam_2021 {
 
         public Animation(AnimatedObject owner, int rows, int columns, Vector2 offset, float fps) {
             this.owner = owner;
-            this.rows = rows;
-            this.columns = columns;
+            this.rows = rows - 1;
+            this.columns = columns - 1;
             Offset = offset;
             startOffset = offset;
             if (fps > 0.0f) {
@@ -48,15 +48,17 @@ namespace GGJam_2021 {
                 if (currentTime >= frameDuration) {
                     currentTime = 0;
                     if (actualColumn < columns) {
-                        Offset.X += owner.Size.X;
+                        Offset.X = startOffset.X + (actualColumn * owner.Size.X);
+                        actualColumn++;
                     } else {
+                        actualColumn = 0;
                         if (actualRow < rows) {
-                            Offset.Y += owner.Size.Y;
+                            Offset.Y = startOffset.Y + (actualRow * owner.Size.Y);
+                            actualRow++;
                         } else {
                             if (Loop) {
                                 Offset = startOffset;
-                                actualRow = 1;
-                                actualColumn = 1;
+                                actualRow = 0;
                             } else {
                                 Stop();
                             }

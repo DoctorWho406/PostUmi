@@ -13,7 +13,7 @@ namespace GGJam_2021 {
 
         //ctor
 
-        public void Update() {
+        public virtual void Update() {
             sprite.position += speed * Game.DeltaTime;
         }
 

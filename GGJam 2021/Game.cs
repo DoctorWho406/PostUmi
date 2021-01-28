@@ -2,9 +2,8 @@
 
 namespace GGJam_2021 {
     static class Game {
+        public static Window Window;
         public static float DeltaTime => Window.DeltaTime;
-
-        private static Window Window;
 
         public static void Init() {
             //Init Window
@@ -14,13 +13,11 @@ namespace GGJam_2021 {
         }
 
         public static void Play() {
-            AnimatedObject animated = new AnimatedObject(new Texture("Assets/qyRVzkO.png"));
             while (Window.IsOpened) {
                 //Exit on esc
                 if (Window.GetKey(KeyCode.Esc)) {
                     break;
                 }
-                animated.Draw();
                 Window.Update();
             }
         }
