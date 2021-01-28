@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Background.cs" />
+    <Compile Include="Colliders\BoxCollider.cs" />
+    <Compile Include="Colliders\CircleCollider.cs" />
+    <Compile Include="Colliders\Collider.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Cursor.cs" />
