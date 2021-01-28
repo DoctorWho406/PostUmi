@@ -68,13 +68,9 @@ namespace GGJam_2021 {
             }
         }
 
-        public void Play(bool loop) {
-            Play();
-            Loop = loop;
-        }
-
-        public void Play() {
+        public void Play(bool loop = false) {
             IsPlaying = true;
+            Loop = loop;
         }
 
         public void Stop() {
