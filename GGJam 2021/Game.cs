@@ -10,6 +10,8 @@ namespace GGJam_2021 {
         }
 
         private static Player player;
+        private static Cursor cur;
+
 
         public static void Init() {
             //Init Window
@@ -19,12 +21,14 @@ namespace GGJam_2021 {
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
             LoadAssets();
             player = new Player(WindowCenter, new Vector2(30));
+            cur = new Cursor();
         }
 
         private static void LoadAssets() {
             //AddTexture
             TextureManager.AddTexture("Background", Constants.TextureDirectory + "Background.png");
             TextureManager.AddTexture("Player", Constants.TextureDirectory + "Player.png");
+            TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
         }
 
         public static void Play() {
@@ -33,9 +37,12 @@ namespace GGJam_2021 {
                 if (Window.GetKey(KeyCode.Esc)) {
                     break;
                 }
+
                 player.Input();
-                UpdateManager.Update();
-                DrawManager.Draw();
+                cur.Update();
+                player.Update();
+                cur.Draw();
+                player.Draw();
                 Window.Update();
             }
         }
