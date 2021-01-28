@@ -3,8 +3,8 @@ using OpenTK;
 
 namespace GGJam_2021 {
     class Cursor {
-        Texture texture;
-        Sprite sprite;
+        private Texture texture;
+        private Sprite sprite;
         private Vector2 position {
             set => sprite.position = value;
         }
@@ -16,9 +16,11 @@ namespace GGJam_2021 {
                 scale = new Vector2(0.2f)
             };
         }
+
         public void Update() {
             position = Game.Window.MousePosition;
         }
+
         public void Draw() {
             sprite.DrawTexture(texture);
         }
