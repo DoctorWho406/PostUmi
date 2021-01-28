@@ -20,11 +20,12 @@ namespace GGJam_2021 {
             Window.SetVSync(false);
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
+            LoadAssets();
+
             //Edit cursor
             cursor = new Cursor();
             Window.SetMouseVisible(false);
 
-            LoadAssets();
             background = new Background();
             Player = new Player(WindowCenter, new Vector2(30));
         }
