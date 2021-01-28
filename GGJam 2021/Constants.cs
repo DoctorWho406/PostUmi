@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GGJam_2021 {
+﻿namespace GGJam_2021 {
     static class Constants {
+        //Textures directory
+        public const string TextureDirectory = "Assets/Textures/";
+
+        //Player
         public const float PlayerSpeed = 250;
     }
 }

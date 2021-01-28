@@ -15,6 +15,7 @@ namespace GGJam_2021 {
 
         private static void LoadAssets() {
             //AddTexture
+            TextureManager.AddTexture("Player", Constants.TextureDirectory + "Player.png");
         }
 
         public static void Play() {
