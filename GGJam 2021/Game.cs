@@ -14,11 +14,13 @@ namespace GGJam_2021 {
         }
 
         public static void Play() {
+            AnimatedObject animated = new AnimatedObject(new Texture("Assets/qyRVzkO.png"));
             while (Window.IsOpened) {
                 //Exit on esc
                 if (Window.GetKey(KeyCode.Esc)) {
                     break;
                 }
+                animated.Draw();
                 Window.Update();
             }
         }

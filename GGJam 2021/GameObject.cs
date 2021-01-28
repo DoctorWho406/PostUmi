@@ -17,7 +17,7 @@ namespace GGJam_2021 {
             sprite.position += speed * Game.DeltaTime;
         }
 
-        public void Draw() {
+        public virtual void Draw() {
             sprite.DrawTexture(texture);
         }
     }
