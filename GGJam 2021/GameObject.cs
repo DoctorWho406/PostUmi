@@ -5,7 +5,7 @@ namespace GGJam_2021 {
     abstract class GameObject : Object {
         protected Vector2 speed;
 
-        protected GameObject(Vector2 position) : base(position) {
+        protected GameObject(Vector2 position, string textureKey = "") : base(position, textureKey) {
         }
 
         public virtual void Update() {
