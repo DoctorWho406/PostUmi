@@ -5,8 +5,7 @@ namespace GGJam_2021 {
         //Position relative to center 
         public Vector2 Position;
 
-        protected Collider(Vector2 position) {
-            Position = position;
+        protected Collider() {
         }
 
         public abstract bool Collides(BoxCollider box);

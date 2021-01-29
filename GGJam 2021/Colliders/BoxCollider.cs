@@ -6,7 +6,7 @@ namespace GGJam_2021 {
         protected Vector2 size;
         protected Vector2 halfSize;
 
-        public BoxCollider(Vector2 position, Vector2 size) : base(position) {
+        public BoxCollider(Vector2 size) : base() {
             this.size = size;
             halfSize = size * 0.5f;
         }

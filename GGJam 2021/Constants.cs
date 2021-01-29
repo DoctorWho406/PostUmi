@@ -4,13 +4,12 @@
         public const string TextureDirectory = "Assets/Textures/";
 
         //Player
-        public const float hungerMax = 100f;
-        public const float hungerDecrease = 0.1f;
-
-        public const float paranoiaMax = 100f;
-        public const float paranoiaDecrease = 0.05f;
-
-        public const float offsetFromTarge = 10;
-        public const float PlayerSpeed = 250;
+        public const float PlayerSpeed = 250f;
+        public const float ColliderRadius = 50f;
+        public const float HungerMax = 100f;
+        public const float HungerDecrease = 0.1f;
+        public const float ParanoiaMax = 100f;
+        public const float ParanoiaDecrease = 0.05f;
+        public const float OffsetFromTarge = 10f;
     }
 }

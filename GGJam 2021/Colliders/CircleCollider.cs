@@ -3,7 +3,7 @@
 namespace GGJam_2021 {
     class CircleCollider : Collider {
         public float Radius;
-        public CircleCollider(Vector2 position, float radius) : base(position) {
+        public CircleCollider(float radius) : base() {
             Radius = radius;
         }
 

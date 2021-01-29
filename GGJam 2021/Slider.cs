@@ -10,10 +10,10 @@ namespace GGJam_2021 {
             this.stat = stat;
             switch (stat) {
                 case Stat.Hunger:
-                    sprite = new Sprite(Constants.hungerMax, 50);
+                    sprite = new Sprite(Constants.HungerMax, 50);
                     break;
                 case Stat.Paranoia:
-                    sprite = new Sprite(Constants.paranoiaMax, 50);
+                    sprite = new Sprite(Constants.ParanoiaMax, 50);
                     break;
             }
             sprite.position = position;
