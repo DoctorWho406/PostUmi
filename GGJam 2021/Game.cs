@@ -26,8 +26,7 @@ namespace GGJam_2021 {
             Window.SetVSync(false);
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
-            LoadAssets.AssetLoaded();
-            LoadBackground();
+            AssetsManager.Init();
 
             //Edit cursor
             Cursor = new Cursor();
@@ -39,15 +38,10 @@ namespace GGJam_2021 {
             };
         }
 
-        private static void LoadBackground() 
-        {
-            
-            new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
-                Position = Game.WindowCenter
-            };
-            doorSprite = new Sprite(50, 50) {
-                position = Game.WindowCenter
-            };
+        private static void LoadBackground() {
+            //new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
+            //    Position = Game.WindowCenter
+            //};
         }
 
         public static void Play() {

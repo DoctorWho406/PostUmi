@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GGJam_2021
-{
-    static class LoadAssets
-    {
-        public static void AssetsInit()
-        {
+﻿namespace GGJam_2021 {
+    static class AssetsManager {
+        public static void Init() {
             AssetLoaded();
         }
-        public static void AssetLoaded()
-        {
+
+        private static void AssetLoaded() {
             //BackgroundDirectoey
             TextureManager.AddTexture("Room", Constants.BackgroundDirectory + "Room.png");
             TextureManager.AddTexture("AnteroomExit", Constants.BackgroundDirectory + "AnteroomExit.png");
@@ -30,15 +21,15 @@ namespace GGJam_2021
             TextureManager.AddTexture("FrontDoor", Constants.TextureDirectory + "FrontDoor.png");
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
         }
-        public static void RoomLoad()
-        {
-            new Background("Room", Scene.Stanza) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.Stanza, Scene.Corridoio){Position = Game.WindowCenter};
+
+        private static void RoomLoad() {
+            new Background("Room", Scene.StanzaPlayer) { Position = Game.WindowCenter };
+            //new Door("FrontDoor", Scene.Stanza, Scene.Corridoio) { Position = Game.WindowCenter };
         }
-        public static void LondeAreaLoad()
-        {
-            new Background("salone", Scene.Corridoio) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.Stanza, Scene.Corridoio) { Position = Game.WindowCenter };
+
+        private static void LondeAreaLoad() {
+            //new Background("salone", Scene.Corridoio) { Position = Game.WindowCenter };
+            //new Door("FrontDoor", Scene.Stanza, Scene.Corridoio) { Position = Game.WindowCenter };
         }
 
 

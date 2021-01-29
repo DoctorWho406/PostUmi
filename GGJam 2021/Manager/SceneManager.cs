@@ -2,9 +2,17 @@
 
 namespace GGJam_2021 {
     enum Scene {
-        Soggiorno,
-        Stanza,
-        Corridoio,
+        StanzaPlayer,
+        CorridoioLeft,
+        CorridoioMiddle,
+        CorridoioRight,
+        Salone,
+        Wc,
+        Cucina,
+        Anticamera,
+        Studio,
+        StanzaParent,
+        //Add Dialogue Scene
         Count
     }
 
@@ -18,7 +26,7 @@ namespace GGJam_2021 {
         static SceneManager() {
             //stacchi = 1 / Constants.ParanoiaMax;
             isSceneChanging = false;
-            activeScene = Scene.Stanza;
+            activeScene = Scene.StanzaPlayer;
             scenes = new Dictionary<Scene, List<GameObject>>();
             for (int s = 0; s < (int)Scene.Count; s++) {
                 scenes[(Scene)s] = new List<GameObject>();

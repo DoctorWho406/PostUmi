@@ -1,7 +1,7 @@
 ﻿namespace GGJam_2021 {
     static class Constants {
         //General
-        public const Scene StartingScene = Scene.Stanza;
+        public const Scene StartingScene = Scene.StanzaPlayer;
 
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
@@ -15,6 +15,9 @@
 
         //InteractableObject
         public const float TriggerColliderOffset = 10;
+
+        //Door
+        public const int FPSDoorAnimation = 10;
 
         //Player
         public const float PlayerSpeed = 250f;

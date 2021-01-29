@@ -59,19 +59,19 @@ namespace GGJam_2021 {
         public abstract void Update();
 
         public virtual void Draw() {
-            if (texture != null) {
-                //if (glitch) {
-                //    float r = Game.Random.Next(0, 255);
-                //    float g = Game.Random.Next(0, 255);
-                //    float b = Game.Random.Next(0, 255);
-                //    sprite.SetAdditiveTint(r, g, b, 0);
-                //    sprite.DrawTexture(texture);
-                //    sprite.SetAdditiveTint(0, 0, 0, 0);
-                //    glitch = false;
-                //} else {
-                sprite.DrawTexture(texture);
-                //}
-            }
+            //if (texture != null) {
+            //if (glitch) {
+            //    float r = Game.Random.Next(0, 255);
+            //    float g = Game.Random.Next(0, 255);
+            //    float b = Game.Random.Next(0, 255);
+            //    sprite.SetAdditiveTint(r, g, b, 0);
+            //    sprite.DrawTexture(texture);
+            //    sprite.SetAdditiveTint(0, 0, 0, 0);
+            //    glitch = false;
+            //} else {
+            sprite.DrawTexture(texture);
+            //}
+            //}
         }
     }
 }
