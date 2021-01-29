@@ -62,9 +62,11 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Cursor.cs" />
-    <Compile Include="Doors.cs" />
+    <Compile Include="GameObject\ColliderObject.cs" />
+    <Compile Include="GameObject\Door.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameObject.cs" />
+    <Compile Include="GameObject\InteractableObject.cs" />
+    <Compile Include="GameObject\GameObject.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Manager\SceneManager.cs" />
@@ -78,6 +80,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Textures\Background\room_prova.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\Background\salone_prova.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Textures\corridoio.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

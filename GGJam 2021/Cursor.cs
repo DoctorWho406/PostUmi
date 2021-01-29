@@ -3,11 +3,10 @@ using OpenTK;
 
 namespace GGJam_2021 {
     class Cursor {
+        public CircleCollider Collider;
+
         private Texture texture;
         private Sprite sprite;
-        private Vector2 position {
-            set => sprite.position = value;
-        }
 
         public Cursor() {
             texture = TextureManager.GetTexture("Cursor");
@@ -15,10 +14,12 @@ namespace GGJam_2021 {
                 position = Game.Window.MousePosition,
                 scale = new Vector2(0.2f)
             };
+            Collider = new CircleCollider(sprite.Width);
         }
 
         public void Update() {
-            position = Game.Window.MousePosition;
+            sprite.position = Game.Window.MousePosition;
+            Collider.Position = sprite.position;
         }
 
         public void Draw() {

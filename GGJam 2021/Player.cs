@@ -1,5 +1,4 @@
-﻿using Aiv.Fast2D;
-using OpenTK;
+﻿using OpenTK;
 
 
 namespace GGJam_2021 {
@@ -10,36 +9,28 @@ namespace GGJam_2021 {
         Count
     }
 
-    class Player {
-        public bool isAlive => hunger > 0 && paranoia > 0;
-        public float hunger {
+    class Player : ColliderObject {
+        public bool IsAlive => Hunger > 0 && Paranoia > 0;
+        public float Hunger {
             get; private set;
         }
-        public float paranoia {
+        public float Paranoia {
             get; private set;
         }
-        public CircleCollider Collider;
 
-        private Texture texture;
-        private Sprite sprite;
         private Vector2 target;
-        private Vector2 speed;
         private Slider paranoiaSlider, hungherSlider;
 
 
-        public Player(Vector2 position, Vector2 size, int rowsSpriteSheet = 1, int columnsSpriteSheet = 1, int fps = 60) {
-            texture = TextureManager.GetTexture("Player");
-            sprite = new Sprite(texture.Width, texture.Height) {
-                position = position
-            };
+        public Player(Scene scene) : base("Player", scene, ColliderType.CircleCollider, true) {
             sprite.scale = new Vector2(0.3f);
             sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
-            Collider = new CircleCollider(Constants.ColliderRadius);
+            Collider = new CircleCollider(sprite.pivot.Y);
 
             target = -Vector2.One;
 
-            hunger = 1f;
-            paranoia = 1f;
+            Hunger = 1f;
+            Paranoia = 1f;
             paranoiaSlider = new Slider(new Vector2(25), Stat.Paranoia);
             hungherSlider = new Slider(new Vector2(25, Game.Window.Height - 75), Stat.Hunger);
         }
@@ -50,31 +41,33 @@ namespace GGJam_2021 {
             }
         }
 
-        public void Update() {
-            if (target != -Vector2.One) {
-                sprite.position += speed * Game.DeltaTime;
+        public override void Update() {
+            if (IsAlive) {
                 Collider.Position = sprite.position;
-                Vector2 distance = target - sprite.position;
-                if (distance.Length <= Constants.OffsetFromTarge) {
-                    sprite.position = target;
-                    target = -Vector2.One;
-                    speed = Vector2.Zero;
-                } else {
-                    speed = distance.Normalized() * Constants.PlayerSpeed;
+                if (target != -Vector2.One) {
+                    base.Update();
+                    Vector2 distance = target - sprite.position;
+                    if (distance.Length <= Constants.OffsetFromTarge) {
+                        sprite.position = target;
+                        target = -Vector2.One;
+                        speed = Vector2.Zero;
+                    } else {
+                        speed = distance.Normalized() * Constants.PlayerSpeed;
+                    }
                 }
             }
 
             //Decrese hungry and paranoia
-            hunger -= Constants.HungerDecrease * Game.DeltaTime;
-            paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
+            //Hunger -= Constants.HungerDecrease * Game.DeltaTime;
+            //Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
 
             //Update Slider
             paranoiaSlider.Update();
             hungherSlider.Update();
         }
 
-        public void Draw() {
-            sprite.DrawTexture(texture);
+        public override void Draw() {
+            base.Draw();
             //Draw Slider
             paranoiaSlider.Draw();
             hungherSlider.Draw();

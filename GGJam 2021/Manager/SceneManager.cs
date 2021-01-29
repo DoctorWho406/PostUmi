@@ -11,8 +11,11 @@ namespace GGJam_2021 {
     static class SceneManager {
         private static Scene activeScene;
         private static Dictionary<Scene, List<GameObject>> scenes;
+        private static bool isSceneChanging;
 
         static SceneManager() {
+            isSceneChanging = false;
+            activeScene = Scene.Stanza;
             scenes = new Dictionary<Scene, List<GameObject>>();
             for (int s = 0; s < (int)Scene.Count; s++) {
                 scenes[(Scene)s] = new List<GameObject>();
@@ -24,13 +27,28 @@ namespace GGJam_2021 {
         }
 
         public static void LoadScene(Scene Scene) {
+            isSceneChanging = true;
+            if (scenes[activeScene].Contains(Game.Player)) {
+                scenes[activeScene].Remove(Game.Player);
+            }
             activeScene = Scene;
+            scenes[activeScene].Add(Game.Player);
+            isSceneChanging = false;
+        }
+
+        public static void Update() {
+            if (!isSceneChanging) {
+                for (int i = 0; i < scenes[activeScene].Count; i++) {
+                    scenes[activeScene][i].Update();
+                }
+            }
         }
 
         public static void Draw() {
-
-            foreach (GameObject gameObject in scenes[activeScene]) {
-                gameObject.Draw();
+            if (!isSceneChanging) {
+                for (int i = 0; i < scenes[activeScene].Count; i++) {
+                    scenes[activeScene][i].Draw();
+                }
             }
         }
     }

@@ -1,6 +1,12 @@
 ﻿using OpenTK;
 
 namespace GGJam_2021 {
+    enum ColliderType {
+        BoxCollider,
+        CircleCollider,
+        Count
+    }
+
     abstract class Collider {
         //Position relative to center 
         public Vector2 Position;

@@ -9,9 +9,11 @@ namespace GGJam_2021 {
         }
         public static float DeltaTime => Window.DeltaTime;
         public static Player Player;
+        public static Cursor Cursor;
 
-        private static Cursor cursor;
-        private static Background background;
+        private static Sprite doorSprite;
+
+        //private static Background background;
 
         public static void Init() {
             //Init Window
@@ -21,17 +23,38 @@ namespace GGJam_2021 {
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
             LoadAssets();
+            LoadBackground();
 
             //Edit cursor
-            cursor = new Cursor();
+            Cursor = new Cursor();
             Window.SetMouseVisible(false);
 
-            background = new Background();
-            Player = new Player(WindowCenter, new Vector2(30));
+            //background = new Background();
+            Player = new Player(Scene.Stanza) {
+                Position = Game.WindowCenter
+            };
+        }
+
+        private static void LoadBackground() {
+            new GameObject("room", Scene.Stanza, false) {
+                Position = Game.WindowCenter
+            };
+            new Door(50, 50, Scene.Stanza, ColliderType.BoxCollider, Scene.Corridoio) {
+                Position = Game.WindowCenter
+            };
+            doorSprite = new Sprite(50, 50) {
+                position = Game.WindowCenter
+            };
+            new GameObject("salone", Scene.Corridoio, false) {
+                Position = Game.WindowCenter
+            };
         }
 
         private static void LoadAssets() {
             //AddTexture
+            TextureManager.AddTexture("room", Constants.BackgroundDirectory + "room_prova.png");
+            TextureManager.AddTexture("salone", Constants.BackgroundDirectory + "salone_prova.png");
+
             TextureManager.AddTexture("corridoio", Constants.TextureDirectory + "corridoio.png");
             TextureManager.AddTexture("soggiorno", Constants.TextureDirectory + "soggiorno.png");
             TextureManager.AddTexture("stanza", Constants.TextureDirectory + "stanza.png");
@@ -49,13 +72,16 @@ namespace GGJam_2021 {
 
                 Player.Input();
 
-                cursor.Update();
-                Player.Update();
-                background.Update();
+                SceneManager.Update();
+                Cursor.Update();
+                //Player.Update();
+                //background.Update();
 
-                background.Draw();
-                Player.Draw();
-                cursor.Draw();
+                //background.Draw();
+                SceneManager.Draw();
+                doorSprite.DrawColor(new Vector4(255, 0, 0, 255));
+                //Player.Draw();
+                Cursor.Draw();
 
                 Window.Update();
             }
