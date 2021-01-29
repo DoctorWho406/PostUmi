@@ -1,4 +1,6 @@
-﻿namespace GGJam_2021 {
+﻿using OpenTK;
+
+namespace GGJam_2021 {
     class ColliderObject : GameObject {
         public Collider Collider;
 
@@ -23,6 +25,11 @@
         //            break;
         //    }
         //}
+
+        public override void Scale(float scaleFactory) {
+            base.Scale(scaleFactory);
+            Collider.Scale(scaleFactory);
+        }
 
         public override void Update() {
             Collider.Position = sprite.position;

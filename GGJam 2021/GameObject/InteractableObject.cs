@@ -26,6 +26,11 @@ namespace GGJam_2021 {
         //    }
         //}
 
+        public override void Scale(float scaleFactory) {
+            base.Scale(scaleFactory);
+            trigger.Scale(scaleFactory);
+        }
+
         protected bool IsClicked() {
             if (trigger.Collides((CircleCollider)Game.Player.Collider)) {
                 //Controllo click

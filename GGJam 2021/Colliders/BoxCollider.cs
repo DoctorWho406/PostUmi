@@ -11,6 +11,11 @@ namespace GGJam_2021 {
             halfSize = size * 0.5f;
         }
 
+        public override void Scale(float scaleFactory) {
+            size *= scaleFactory;
+            halfSize *= scaleFactory;
+        }
+
         public override bool Collides(BoxCollider box) {
             float deltaX = box.Position.X - Position.X;
             float deltaY = box.Position.Y - Position.Y;
