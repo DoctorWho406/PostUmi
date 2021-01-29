@@ -10,6 +10,7 @@
         /** ENUM
          * Enum Scene in SceneManager
          * Enum CollidersType in Collider
+         * Enum LayerMask in GameObject
          **/
 
         //InteractableObject
