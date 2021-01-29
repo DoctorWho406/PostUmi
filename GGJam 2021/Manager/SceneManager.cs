@@ -13,7 +13,10 @@ namespace GGJam_2021 {
         private static Dictionary<Scene, List<GameObject>> scenes;
         private static bool isSceneChanging;
 
+        private static float stacchi;
+
         static SceneManager() {
+            stacchi = 1 / Constants.ParanoiaMax;
             isSceneChanging = false;
             activeScene = Scene.Stanza;
             scenes = new Dictionary<Scene, List<GameObject>>();
@@ -45,6 +48,14 @@ namespace GGJam_2021 {
         }
 
         public static void Draw() {
+            int elementi = (int)((1 - Game.Player.Paranoia) / stacchi);
+            int offset = 0, index = -1;
+            if (elementi != 0) {
+                offset = (int)(Constants.ParanoiaMax / elementi);
+                for (int i = offset -1 ; i < scenes[activeScene].Count; i+= offset) {
+                        scenes[activeScene][i].Glitch();
+                }
+            }
             if (!isSceneChanging) {
                 for (int i = 0; i < scenes[activeScene].Count; i++) {
                     scenes[activeScene][i].Draw();

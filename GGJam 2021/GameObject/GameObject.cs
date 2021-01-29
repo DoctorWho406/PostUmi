@@ -16,6 +16,7 @@ namespace GGJam_2021 {
         }
         protected bool isMoving;
         protected Vector2 speed;
+        protected bool glitch;
 
         public GameObject(string textureName, Scene scene, bool isMoving/*, int w = 0, int h = 0*/) {
             this.isMoving = isMoving;
@@ -36,6 +37,10 @@ namespace GGJam_2021 {
             SceneManager.AddGOToScene(scene, this);
         }
 
+        public void Glitch() {
+            glitch = true;
+        }
+
         public virtual void Update() {
             if (isMoving) {
                 sprite.position += speed * Game.DeltaTime;
@@ -44,7 +49,16 @@ namespace GGJam_2021 {
 
         public virtual void Draw() {
             if (texture != null) {
-                sprite.DrawTexture(texture);
+                if (glitch) {
+                    float r = Game.Random.Next(0, 255);
+                    float g = Game.Random.Next(0, 255);
+                    float b = Game.Random.Next(0, 255);
+                    sprite.SetAdditiveTint(r, g, b, 0);
+                    sprite.DrawTexture(texture);
+                    sprite.SetAdditiveTint(-r, -g, -b, 0);
+                } else {
+                    sprite.DrawTexture(texture);
+                }
             }
         }
     }

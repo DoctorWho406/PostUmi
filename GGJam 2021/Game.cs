@@ -1,8 +1,10 @@
-﻿using Aiv.Fast2D;
+﻿using System;
+using Aiv.Fast2D;
 using OpenTK;
 
 namespace GGJam_2021 {
     static class Game {
+        public static Random Random;
         public static Window Window;
         public static Vector2 WindowCenter {
             get; private set;
@@ -16,6 +18,8 @@ namespace GGJam_2021 {
         //private static Background background;
 
         public static void Init() {
+            //Init Random
+            Random = new Random();
             //Init Window
             Window = new Window(/*1920, 1080,*/ "GGJam 2021"/*, true*/);
             //Disable VSync

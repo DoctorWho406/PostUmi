@@ -58,8 +58,8 @@ namespace GGJam_2021 {
             }
 
             //Decrese hungry and paranoia
-            //Hunger -= Constants.HungerDecrease * Game.DeltaTime;
-            //Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
+            Hunger -= Constants.HungerDecrease * Game.DeltaTime;
+            Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
 
             //Update Slider
             paranoiaSlider.Update();
