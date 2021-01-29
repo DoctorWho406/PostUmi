@@ -43,10 +43,10 @@ namespace GGJam_2021 {
             new Background("room", Scene.Stanza) {
                 Position = Game.WindowCenter
             };
-            new Door(50, 50, Scene.Stanza, ColliderType.BoxCollider, Scene.Corridoio) {
+            new Door("Empty", Scene.Stanza, Scene.Corridoio) {
                 Position = Game.WindowCenter
             };
-            new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
+            new Door("Empty", Scene.Corridoio, Scene.Stanza) {
                 Position = Game.WindowCenter
             };
             doorSprite = new Sprite(50, 50) {
@@ -68,6 +68,7 @@ namespace GGJam_2021 {
             TextureManager.AddTexture("Pngcucina", Constants.TextureDirectory + "Pngcucina.png");
             TextureManager.AddTexture("Player", Constants.TextureDirectory + "player.png");
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
+            TextureManager.AddTexture("Empty", Constants.TextureDirectory + "Empty.png");
         }
 
         public static void Play() {

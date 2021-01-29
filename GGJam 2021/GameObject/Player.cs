@@ -42,6 +42,7 @@ namespace GGJam_2021 {
         }
 
         public override void Update() {
+            sprite.position += speed * Game.DeltaTime;
             Collider.Position = sprite.position;
             if (target != -Vector2.One) {
                 base.Update();
