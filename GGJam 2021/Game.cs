@@ -34,22 +34,25 @@ namespace GGJam_2021 {
             Window.SetMouseVisible(false);
 
             //background = new Background();
-            Player = new Player(Scene.Stanza) {
+            Player = new Player() {
                 Position = Game.WindowCenter
             };
         }
 
         private static void LoadBackground() {
-            new GameObject("room", Scene.Stanza, false) {
+            new Background("room", Scene.Stanza) {
                 Position = Game.WindowCenter
             };
             new Door(50, 50, Scene.Stanza, ColliderType.BoxCollider, Scene.Corridoio) {
                 Position = Game.WindowCenter
             };
+            new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
+                Position = Game.WindowCenter
+            };
             doorSprite = new Sprite(50, 50) {
                 position = Game.WindowCenter
             };
-            new GameObject("salone", Scene.Corridoio, false) {
+            new Background("salone", Scene.Corridoio) {
                 Position = Game.WindowCenter
             };
         }

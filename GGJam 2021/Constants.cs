@@ -1,5 +1,8 @@
 ﻿namespace GGJam_2021 {
     static class Constants {
+        //General
+        public const Scene StartingScene = Scene.Stanza;
+
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
         public const string BackgroundDirectory = "Assets/Textures/Background/";

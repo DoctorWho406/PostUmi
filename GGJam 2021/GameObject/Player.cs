@@ -18,14 +18,14 @@ namespace GGJam_2021 {
             get; private set;
         }
 
+        private Vector2 speed;
+
         private Vector2 target;
         private Slider paranoiaSlider, hungherSlider;
 
 
-        public Player(Scene scene) : base("Player", scene, ColliderType.CircleCollider, true) {
-            sprite.scale = new Vector2(0.3f);
+        public Player() : base("Player", LayerMask.Middleground, Constants.StartingScene, ColliderType.CircleCollider) {
             sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
-            Collider = new CircleCollider(sprite.pivot.Y);
 
             target = -Vector2.One;
 
@@ -42,18 +42,16 @@ namespace GGJam_2021 {
         }
 
         public override void Update() {
-            if (IsAlive) {
-                Collider.Position = sprite.position;
-                if (target != -Vector2.One) {
-                    base.Update();
-                    Vector2 distance = target - sprite.position;
-                    if (distance.Length <= Constants.OffsetFromTarge) {
-                        sprite.position = target;
-                        target = -Vector2.One;
-                        speed = Vector2.Zero;
-                    } else {
-                        speed = distance.Normalized() * Constants.PlayerSpeed;
-                    }
+            Collider.Position = sprite.position;
+            if (target != -Vector2.One) {
+                base.Update();
+                Vector2 distance = target - sprite.position;
+                if (distance.Length <= Constants.OffsetFromTarge) {
+                    sprite.position = target;
+                    target = -Vector2.One;
+                    speed = Vector2.Zero;
+                } else {
+                    speed = distance.Normalized() * Constants.PlayerSpeed;
                 }
             }
 

@@ -2,14 +2,13 @@
     class Door : InteractableObject {
         private Scene next;
 
-        public Door(int width, int height, Scene scene, ColliderType colliderType, Scene nextScene) : base(width, height, scene, colliderType) {
+        public Door(string textureName, Scene actualScene, Scene nextScene) : base(textureName, LayerMask.Count, actualScene, ColliderType.BoxCollider) {
             next = nextScene;
         }
 
         public override void Update() {
             base.Update();
             if (IsClicked()) {
-                System.Console.WriteLine("Aperto la porta");
                 SceneManager.LoadScene(next);
             }
         }

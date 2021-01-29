@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Background.cs" />
+    <Compile Include="GameObject\Background.cs" />
     <Compile Include="Colliders\BoxCollider.cs" />
     <Compile Include="Colliders\CircleCollider.cs" />
     <Compile Include="Colliders\Collider.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="GameObject\InteractableObject.cs" />
     <Compile Include="GameObject\GameObject.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="GameObject\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Manager\SceneManager.cs" />
     <Compile Include="Slider.cs" />
