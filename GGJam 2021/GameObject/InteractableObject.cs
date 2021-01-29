@@ -1,11 +1,15 @@
 ﻿using OpenTK;
 
-namespace GGJam_2021 {
-    class InteractableObject : ColliderObject {
+namespace GGJam_2021
+{
+    class InteractableObject : ColliderObject
+    {
         protected Collider trigger;
 
-        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType) : base(textureName, layerMask, scene, colliderType) {
-            switch (colliderType) {
+        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType) : base(textureName, layerMask, scene, colliderType)
+        {
+            switch (colliderType)
+            {
                 case ColliderType.BoxCollider:
                     trigger = new BoxCollider(size + new Vector2(Constants.TriggerColliderOffset));
                     break;
@@ -26,11 +30,14 @@ namespace GGJam_2021 {
         //    }
         //}
 
-        protected bool IsClicked() {
-            if (trigger.Collides((CircleCollider)Game.Player.Collider)) {
+        protected bool IsClicked()
+        {
+            if (trigger.Collides((CircleCollider)Game.Player.Collider))
+            {
                 //Controllo click
                 System.Console.WriteLine("NEAR");
-                if (Game.Window.MouseRight && Collider.Collides(Game.Cursor.Collider)) {
+                if (Game.Window.MouseRight && Collider.Collides(Game.Cursor.Collider))
+                {
                     System.Console.WriteLine("Hai cliccato su un InteractableObject");
                     return true;
                 }
@@ -38,7 +45,8 @@ namespace GGJam_2021 {
             return false;
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             base.Update();
             trigger.Position = sprite.position;
         }
