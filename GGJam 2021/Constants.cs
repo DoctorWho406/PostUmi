@@ -3,6 +3,8 @@
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
 
+        //Enum Scene in SceneManager
+
         //Player
         public const float PlayerSpeed = 250f;
         public const float ColliderRadius = 50f;
