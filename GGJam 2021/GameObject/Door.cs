@@ -1,16 +1,32 @@
-﻿namespace GGJam_2021 {
-    class Door : InteractableObject {
-        private Scene next;
+﻿using OpenTK;
 
-        public Door(string textureName, Scene actualScene, Scene nextScene) : base(textureName, LayerMask.Count, actualScene, ColliderType.BoxCollider) {
-            next = nextScene;
+namespace GGJam_2021
+{
+    class Door : InteractableObject
+    {
+        //protected Animation animation;
+        protected Scene next;
+        private Vector2 textureOffset;
+
+        public Door(string textureName, Scene actualScene, Scene nextScene) : base(textureName, LayerMask.Background, actualScene, ColliderType.BoxCollider)
+        {
+            //animation = new Animation((int)size.X, (int)size.Y, Constants.FPSDoorAnimation, 5, false);
+            textureOffset = Vector2.Zero;
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             base.Update();
-            if (IsClicked()) {
+            //animation.Update(ref textureOffset);
+            if (IsClicked())
+            {
                 SceneManager.LoadScene(next);
             }
+        }
+
+        public override void Draw()
+        {
+            sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)size.X, (int)size.Y);
         }
     }
 }

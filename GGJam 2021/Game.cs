@@ -26,7 +26,7 @@ namespace GGJam_2021 {
             Window.SetVSync(false);
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
-            LoadAssets();
+            LoadAssets.AssetLoaded();
             LoadBackground();
 
             //Edit cursor
@@ -39,36 +39,15 @@ namespace GGJam_2021 {
             };
         }
 
-        private static void LoadBackground() {
-            new Background("room", Scene.Stanza) {
-                Position = Game.WindowCenter
-            };
-            new Door("Empty", Scene.Stanza, Scene.Corridoio) {
-                Position = Game.WindowCenter
-            };
-            new Door("Empty", Scene.Corridoio, Scene.Stanza) {
+        private static void LoadBackground() 
+        {
+            
+            new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
                 Position = Game.WindowCenter
             };
             doorSprite = new Sprite(50, 50) {
                 position = Game.WindowCenter
             };
-            new Background("salone", Scene.Corridoio) {
-                Position = Game.WindowCenter
-            };
-        }
-
-        private static void LoadAssets() {
-            //AddTexture
-            TextureManager.AddTexture("room", Constants.BackgroundDirectory + "room_prova.png");
-            TextureManager.AddTexture("salone", Constants.BackgroundDirectory + "salone_prova.png");
-
-            TextureManager.AddTexture("corridoio", Constants.TextureDirectory + "corridoio.png");
-            TextureManager.AddTexture("soggiorno", Constants.TextureDirectory + "soggiorno.png");
-            TextureManager.AddTexture("stanza", Constants.TextureDirectory + "stanza.png");
-            TextureManager.AddTexture("Pngcucina", Constants.TextureDirectory + "Pngcucina.png");
-            TextureManager.AddTexture("Player", Constants.TextureDirectory + "player.png");
-            TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
-            TextureManager.AddTexture("Empty", Constants.TextureDirectory + "Empty.png");
         }
 
         public static void Play() {
