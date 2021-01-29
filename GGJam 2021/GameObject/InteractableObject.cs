@@ -30,10 +30,13 @@ namespace GGJam_2021
         //    }
         //}
 
-        protected bool IsClicked()
-        {
-            if (trigger.Collides((CircleCollider)Game.Player.Collider))
-            {
+        public override void Scale(float scaleFactory) {
+            base.Scale(scaleFactory);
+            trigger.Scale(scaleFactory);
+        }
+
+        protected bool IsClicked() {
+            if (trigger.Collides((CircleCollider)Game.Player.Collider)) {
                 //Controllo click
                 System.Console.WriteLine("NEAR");
                 if (Game.Window.MouseRight && Collider.Collides(Game.Cursor.Collider))

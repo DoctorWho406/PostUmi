@@ -46,6 +46,12 @@ namespace GGJam_2021 {
         //    SceneManager.AddGOToScene(scene, this);
         //}
 
+        public virtual void Scale(float scaleFactory) {
+            sprite.scale = new Vector2(scaleFactory);
+            size *= scaleFactory;
+            halfSize *= scaleFactory;
+        }
+
         public virtual void Glitch() {
             glitch = true;
         }

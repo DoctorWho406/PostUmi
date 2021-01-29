@@ -7,6 +7,10 @@ namespace GGJam_2021 {
             Radius = radius;
         }
 
+        public override void Scale(float scaleFactory) {
+            Radius *= scaleFactory;
+        }
+
         public override bool Collides(CircleCollider circle) {
             Vector2 distance = Position - circle.Position;
             return distance.Length < Radius + circle.Radius;

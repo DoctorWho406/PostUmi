@@ -14,6 +14,8 @@ namespace GGJam_2021 {
         protected Collider() {
         }
 
+        public abstract void Scale(float scaleFactory);
+
         public abstract bool Collides(BoxCollider box);
 
         public abstract bool Collides(CircleCollider circle);
