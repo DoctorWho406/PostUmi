@@ -3,8 +3,10 @@
 namespace GGJam_2021 {
     class InteractableObject : ColliderObject {
         protected Collider trigger;
+        protected Scene next;
 
-        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType) : base(textureName, layerMask, scene, colliderType) {
+        public InteractableObject(string textureName, LayerMask layerMask, Scene actualScene, Scene nextScene, ColliderType colliderType) : base(textureName, layerMask, actualScene, colliderType) {
+            next = nextScene;
             switch (colliderType) {
                 case ColliderType.BoxCollider:
                     trigger = new BoxCollider(size + new Vector2(Constants.TriggerColliderOffset));

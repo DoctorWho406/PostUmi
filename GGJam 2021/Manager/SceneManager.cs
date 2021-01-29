@@ -2,9 +2,14 @@
 
 namespace GGJam_2021 {
     enum Scene {
-        Soggiorno,
         Stanza,
-        Corridoio,
+        CorridoioMiddle,
+        CorridoioRight,
+        Soggiorno,
+        Wc,
+        Cucina,
+        StanzaDaLetto,
+        Laboratorio,
         Count
     }
 
