@@ -34,7 +34,7 @@ namespace GGJam_2021 {
             };
             sprite.scale = new Vector2(0.3f);
             sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
-            Collider = new CircleCollider(Constants.);
+            Collider = new CircleCollider(Constants.ColliderRadius);
 
             target = -Vector2.One;
 
