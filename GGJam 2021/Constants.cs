@@ -1,5 +1,4 @@
-﻿using Aiv.Fast2D;
-using OpenTK;
+﻿using OpenTK;
 
 namespace GGJam_2021 {
     static class Constants {
@@ -18,7 +17,7 @@ namespace GGJam_2021 {
          * Enum LayerMask in GameObject
          **/
         //GameObject
-        public const float GlitchTime=2;
+        public const float GlitchTime = 0.5f;
         public static Vector4 tintaBlue = new Vector4(1, 1, 20, 1);
         public static Vector4 tintaGialla = new Vector4(1, 10, 10, 1);
 

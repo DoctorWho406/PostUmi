@@ -34,6 +34,13 @@ namespace GGJam_2021 {
             IsActive = true;
         }
 
+        public static void LoadScene() {
+            for (int i = 0; i < glitchedGameObject.Count; i++) {
+                glitchedGameObject[i].Glitch(false);
+            }
+            glitchedGameObject.Clear();
+        }
+
 
         public static void Update() {
             if (IsActive) {
@@ -59,7 +66,7 @@ namespace GGJam_2021 {
                         int itemToAdd = elementi - glitchedGameObject.Count;
                         List<GameObject> activeGameObjects = SceneManager.GetActiveObject();
                         for (int i = 0; i < itemToAdd; i++) {
-                            int index= Game.Random.Next(0, activeGameObjects.Count);
+                            int index = Game.Random.Next(0, activeGameObjects.Count);
                             activeGameObjects[index].Glitch(true);
                             glitchedGameObject.Add(activeGameObjects[index]);
                         }

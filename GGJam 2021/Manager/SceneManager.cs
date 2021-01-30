@@ -40,6 +40,7 @@ namespace GGJam_2021 {
 
         public static void LoadScene(Scene Scene) {
             isSceneChanging = true;
+            StatsManager.LoadScene();
             activeScene = Scene;
             isSceneChanging = false;
         }
