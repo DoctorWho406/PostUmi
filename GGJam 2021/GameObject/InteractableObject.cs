@@ -5,7 +5,7 @@ namespace GGJam_2021 {
         protected Collider trigger;
         protected Scene nextScene;
 
-        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int h = 0, int w = 0) : base(textureName, layerMask, scene, colliderType, h, w) {
+        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int w = 0, int h = 0) : base(textureName, layerMask, scene, colliderType, w, h) {
             this.nextScene = nextScene;
             switch (colliderType) {
                 case ColliderType.BoxCollider:

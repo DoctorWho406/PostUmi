@@ -22,7 +22,8 @@ namespace GGJam_2021 {
             Window.SetVSync(false);
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
-            AssetsManager.Init();
+            TextureInitManager.Start();
+            SceneInitManager.Start();
 
             //Edit cursor
             Cursor = new Cursor();

@@ -7,14 +7,14 @@ namespace GGJam_2021 {
         private Vector2 textureOffset;
         private bool readyForChange;
 
-        public Door(string textureName, Scene actualScene, Scene nextScene) : base(textureName, LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider, 0, 530) {
+        public Door(Scene actualScene, Scene nextScene) : base("FrontDoor", LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider, 0, 390) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
         }
 
         public override void Update() {
-            base.Update();
             animation.Update(ref textureOffset);
+            base.Update();
             if (IsClicked()) {
                 animation.Play();
                 readyForChange = true;
