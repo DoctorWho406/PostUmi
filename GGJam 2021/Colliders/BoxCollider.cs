@@ -28,13 +28,5 @@ namespace GGJam_2021 {
             float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
             return (deltaX * deltaX + deltaY * deltaY) < (circle.Radius * circle.Radius);
         }
-        //public void Update()
-        //{
-        //    sprite.position = Position;
-        //}
-        //public void Draw(float c, float d)
-        //{
-        //    sprite.DrawColor(c, d, 0);
-        //}
     }
 }
