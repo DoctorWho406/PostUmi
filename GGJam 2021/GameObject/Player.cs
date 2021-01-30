@@ -3,11 +3,6 @@
 
 namespace GGJam_2021 {
 
-    enum Stat {
-        Hunger,
-        Paranoia,
-        Count
-    }
     enum Status
     {
         Idle,
@@ -15,18 +10,9 @@ namespace GGJam_2021 {
     }
 
     class Player : ColliderObject {
-        public bool IsAlive => Hunger > 0 && Paranoia > 0;
-        public float Hunger {
-            get; private set;
-        }
-        public float Paranoia {
-            get; private set;
-        }
-
         private Vector2 speed;
 
         private Vector2 target;
-        private Slider paranoiaSlider, hungherSlider;
 
         private Animation animation;
         private Vector2 textureOffset;
@@ -39,11 +25,6 @@ namespace GGJam_2021 {
             sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
 
             target = -Vector2.One;
-
-            Hunger = 1f;
-            Paranoia = 1f;
-            paranoiaSlider = new Slider(new Vector2(25), Stat.Paranoia);
-            hungherSlider = new Slider(new Vector2(25, Game.Window.Height - 75), Stat.Hunger);
         }
 
         public void Input() {
@@ -79,20 +60,10 @@ namespace GGJam_2021 {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                 }
             }
-            //Decrese hungry and paranoia
-            Hunger -= Constants.HungerDecrease * Game.DeltaTime;
-            Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
-
-            //Update Slider
-            paranoiaSlider.Update();
-            hungherSlider.Update();
         }
 
         public override void Draw() {
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-            //Draw Slider
-            paranoiaSlider.Draw();
-            hungherSlider.Draw();
         }
     }
 }
