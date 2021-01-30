@@ -13,10 +13,6 @@ namespace GGJam_2021 {
         public static Player Player;
         public static Cursor Cursor;
 
-        
-
-        //private static Background background;
-
         public static void Init() {
             //Init Random
             Random = new Random();
@@ -32,7 +28,7 @@ namespace GGJam_2021 {
             Cursor = new Cursor();
             Window.SetMouseVisible(false);
 
-            
+
             Player = new Player() {
                 Position = Game.WindowCenter
             };
@@ -47,12 +43,9 @@ namespace GGJam_2021 {
                 Player.Input();
 
                 SceneManager.Update();
+                InputManager.Update();
                 Cursor.Update();
-                //Player.Update();
-                //background.Update();
-                //background.Draw();
                 SceneManager.Draw();
-                //Player.Draw();
                 Cursor.Draw();
 
                 Window.Update();
