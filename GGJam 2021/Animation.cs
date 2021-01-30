@@ -16,14 +16,18 @@ namespace GGJam_2021 {
         public Animation(int frameW, int frameH, float framePerSeconds, int numFrames, bool loop = true) {
             frameWidth = frameW;
             frameHeight = frameH;
-            frameDuration = 1 / framePerSeconds;
+            if (framePerSeconds > 0) {
+                frameDuration = 1 / framePerSeconds;
+            } else {
+                frameDuration = 0;
+            }
             this.numFrames = numFrames;
             Loop = loop;
         }
 
         public virtual void Update(ref Vector2 offset) {
             if (isPlaying) {
-                elapsedTime += Game.Window.DeltaTime;
+                elapsedTime += Game.DeltaTime;
                 if (elapsedTime >= frameDuration) {
                     currentFrame++;
                     elapsedTime = 0;

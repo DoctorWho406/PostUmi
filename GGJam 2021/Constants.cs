@@ -17,8 +17,8 @@
         //InteractableObject
         public const float TriggerColliderOffset = 10;
 
-        //Door
-        public const int FPSDoorAnimation = 10;
+        //Door 
+        public const int FPSDoorAnimation = 5;
 
         //Player
         public const float PlayerSpeed = 250f;
