@@ -2,7 +2,7 @@
     abstract class ColliderObject : GameObject {
         public Collider Collider;
 
-        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType) : base(textureName, layerMask, scene) {
+        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h= 0) : base(textureName, layerMask, scene, w, h) {
             switch (colliderType) {
                 case ColliderType.BoxCollider:
                     Collider = new BoxCollider(size);

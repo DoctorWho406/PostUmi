@@ -47,13 +47,13 @@ namespace GGJam_2021 {
         #region Rooms        
         private static void RoomLoad() {
             //new Background("Room", Scene.Room) { Position = Game.WindowCenter};
-            new Door("FrontDoor", Scene.Room, Scene.CentralCorridor) { Position = Game.WindowCenter }.Scale(0.3f);
+            new Door("FrontDoor", Scene.Room, Scene.CentralCorridor) { Position = Game.WindowCenter };
         }
 
         private static void CentralCorridorLoad() {
             //new Background("CentralCorridor", Scene.CentralCorridor) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.CentralCorridor, Scene.LoungeArea) { Position = Game.WindowCenter +Vector2.UnitX*-300};
-            new Door("FrontDoor", Scene.CentralCorridor, Scene.AnteroomExit) { Position = Game.WindowCenter +Vector2.UnitY * -300 };
+            new Door("FrontDoor", Scene.CentralCorridor, Scene.LoungeArea) { Position = Game.WindowCenter + Vector2.UnitX * -300 };
+            new Door("FrontDoor", Scene.CentralCorridor, Scene.AnteroomExit) { Position = Game.WindowCenter + Vector2.UnitY * -300 };
             new Door("FrontDoor", Scene.CentralCorridor, Scene.Corridor) { Position = Game.WindowCenter + Vector2.UnitX * 300 };
             new Door("FrontDoor", Scene.CentralCorridor, Scene.Room) { Position = Game.WindowCenter + Vector2.UnitY * +300 };
         }
