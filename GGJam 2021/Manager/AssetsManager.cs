@@ -2,6 +2,8 @@
     static class AssetsManager {
         public static void Init() {
             AssetLoaded();
+            RoomLoad();
+            LondeAreaLoad();
         }
 
         private static void AssetLoaded() {
@@ -17,9 +19,9 @@
             TextureManager.AddTexture("BedroomParents", Constants.BackgroundDirectory + "BedroomParents.png");
 
             //interactbleObject
-            TextureManager.AddTexture("Player", Constants.TextureDirectory + "PlayerProva.png");
-            TextureManager.AddTexture("FrontDoor", Constants.TextureDirectory + "FrontDoor.png");
-            TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
+            TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "PlayerProva.png");
+            TextureManager.AddTexture("FrontDoor", Constants.InteractableObjectDirectory + "FrontDoor.png");
+            TextureManager.AddTexture("Cursor", Constants.InteractableObjectDirectory + "Cursore di prova.jpg");
         }
 
         private static void RoomLoad() {

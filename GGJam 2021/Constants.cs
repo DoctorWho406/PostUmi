@@ -6,6 +6,7 @@
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
         public const string BackgroundDirectory = "Assets/Textures/Background/";
+        public const string InteractableObjectDirectory = "Assets/Textures/InteractableObject/";
 
         /** ENUM
          * Enum Scene in SceneManager
