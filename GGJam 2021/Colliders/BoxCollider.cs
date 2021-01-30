@@ -16,14 +16,14 @@ namespace GGJam_2021 {
             halfSize *= scaleFactory;
         }
 
-        public override bool Collides(BoxCollider box) {
+        protected override bool Collides(BoxCollider box) {
             float deltaX = box.Position.X - Position.X;
             float deltaY = box.Position.Y - Position.Y;
 
             return (Math.Abs(deltaX) <= halfSize.X + box.halfSize.Y) && (Math.Abs(deltaY) <= halfSize.X + box.halfSize.Y);
         }
 
-        public override bool Collides(CircleCollider circle) {
+        protected override bool Collides(CircleCollider circle) {
             float deltaX = circle.Position.X - Math.Max(Position.X - halfSize.X, Math.Min(circle.Position.X, Position.X + halfSize.X));
             float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
             return (deltaX * deltaX + deltaY * deltaY) < (circle.Radius * circle.Radius);

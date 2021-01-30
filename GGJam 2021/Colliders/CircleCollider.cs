@@ -11,12 +11,12 @@ namespace GGJam_2021 {
             Radius *= scaleFactory;
         }
 
-        public override bool Collides(CircleCollider circle) {
+        protected override bool Collides(CircleCollider circle) {
             Vector2 distance = Position - circle.Position;
             return distance.Length < Radius + circle.Radius;
         }
 
-        public override bool Collides(BoxCollider box) {
+        protected override bool Collides(BoxCollider box) {
             //Da fare??
             throw new System.NotImplementedException();
         }
