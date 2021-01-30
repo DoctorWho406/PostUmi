@@ -33,26 +33,41 @@ namespace GGJam_2021 {
             glitchedGameObject = new List<GameObject>();
         }
 
+
         public static void Update() {
             if (IsActive) {
                 int elementi = (int)((1 - Paranoia) / intervalli);
-                if (elementi < ) {
-                    //int offset = 0, index = -1;
+                if (elementi < glitchedGameObject.Count) {
+                    //remove
+                    int itemToRelase = glitchedGameObject.Count - elementi;
+                    for (int i = 0; i < itemToRelase; i++) {
+                        int index = Game.Random.Next(0, glitchedGameObject.Count);
+                        glitchedGameObject[index].Glitch(false);
+                        glitchedGameObject.RemoveAt(index);
+                    }
+                } else if (elementi > glitchedGameObject.Count) {
+                    //Add
                     if (elementi != 0) {
-                        //offset = (int)(Constants.ParanoiaMax / elementi);
-                        for (int i = offset - 1; i < scenes[activeScene].Count; i += offset) {
-                            scenes[activeScene][i].Glitch();
+                        int itemToAdd = elementi - glitchedGameObject.Count;
+                        List<GameObject> activeGameObjects = SceneManager.GetActiveObject();
+                        for (int i = 0; i < itemToAdd; i++) {
+                            int index;
+                            do {
+                                index = Game.Random.Next(0, activeGameObjects.Count);
+                            } while (glitchedGameObject.Contains(activeGameObjects[index]));
+                            activeGameObjects[index].Glitch(true);
+                            glitchedGameObject.Add(activeGameObjects[index]);
                         }
                     }
                 }
-                //Decrese hungry and paranoia
-                Hunger -= Constants.HungerDecrease * Game.DeltaTime;
-                Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
-
-                //Update Slider
-                paranoiaSlider.Update();
-                hungherSlider.Update();
             }
+            //Decrese hungry and paranoia
+            Hunger -= Constants.HungerDecrease * Game.DeltaTime;
+            Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
+
+            //Update Slider
+            paranoiaSlider.Update();
+            hungherSlider.Update();
         }
 
         public static void AddStats(float value, Stat stat) {

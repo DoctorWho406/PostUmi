@@ -25,7 +25,7 @@ namespace GGJam_2021 {
             }
         }
 
-        public override void Glitch() {
+        public override void Glitch(bool value) {
         }
     }
 }

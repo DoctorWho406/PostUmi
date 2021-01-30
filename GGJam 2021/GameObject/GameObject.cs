@@ -52,8 +52,8 @@ namespace GGJam_2021 {
             halfSize *= scaleFactory;
         }
 
-        public virtual void Glitch() {
-            glitch = true;
+        public virtual void Glitch(bool value) {
+            glitch = value;
         }
 
         public abstract void Update();
