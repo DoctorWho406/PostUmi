@@ -29,22 +29,23 @@
             TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "PlayerProva.png");
             TextureManager.AddTexture("FrontDoor", Constants.InteractableObjectDirectory + "FrontDoor.png");
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
-          
-            TextureManager.AddTexture("Actionfigure", Constants.TextureDirectory + "Actionfigure.png");
-            TextureManager.AddTexture("Computer", Constants.TextureDirectory + "Computer.png");
-            TextureManager.AddTexture("Desk", Constants.TextureDirectory + "Desk.png");
-            TextureManager.AddTexture("FamilyAlbum", Constants.TextureDirectory + "FamilyAlbum.png");
-            TextureManager.AddTexture("FramedFamilyPhoto", Constants.TextureDirectory + "FramedFamilyPhoto.png");
-            TextureManager.AddTexture("Guitar", Constants.TextureDirectory + "Guitar.png");
-            TextureManager.AddTexture("PileMess", Constants.TextureDirectory + "PileMess.png");
-            TextureManager.AddTexture("Retched", Constants.TextureDirectory + "Retched.png");
-            TextureManager.AddTexture("Sketchbook", Constants.TextureDirectory + "Sketchbooketched.png");
-            TextureManager.AddTexture("Wisky", Constants.TextureDirectory + "Wisky.png");
+            TextureManager.AddTexture("Empty", Constants.InteractableObjectDirectory + "Empty.png");
+
+            TextureManager.AddTexture("Actionfigure", Constants.ItemsDirectory + "Actionfigure.png");
+            TextureManager.AddTexture("Computer", Constants.ItemsDirectory + "Computer.png");
+            TextureManager.AddTexture("Desk", Constants.ItemsDirectory + "Desk.png");
+            TextureManager.AddTexture("FamilyAlbum", Constants.ItemsDirectory + "FamilyAlbum.png");
+            TextureManager.AddTexture("FramedFamilyPhoto", Constants.ItemsDirectory + "FramedFamilyPhoto.png");
+            TextureManager.AddTexture("Guitar", Constants.ItemsDirectory + "Guitar.png");
+            TextureManager.AddTexture("PileMess", Constants.ItemsDirectory + "PileMess.png");
+            TextureManager.AddTexture("Retched", Constants.ItemsDirectory + "Retched.png");
+            TextureManager.AddTexture("Sketchbook", Constants.ItemsDirectory + "Sketchbooketched.png");
+            TextureManager.AddTexture("Wisky", Constants.ItemsDirectory + "Wisky.png");
         }
         #region Rooms        
         private static void RoomLoad() {
             new Background("Room", Scene.Room) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.Room, Scene.CentralCorridor) { Position = Game.WindowCenter };
+            new Door("FrontDoor", Scene.Room, Scene.CentralCorridor) { Position = Game.WindowCenter }.Scale(0.3f);
         }
         private static void CentralCorridorLoad() {
             new Background("CentralCorridor", Scene.CentralCorridor) { Position = Game.WindowCenter };

@@ -104,7 +104,7 @@
     <Content Include="Assets\Textures\Background\Room.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\Empty.png">
+    <Content Include="Assets\Textures\InteractableObject\Empty.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\InteractableObject\frigorifero1.png">
@@ -119,16 +119,36 @@
     <Content Include="Assets\Textures\Cursore di prova.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Wisky.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\Actionfigure.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\FamilyAlbum.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\PileMess.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\Guitar.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\Computer.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\FramedFamilyPhoto.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\Sketchbooketched.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\Retched.png" />
-    <Content Include="Assets\Textures\InteractableObject\Items\Desk.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Wisky.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Actionfigure.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\FamilyAlbum.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\PileMess.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Guitar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Computer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\FramedFamilyPhoto.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Sketchbooketched.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Retched.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Desk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Textures\InteractableObject\PlayerProva.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

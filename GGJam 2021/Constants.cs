@@ -7,6 +7,7 @@
         public const string TextureDirectory = "Assets/Textures/";
         public const string BackgroundDirectory = "Assets/Textures/Background/";
         public const string InteractableObjectDirectory = "Assets/Textures/InteractableObject/";
+        public const string ItemsDirectory = "Assets/Textures/InteractableObject/Items/";
 
         /** ENUM
          * Enum Scene in SceneManager
@@ -27,5 +28,6 @@
         public const float ParanoiaMax = 100f;
         public const float ParanoiaDecrease = 0.05f;
         public const float OffsetFromTarge = 10f;
+        public const int FPSPlayerAnimation = 5;
     }
 }

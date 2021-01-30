@@ -37,7 +37,8 @@ namespace GGJam_2021 {
             if (trigger.Collides((CircleCollider)Game.Player.Collider)) {
                 //Controllo click
                 System.Console.WriteLine("NEAR");
-                if (InputManager.IsTriggerClicked() && Collider.Collides(Game.Cursor.Collider)) {
+                if (InputManager.IsTriggerClicked() && Collider.Collides((CircleCollider)(Game.Cursor.Collider)))
+                    {
                     System.Console.WriteLine("Hai cliccato su un InteractableObject");
                     return true;
                 }

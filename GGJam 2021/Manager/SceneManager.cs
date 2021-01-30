@@ -4,6 +4,7 @@ namespace GGJam_2021
 {
     enum Scene
     {
+        Always,
         Room,
         AnteroomExit,
         CentralCorridor,
@@ -45,12 +46,7 @@ namespace GGJam_2021
         public static void LoadScene(Scene Scene)
         {
             isSceneChanging = true;
-            if (scenes[activeScene].Contains(Game.Player))
-            {
-                scenes[activeScene].Remove(Game.Player);
-            }
             activeScene = Scene;
-            scenes[activeScene].Add(Game.Player);
             isSceneChanging = false;
         }
 
@@ -58,6 +54,10 @@ namespace GGJam_2021
         {
             if (!isSceneChanging)
             {
+                for (int i = 0; i < scenes[Scene.Always].Count; i++)
+                {
+                    scenes[Scene.Always][i].Update();
+                }
                 for (int i = 0; i < scenes[activeScene].Count; i++)
                 {
                     if (!(scenes[activeScene][i] is Background))
@@ -87,6 +87,13 @@ namespace GGJam_2021
                         if (scenes[activeScene][gO].LayerMask == (LayerMask)lM)
                         {
                             scenes[activeScene][gO].Draw();
+                        }
+                    }
+                    for (int gO = 0; gO < scenes[Scene.Always].Count; gO++)
+                    {
+                        if (scenes[Scene.Always][gO].LayerMask == (LayerMask)lM)
+                        {
+                            scenes[Scene.Always][gO].Draw();
                         }
                     }
                 }

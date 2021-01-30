@@ -8,6 +8,11 @@ namespace GGJam_2021 {
         Paranoia,
         Count
     }
+    enum Status
+    {
+        Idle,
+        Walk
+    }
 
     class Player : ColliderObject {
         public bool IsAlive => Hunger > 0 && Paranoia > 0;
@@ -23,8 +28,14 @@ namespace GGJam_2021 {
         private Vector2 target;
         private Slider paranoiaSlider, hungherSlider;
 
+        private Animation animation;
+        private Vector2 textureOffset;
+        private Status status;
 
-        public Player() : base("Player", LayerMask.Middleground, Constants.StartingScene, ColliderType.CircleCollider) {
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider) {
+            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, false);
+            textureOffset = Vector2.Zero;
+            status = Status.Idle;
             sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
 
             target = -Vector2.One;
@@ -40,22 +51,34 @@ namespace GGJam_2021 {
                 target = Game.Window.MousePosition;
             }
         }
+        public void Stop()
+        {
+            speed = Vector2.Zero;
+            animation.Stop(ref textureOffset);
+            target = -Vector2.One;
+        }
 
         public override void Update() {
             sprite.position += speed * Game.DeltaTime;
-            Collider.Position = sprite.position;
-            if (target != -Vector2.One) {
+            if (target != -Vector2.One)
+            {
+                if (status != Status.Walk)
+                {
+                    status = Status.Walk;
+                    animation.Play();
+                }
                 base.Update();
                 Vector2 distance = target - sprite.position;
-                if (distance.Length <= Constants.OffsetFromTarge) {
+                if (distance.Length <= Constants.OffsetFromTarge)
+                {
                     sprite.position = target;
-                    target = -Vector2.One;
-                    speed = Vector2.Zero;
-                } else {
+                    Stop();
+                }
+                else
+                {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                 }
             }
-
             //Decrese hungry and paranoia
             Hunger -= Constants.HungerDecrease * Game.DeltaTime;
             Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
@@ -66,7 +89,7 @@ namespace GGJam_2021 {
         }
 
         public override void Draw() {
-            base.Draw();
+            sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
             //Draw Slider
             paranoiaSlider.Draw();
             hungherSlider.Draw();
