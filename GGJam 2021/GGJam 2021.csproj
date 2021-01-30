@@ -88,10 +88,10 @@
     <Content Include="Assets\Textures\Background\AnteroomExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\Background\BedroomParents.png">
+    <Content Include="Assets\Textures\Background\Bathroom.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\Background\Bathroom.png">
+    <Content Include="Assets\Textures\Background\BedroomParents.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\Background\CentralCorridor.png">
@@ -103,60 +103,62 @@
     <Content Include="Assets\Textures\Background\Kitchen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\Background\Room.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Frigorifero.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Empty.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\Textures\Background\Laboratory.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\Background\LoungeArea.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Textures\Background\Room.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\CollidableObject\ArmadioRoom.png" />
+    <Content Include="Assets\Textures\CollidableObject\CessoBidet.png" />
+    <Content Include="Assets\Textures\CollidableObject\ComodinoRoom.png" />
+    <Content Include="Assets\Textures\CollidableObject\Desk.png" />
+    <Content Include="Assets\Textures\CollidableObject\DoppioCesso.png" />
+    <Content Include="Assets\Textures\CollidableObject\Lampada.png" />
+    <Content Include="Assets\Textures\CollidableObject\LavandinoCesso.png" />
+    <Content Include="Assets\Textures\CollidableObject\LettoRoom.png" />
+    <Content Include="Assets\Textures\CollidableObject\Pianta2.png" />
+    <Content Include="Assets\Textures\CollidableObject\Pianta3.png" />
+    <Content Include="Assets\Textures\CollidableObject\ScaffaleDaLavoroLaboratory.png" />
+    <Content Include="Assets\Textures\CollidableObject\Sedia2Salone1.png" />
+    <Content Include="Assets\Textures\CollidableObject\SediaCadutaSalone.png" />
+    <Content Include="Assets\Textures\CollidableObject\SediaRoom1.png" />
+    <Content Include="Assets\Textures\CollidableObject\SediaSalone.png" />
+    <Content Include="Assets\Textures\CollidableObject\TavolaLungaSalone.png" />
+    <Content Include="Assets\Textures\CollidableObject\TavoloDaLavoroLaboratory.png" />
+    <Content Include="Assets\Textures\CollidableObject\TvConCasseSalone.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Actionfigure.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Computer.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\FamilyAlbum.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\FramedFamilyPhoto.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Frigorifero.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\FrontDoor.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Guitar.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Empty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Textures\Cursore di prova.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\InteractableObject\FrontDoor.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Wisky.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Actionfigure.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\FamilyAlbum.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\PileMess.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Guitar.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Computer.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\FramedFamilyPhoto.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Sketchbooketched.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Retched.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\Desk.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\PileMess.png" />
     <Content Include="Assets\Textures\InteractableObject\PlayerProva.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Textures\InteractableObject\Items\Retched.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Sketchbooketched.png" />
+    <Content Include="Assets\Textures\InteractableObject\Items\Whiskey.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Album.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Alcol.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\BloccoDisegni.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Bordello.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Chitarra.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Computer.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Dino.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Foto.png" />
+    <Content Include="Assets\Textures\PortraitSpriteSheet\Vomito.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
