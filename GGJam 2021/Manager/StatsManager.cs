@@ -31,11 +31,19 @@ namespace GGJam_2021 {
 
             intervalli = 1 / Constants.ParanoiaMax;
             glitchedGameObject = new List<GameObject>();
+            IsActive = true;
         }
 
 
         public static void Update() {
             if (IsActive) {
+                //Decrese hungry and paranoia
+                Hunger -= Constants.HungerDecrease * Game.DeltaTime;
+                Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
+
+                //Update Slider
+                paranoiaSlider.Update();
+                hungherSlider.Update();
                 int elementi = (int)((1 - Paranoia) / intervalli);
                 if (elementi < glitchedGameObject.Count) {
                     //remove
@@ -51,23 +59,13 @@ namespace GGJam_2021 {
                         int itemToAdd = elementi - glitchedGameObject.Count;
                         List<GameObject> activeGameObjects = SceneManager.GetActiveObject();
                         for (int i = 0; i < itemToAdd; i++) {
-                            int index;
-                            do {
-                                index = Game.Random.Next(0, activeGameObjects.Count);
-                            } while (glitchedGameObject.Contains(activeGameObjects[index]));
+                            int index= Game.Random.Next(0, activeGameObjects.Count);
                             activeGameObjects[index].Glitch(true);
                             glitchedGameObject.Add(activeGameObjects[index]);
                         }
                     }
                 }
             }
-            //Decrese hungry and paranoia
-            Hunger -= Constants.HungerDecrease * Game.DeltaTime;
-            Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
-
-            //Update Slider
-            paranoiaSlider.Update();
-            hungherSlider.Update();
         }
 
         public static void AddStats(float value, Stat stat) {

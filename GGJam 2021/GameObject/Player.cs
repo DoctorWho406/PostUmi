@@ -37,6 +37,7 @@ namespace GGJam_2021
                 target = Game.Window.MousePosition;
             }
         }
+
         public void Stop()
         {
             speed = Vector2.Zero;
