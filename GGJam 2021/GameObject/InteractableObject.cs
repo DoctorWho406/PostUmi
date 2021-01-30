@@ -6,7 +6,7 @@ namespace GGJam_2021 {
         protected Scene nextScene;
 
         public InteractableObject(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType) : base(textureName, layerMask, scene, colliderType) {
-          this.nextScene = nextScene;
+            this.nextScene = nextScene;
             switch (colliderType) {
                 case ColliderType.BoxCollider:
                     trigger = new BoxCollider(size + new Vector2(Constants.TriggerColliderOffset));
@@ -37,7 +37,7 @@ namespace GGJam_2021 {
             if (trigger.Collides((CircleCollider)Game.Player.Collider)) {
                 //Controllo click
                 System.Console.WriteLine("NEAR");
-                if (Game.Window.MouseRight && Collider.Collides(Game.Cursor.Collider)) {
+                if (InputManager.IsTriggerClicked() && Collider.Collides(Game.Cursor.Collider)) {
                     System.Console.WriteLine("Hai cliccato su un InteractableObject");
                     return true;
                 }
