@@ -43,7 +43,6 @@ namespace GGJam_2021 {
                 Player.Input();
 
                 SceneManager.Update();
-                InputManager.Update();
                 Cursor.Update();
                 SceneManager.Draw();
                 Cursor.Draw();
