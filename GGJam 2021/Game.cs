@@ -13,7 +13,7 @@ namespace GGJam_2021 {
         public static Player Player;
         public static Cursor Cursor;
 
-        private static Sprite doorSprite;
+        
 
         //private static Background background;
 
@@ -32,18 +32,11 @@ namespace GGJam_2021 {
             Cursor = new Cursor();
             Window.SetMouseVisible(false);
 
-            //background = new Background();
+            
             Player = new Player() {
                 Position = Game.WindowCenter
             };
         }
-
-        private static void LoadBackground() {
-            //new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
-            //    Position = Game.WindowCenter
-            //};
-        }
-
         public static void Play() {
             while (Window.IsOpened) {
                 //Exit on esc
@@ -57,10 +50,8 @@ namespace GGJam_2021 {
                 Cursor.Update();
                 //Player.Update();
                 //background.Update();
-
                 //background.Draw();
                 SceneManager.Draw();
-                doorSprite.DrawColor(new Vector4(255, 0, 0, 255));
                 //Player.Draw();
                 Cursor.Draw();
 
