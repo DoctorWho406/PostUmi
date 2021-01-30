@@ -35,7 +35,7 @@ namespace GGJam_2021 {
         }
 
         public static List<GameObject> GetActiveObject() {
-            
+            return scenes[activeScene];
         }
 
         public static void LoadScene(Scene Scene) {
