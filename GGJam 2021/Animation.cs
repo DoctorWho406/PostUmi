@@ -2,9 +2,12 @@
 
 namespace GGJam_2021 {
     class Animation {
+        public bool IsPlaying {
+            get; protected set;
+        }
+
         protected int numFrames;
         protected float frameDuration;
-        protected bool isPlaying;
         protected int currentFrame;
         protected float elapsedTime;
 
@@ -26,7 +29,7 @@ namespace GGJam_2021 {
         }
 
         public virtual void Update(ref Vector2 offset) {
-            if (isPlaying) {
+            if (IsPlaying) {
                 elapsedTime += Game.DeltaTime;
                 if (elapsedTime >= frameDuration) {
                     currentFrame++;
@@ -46,21 +49,21 @@ namespace GGJam_2021 {
         }
 
         protected virtual void OnAnimationEnd() {
-            isPlaying = false;
+            IsPlaying = false;
         }
 
         public virtual void Play() {
-            isPlaying = true;
+            IsPlaying = true;
         }
 
         public virtual void Stop() {
-            isPlaying = false;
+            IsPlaying = false;
             currentFrame = 0;
             elapsedTime = 0;
         }
 
         public virtual void Pause() {
-            isPlaying = false;
+            IsPlaying = false;
         }
     }
 }

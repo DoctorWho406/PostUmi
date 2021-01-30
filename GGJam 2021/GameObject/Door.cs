@@ -5,6 +5,7 @@ namespace GGJam_2021 {
         protected Animation animation;
 
         private Vector2 textureOffset;
+        private bool readyForChange;
 
         public Door(string textureName, Scene actualScene, Scene nextScene) : base(textureName, LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider) {
             animation = new Animation((int)size.X, (int)size.Y, Constants.FPSDoorAnimation, 5, false);
@@ -15,6 +16,11 @@ namespace GGJam_2021 {
             base.Update();
             animation.Update(ref textureOffset);
             if (IsClicked()) {
+                animation.Play();
+                readyForChange = true;
+            }
+            if (readyForChange && !animation.IsPlaying) {
+                readyForChange = false;
                 SceneManager.LoadScene(nextScene);
             }
         }
