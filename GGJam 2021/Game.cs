@@ -26,8 +26,7 @@ namespace GGJam_2021 {
             Window.SetVSync(false);
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
-            LoadAssets();
-            LoadBackground();
+            AssetsManager.Init();
 
             //Edit cursor
             Cursor = new Cursor();
@@ -40,35 +39,9 @@ namespace GGJam_2021 {
         }
 
         private static void LoadBackground() {
-            new Background("room", Scene.Stanza) {
-                Position = Game.WindowCenter
-            };
-            new Door("Door", Scene.Stanza, Scene.CorridoioRight) {
-                Position = Game.WindowCenter
-            };
-            new Door("Door", Scene.CorridoioRight, Scene.Stanza) {
-                Position = Game.WindowCenter
-            };
-            doorSprite = new Sprite(50, 50) {
-                position = Game.WindowCenter
-            };
-            new Background("salone", Scene.CorridoioRight) {
-                Position = Game.WindowCenter
-            };
-        }
-
-        private static void LoadAssets() {
-            //AddTexture
-            TextureManager.AddTexture("room", Constants.BackgroundDirectory + "room_prova.png");
-            TextureManager.AddTexture("salone", Constants.BackgroundDirectory + "salone_prova.png");
-
-            TextureManager.AddTexture("corridoio", Constants.TextureDirectory + "corridoio.png");
-            TextureManager.AddTexture("soggiorno", Constants.TextureDirectory + "soggiorno.png");
-            TextureManager.AddTexture("stanza", Constants.TextureDirectory + "stanza.png");
-            TextureManager.AddTexture("Pngcucina", Constants.TextureDirectory + "Pngcucina.png");
-            TextureManager.AddTexture("Player", Constants.TextureDirectory + "player.png");
-            TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
-            TextureManager.AddTexture("Door", Constants.TextureDirectory + "porta_frontale_1_1.png");
+            //new Door(50, 50, Scene.Corridoio, ColliderType.BoxCollider, Scene.Stanza) {
+            //    Position = Game.WindowCenter
+            //};
         }
 
         public static void Play() {

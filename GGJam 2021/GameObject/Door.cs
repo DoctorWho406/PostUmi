@@ -15,7 +15,7 @@ namespace GGJam_2021 {
             base.Update();
             animation.Update(ref textureOffset);
             if (IsClicked()) {
-                SceneManager.LoadScene(next);
+                SceneManager.LoadScene(nextScene);
             }
         }
 
