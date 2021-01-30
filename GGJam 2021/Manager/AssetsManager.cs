@@ -1,4 +1,5 @@
-﻿namespace GGJam_2021 {
+﻿using OpenTK;
+namespace GGJam_2021 {
     static class AssetsManager {
         public static void Init() {
             AssetLoaded();
@@ -51,10 +52,10 @@
 
         private static void CentralCorridorLoad() {
             //new Background("CentralCorridor", Scene.CentralCorridor) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.CentralCorridor, Scene.LoungeArea) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.CentralCorridor, Scene.AnteroomExit) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.CentralCorridor, Scene.Corridor) { Position = Game.WindowCenter };
-            new Door("FrontDoor", Scene.CentralCorridor, Scene.Room) { Position = Game.WindowCenter };
+            new Door("FrontDoor", Scene.CentralCorridor, Scene.LoungeArea) { Position = Game.WindowCenter +Vector2.UnitX*-300};
+            new Door("FrontDoor", Scene.CentralCorridor, Scene.AnteroomExit) { Position = Game.WindowCenter +Vector2.UnitY * -300 };
+            new Door("FrontDoor", Scene.CentralCorridor, Scene.Corridor) { Position = Game.WindowCenter + Vector2.UnitX * 300 };
+            new Door("FrontDoor", Scene.CentralCorridor, Scene.Room) { Position = Game.WindowCenter + Vector2.UnitY * +300 };
         }
 
         private static void AnteroomExit() {

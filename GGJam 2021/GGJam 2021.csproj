@@ -66,7 +66,6 @@
     <Compile Include="GameObject\ColliderObject.cs" />
     <Compile Include="GameObject\Door.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameObject\Floor.cs" />
     <Compile Include="GameObject\InteractableObject.cs" />
     <Compile Include="GameObject\GameObject.cs" />
     <Compile Include="GameObject\Player.cs" />

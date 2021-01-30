@@ -1,11 +1,15 @@
 ﻿using OpenTK;
 
-namespace GGJam_2021 {
-    abstract class ColliderObject : GameObject {
+namespace GGJam_2021
+{
+    abstract class ColliderObject : GameObject
+    {
         public Collider Collider;
 
-        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType) : base(textureName, layerMask, scene) {
-            switch (colliderType) {
+        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType) : base(textureName, layerMask, scene)
+        {
+            switch (colliderType)
+            {
                 case ColliderType.BoxCollider:
                     Collider = new BoxCollider(size);
                     break;
@@ -26,12 +30,14 @@ namespace GGJam_2021 {
         //    }
         //}
 
-        public override void Scale(float scaleFactory) {
+        public override void Scale(float scaleFactory)
+        {
             base.Scale(scaleFactory);
             Collider.Scale(scaleFactory);
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             Collider.Position = sprite.position;
         }
     }

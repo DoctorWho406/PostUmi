@@ -1,4 +1,7 @@
-﻿namespace GGJam_2021 {
+﻿using Aiv.Fast2D;
+using OpenTK;
+
+namespace GGJam_2021 {
     static class Constants {
         //General
         public const Scene StartingScene = Scene.Room;
@@ -14,6 +17,10 @@
          * Enum CollidersType in Collider
          * Enum LayerMask in GameObject
          **/
+        //GameObject
+        public const float GlitchTime=2;
+        public static Vector4 tintaBlue = new Vector4(1, 1, 20, 1);
+        public static Vector4 tintaGialla = new Vector4(1, 10, 10, 1);
 
         //InteractableObject
         public const float TriggerColliderOffset = 10;

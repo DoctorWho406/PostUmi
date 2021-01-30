@@ -1,7 +1,8 @@
 ﻿using OpenTK;
 
 
-namespace GGJam_2021 {
+namespace GGJam_2021
+{
 
     enum Status
     {
@@ -9,7 +10,8 @@ namespace GGJam_2021 {
         Walk
     }
 
-    class Player : ColliderObject {
+    class Player : ColliderObject
+    {
         private Vector2 speed;
 
         private Vector2 target;
@@ -18,7 +20,8 @@ namespace GGJam_2021 {
         private Vector2 textureOffset;
         private Status status;
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider) {
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider)
+        {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, false);
             textureOffset = Vector2.Zero;
             status = Status.Idle;
@@ -27,8 +30,10 @@ namespace GGJam_2021 {
             target = -Vector2.One;
         }
 
-        public void Input() {
-            if (Game.Window.MouseLeft) {
+        public void Input()
+        {
+            if (Game.Window.MouseLeft)
+            {
                 target = Game.Window.MousePosition;
             }
         }
@@ -39,7 +44,8 @@ namespace GGJam_2021 {
             target = -Vector2.One;
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             sprite.position += speed * Game.DeltaTime;
             if (target != -Vector2.One)
             {
@@ -62,7 +68,8 @@ namespace GGJam_2021 {
             }
         }
 
-        public override void Draw() {
+        public override void Draw()
+        {
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
         }
     }

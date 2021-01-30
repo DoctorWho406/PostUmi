@@ -35,7 +35,15 @@ namespace GGJam_2021
 
         public override void Draw()
         {
+            if (!glitch)
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
+            else
+            {
+                if (glithched)
+                    spriteGlitch1.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
+                else
+                    spriteGlitch2.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
+            }
         }
     }
 }

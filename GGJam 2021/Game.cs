@@ -43,9 +43,10 @@ namespace GGJam_2021 {
                 Player.Input();
 
                 SceneManager.Update();
-                Cursor.Update();
+                StatsManager.Update();
+
                 SceneManager.Draw();
-                Cursor.Draw();
+                StatsManager.Draw();
 
                 Window.Update();
             }
