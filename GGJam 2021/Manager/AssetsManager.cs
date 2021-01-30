@@ -44,7 +44,7 @@
         }
         #region Rooms        
         private static void RoomLoad() {
-            new Background("Room", Scene.Room) { Position = Game.WindowCenter };
+            new Background("Room", Scene.Room) { Position = Game.WindowCenter};
             new Door("FrontDoor", Scene.Room, Scene.CentralCorridor) { Position = Game.WindowCenter }.Scale(0.3f);
         }
         private static void CentralCorridorLoad() {
