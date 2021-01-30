@@ -4,21 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GGJam_2021 {
-    static class InputManager {
+namespace GGJam_2021
+{
+    static class InputManager
+    {
         private static bool isTriggerButtonClicked;
 
-        static InputManager() {
+        static InputManager()
+        {
             isTriggerButtonClicked = false;
         }
 
-        public static bool IsTriggerClicked() {
-            if (Game.Window.MouseRight) {
-                if (!isTriggerButtonClicked) {
+        public static bool IsTriggerClicked()
+        {
+            if (Game.Window.MouseRight)
+            {
+                if (!isTriggerButtonClicked)
+                {
                     isTriggerButtonClicked = true;
                     return true;
                 }
-            } else {
+            }
+            else
+            {
                 isTriggerButtonClicked = false;
             }
             return false;
