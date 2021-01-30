@@ -17,12 +17,14 @@ namespace GGJam_2021 {
     }
 
     static class SceneManager {
+        public static bool IsSceneChanging {
+            get; private set;
+        }
         private static Scene activeScene;
         private static Dictionary<Scene, List<GameObject>> scenes;
-        private static bool isSceneChanging;
 
         static SceneManager() {
-            isSceneChanging = false;
+            IsSceneChanging = false;
             activeScene = Scene.Room;
             scenes = new Dictionary<Scene, List<GameObject>>();
             for (int s = 0; s < (int)Scene.Count; s++) {
@@ -39,14 +41,14 @@ namespace GGJam_2021 {
         }
 
         public static void LoadScene(Scene Scene) {
-            isSceneChanging = true;
+            IsSceneChanging = true;
             StatsManager.LoadScene();
             activeScene = Scene;
-            isSceneChanging = false;
+            IsSceneChanging = false;
         }
 
         public static void Update() {
-            if (!isSceneChanging) {
+            if (!IsSceneChanging) {
                 for (int i = 0; i < scenes[Scene.Always].Count; i++) {
                     scenes[Scene.Always][i].Update();
                 }
@@ -57,7 +59,7 @@ namespace GGJam_2021 {
         }
 
         public static void Draw() {
-            if (!isSceneChanging) {
+            if (!IsSceneChanging) {
                 for (int lM = 0; lM < (int)LayerMask.Count; lM++) {
                     for (int gO = 0; gO < scenes[activeScene].Count; gO++) {
                         if (scenes[activeScene][gO].LayerMask == (LayerMask)lM) {

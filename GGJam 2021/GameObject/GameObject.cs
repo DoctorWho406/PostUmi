@@ -37,9 +37,6 @@ namespace GGJam_2021 {
             //Set Texture and Sprite
             texture = TextureManager.GetTexture(textureName);
 
-            timer = 0;
-            glithched = false;
-
             sprite = new Sprite(/*w == 0 ?*/ texture.Width /*: w, h == 0 ?*/, texture.Height /*: h*/);
             spriteGlitch1 = new Sprite(/*w == 0 ?*/ texture.Width /*: w, h == 0 ?*/, texture.Height /*: h*/);
             spriteGlitch2 = new Sprite(/*w == 0 ?*/ texture.Width /*: w, h == 0 ?*/, texture.Height /*: h*/);
@@ -56,14 +53,6 @@ namespace GGJam_2021 {
             SceneManager.AddGOToScene(scene, this);
         }
 
-        //public GameObject(int width, int height, Scene scene) {
-        //    sprite = new Sprite(width, height);
-        //    sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.5f);
-        //    size = new Vector2(sprite.Width, sprite.Height);
-        //    halfSize = new Vector2(size.X * 0.5f, size.Y * 0.5f);
-        //    SceneManager.AddGOToScene(scene, this);
-        //}
-
         public virtual void Scale(float scaleFactory) {
             sprite.scale = new Vector2(scaleFactory);
             spriteGlitch1.scale = new Vector2(scaleFactory);
@@ -76,8 +65,7 @@ namespace GGJam_2021 {
             glitch = value;
         }
 
-        public virtual void Update()//da modificare l'Update devono spostare anche le altre sprite
-        {
+        public virtual void Update() {
             if (glitch) {
                 timer += Game.DeltaTime;
                 if (timer > Constants.GlitchTime) {
@@ -86,6 +74,7 @@ namespace GGJam_2021 {
                 }
             }
         }
+
         public virtual void Draw() {
             if (!glitch) {
                 sprite.DrawTexture(texture);

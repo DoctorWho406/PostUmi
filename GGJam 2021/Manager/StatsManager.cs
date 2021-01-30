@@ -43,7 +43,7 @@ namespace GGJam_2021 {
 
 
         public static void Update() {
-            if (IsActive) {
+            if (IsActive && !SceneManager.IsSceneChanging) {
                 //Decrese hungry and paranoia
                 Hunger -= Constants.HungerDecrease * Game.DeltaTime;
                 Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
