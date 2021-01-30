@@ -29,6 +29,17 @@
             TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "PlayerProva.png");
             TextureManager.AddTexture("FrontDoor", Constants.InteractableObjectDirectory + "FrontDoor.png");
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
+          
+            TextureManager.AddTexture("Actionfigure", Constants.TextureDirectory + "Actionfigure.png");
+            TextureManager.AddTexture("Computer", Constants.TextureDirectory + "Computer.png");
+            TextureManager.AddTexture("Desk", Constants.TextureDirectory + "Desk.png");
+            TextureManager.AddTexture("FamilyAlbum", Constants.TextureDirectory + "FamilyAlbum.png");
+            TextureManager.AddTexture("FramedFamilyPhoto", Constants.TextureDirectory + "FramedFamilyPhoto.png");
+            TextureManager.AddTexture("Guitar", Constants.TextureDirectory + "Guitar.png");
+            TextureManager.AddTexture("PileMess", Constants.TextureDirectory + "PileMess.png");
+            TextureManager.AddTexture("Retched", Constants.TextureDirectory + "Retched.png");
+            TextureManager.AddTexture("Sketchbook", Constants.TextureDirectory + "Sketchbooketched.png");
+            TextureManager.AddTexture("Wisky", Constants.TextureDirectory + "Wisky.png");
         }
         #region Rooms        
         private static void RoomLoad() {
