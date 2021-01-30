@@ -5,7 +5,7 @@
 
         public override void Update() {
             base.Update();
-            sprite.position = Game.Window.MousePosition;
+            Position = Game.Window.MousePosition;
         }
     }
 }

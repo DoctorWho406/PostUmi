@@ -69,7 +69,7 @@ namespace GGJam_2021 {
             if (glitch) {
                 timer += Game.DeltaTime;
                 if (timer > Constants.GlitchTime) {
-                    timer = 0;
+                    timer = 0f;
                     glithched = !glithched;
                 }
             }

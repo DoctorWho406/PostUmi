@@ -26,6 +26,7 @@ namespace GGJam_2021 {
 
             //Edit cursor
             Cursor = new Cursor();
+            Cursor.Scale(0.2f);
             Window.SetMouseVisible(false);
 
 
