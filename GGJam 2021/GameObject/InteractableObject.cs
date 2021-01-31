@@ -27,7 +27,7 @@ namespace GGJam_2021
 
         protected bool IsClicked()
         {
-            if (trigger.Collides(Game.Player.Collider))
+            if (trigger.Collides(Game.Player.Collider,out Vector2 V))
             {
                 //Controllo click
                 System.Console.WriteLine("NEAR");
@@ -35,7 +35,7 @@ namespace GGJam_2021
                 {
                     if (!InputManager.IsTriggerButtonClicked)
                     {
-                        if (Collider.Collides(Game.Cursor.Collider))
+                        if (Collider.Collides(Game.Cursor.Collider, out Vector2 v))
                         {
                             //System.Console.WriteLine("Hai cliccato su un InteractableObject");
                             InputManager.IsTriggerButtonClicked = true;

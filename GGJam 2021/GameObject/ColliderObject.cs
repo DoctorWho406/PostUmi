@@ -44,7 +44,7 @@ namespace GGJam_2021
         {
             base.Update();
             Collider.Position = sprite.position;
-            if (Collider.Collides(Game.Player.Collider, out Vector2 offset))
+            if (Collider.Collides((CircleCollider)Game.Player.Collider, out Vector2 offset))
             {
                 Game.Player.Position -= offset;
                 Game.Player.Stop();
