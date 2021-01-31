@@ -10,9 +10,9 @@ namespace GGJam_2021
     class Fridge : InteractableObject
     {
         protected Animation animation;
-
+        private bool eating;
         private Vector2 textureOffset;
-        public Fridge( Scene scene, ColliderType colliderType, int w = 0, int h = 0) : base("Frigorifero", LayerMask.Background, scene, colliderType, w, h)
+        public Fridge(Scene scene, ColliderType colliderType) : base("Frigorifero", LayerMask.Background, scene, colliderType, 460, 0)
         {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
@@ -24,7 +24,14 @@ namespace GGJam_2021
             base.Update();
             if (IsClicked(/*//il player non dovrebbe muoversi//*/))
             {
+                animation.Play();
+                eating = true;
                 StatsManager.AddStats(Constants.HungerFromFridge, Stat.Hunger);
+            }
+            if(eating&&!animation.IsPlaying)
+            {
+                animation.Stop(ref textureOffset);
+                eating = false;
             }
         }
 

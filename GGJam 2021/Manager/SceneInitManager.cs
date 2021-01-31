@@ -6,16 +6,15 @@ namespace GGJam_2021
     {
         public static void Start()
         {
-            //RoomLoad();
-            //AnteroomExitLoad();
-            //LoungeAreaLoad();
-            //KitchenLoad();
-            //BathroomLoad();
-            //CorridorLoad();
-            //LaboratoryLoad();
+            RoomLoad();
+            AnteroomExitLoad();
+            LoungeAreaLoad();
+            KitchenLoad();
+            BathroomLoad();
+            CorridorLoad();
+            LaboratoryLoad();
             BedroomParentsLoad();
-
-            //CentralCorridorLoad();
+            CentralCorridorLoad();
         }
 
         private static void RoomLoad()
@@ -32,16 +31,18 @@ namespace GGJam_2021
             new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =  new Vector2(800, 340) }.Scale(0.7f);
 
             new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(1380, 210) }.Scale(0.3f);
+            new Portrait("Actionfigure", LayerMask.Foreground, Scene.Room, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(570, 380) }.Scale(0.3f);
+
         }
 
         private static void CentralCorridorLoad()
         {
             new Background("CentralCorridor", Scene.CentralCorridor, new Vector2(2175, 485)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(976, 736) };
 
-            new Door(Scene.CentralCorridor, Scene.LoungeArea) { Position = Game.WindowCenter + Vector2.UnitX * -300 };
-            new Door(Scene.CentralCorridor, Scene.AnteroomExit) { Position = Game.WindowCenter + Vector2.UnitY * -300 };
-            new Door(Scene.CentralCorridor, Scene.Corridor) { Position = Game.WindowCenter + Vector2.UnitX * 300 };
-            new Door(Scene.CentralCorridor, Scene.Room) { Position = Game.WindowCenter + Vector2.UnitY * +300 };
+            new Door(Scene.CentralCorridor, Scene.LoungeArea) { Position = new Vector2(2, 715) }.Scale(0.7f);
+            new Door(Scene.CentralCorridor, Scene.AnteroomExit) { Position = new Vector2(1186, 290) }.Scale(0.7f);
+            new Door(Scene.CentralCorridor, Scene.Corridor) { Position = new Vector2(1904, 752) }.Scale(0.7f);
+            new Door(Scene.CentralCorridor, Scene.Room) { Position = new Vector2(993, 1067) }.Scale(0.7f);
         }
 
         private static void AnteroomExitLoad()
@@ -131,6 +132,7 @@ namespace GGJam_2021
             new ColliderObject("batteria_laboratorio", LayerMask.Middleground, Scene.Laboratory, ColliderType.BoxCollider) { Position =  new Vector2(1229, 320) }.Scale(0.5f);
 
             new Portrait("Guitar", LayerMask.Middleground, Scene.Laboratory, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(435, 660) }.Scale(0.25f);
+            new Portrait("Sketchbooketched", LayerMask.Foreground, Scene.Laboratory, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(366, 530) }.Scale(0.25f);
 
         }
 
@@ -141,10 +143,10 @@ namespace GGJam_2021
             new Door(Scene.BedroomParents, Scene.Corridor) { Position = new Vector2(700, 130) }.Scale(0.55f);
 
             new ColliderObject("letto_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position =  new Vector2(1280, 700) }.Scale(0.75f);
-            new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position =  new Vector2(360, 640) }.Scale(0.5f);
-            new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position =  new Vector2(360, 900) }.Scale(0.5f);
+            new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position =  new Vector2(360, 630) }.Scale(0.6f);
+            new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position =  new Vector2(360, 800) }.Scale(0.6f);
             new ColliderObject("mobile_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position =  new Vector2(1197, 299) }.Scale(0.5f);
-            new ColliderObject("Pianta2", LayerMask.Middleground, Scene.BedroomParents, ColliderType.CircleCollider) { Position = new Vector2(400, 270) }.Scale(0.3f);
+            new ColliderObject("Pianta2", LayerMask.Middleground, Scene.BedroomParents, ColliderType.CircleCollider) { Position = new Vector2(420, 260) }.Scale(0.3f);
 
             new Portrait("FramedFamilyPhoto", LayerMask.Middleground, Scene.BedroomParents, Scene.Count, ColliderType.BoxCollider) { Position =  new Vector2(1210, 260) }.Scale(0.2f);
         }
