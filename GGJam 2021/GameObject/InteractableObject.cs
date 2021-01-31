@@ -40,7 +40,6 @@ namespace GGJam_2021
                             //System.Console.WriteLine("Hai cliccato su un InteractableObject");
                             InputManager.IsTriggerButtonClicked = true;
                             Player.PlayerSoundEmitter.Play(Player.Interaction);
-                            Game.ObjectTaken++;
                             return true;
                         }
                     }
