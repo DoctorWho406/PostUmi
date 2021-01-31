@@ -33,9 +33,9 @@ namespace GGJam_2021
             //TextureManager.AddTexture("DoppioCesso", Constants.CollidableObjectDirectory + "DoppioCesso.png");
             //TextureManager.AddTexture("LavandinoCesso", Constants.CollidableObjectDirectory + "LavandinoCesso.png");
 
-            //corridor
-            TextureManager.AddTexture("Corridor", Constants.BackgroundDirectory + "Corridor.png");
-            TextureManager.AddTexture("Pianta1", Constants.CollidableObjectDirectory + "Pianta1.png");
+            ////corridor
+            //TextureManager.AddTexture("Corridor", Constants.BackgroundDirectory + "Corridor.png");
+            //TextureManager.AddTexture("Pianta1", Constants.CollidableObjectDirectory + "Pianta1.png");
 
 
             ////loungeArea
@@ -47,37 +47,40 @@ namespace GGJam_2021
             //TextureManager.AddTexture("SediaCadutaSalone", Constants.CollidableObjectDirectory + "SediaCadutaSalone.png");
             //TextureManager.AddTexture("TavolaLungaSalone", Constants.CollidableObjectDirectory + "TavolaLungaSalone.png");
 
-            ////laboratory
+            //laboratory
+            //TextureManager.AddTexture("Guitar", Constants.ItemsDirectory + "Guitar.png");
             //TextureManager.AddTexture("Laboratory", Constants.BackgroundDirectory + "Laboratory.png");
+            //TextureManager.AddTexture("batteria_laboratorio", Constants.CollidableObjectDirectory + "batteria_laboratorio.png");
+            //TextureManager.AddTexture("chitarra_laboratorio", Constants.CollidableObjectDirectory + "chitarra_laboratorio.png");
+            //TextureManager.AddTexture("TavoloDaLavoroLaboratory", Constants.CollidableObjectDirectory + "TavoloDaLavoroLaboratory.png");
+            //TextureManager.AddTexture("ScaffaleDaLavoroLaboratory", Constants.CollidableObjectDirectory + "ScaffaleDaLavoroLaboratory.png");
+
 
             ////anteroomExit
             //TextureManager.AddTexture("FamilyAlbum", Constants.ItemsDirectory + "FamilyAlbum.png");
-            //TextureManager.AddTexture("Pianta2", Constants.CollidableObjectDirectory + "Pianta2.png");
+            //TextureManager.AddTexture("Pianta3", Constants.CollidableObjectDirectory + "Pianta3.png");
             //TextureManager.AddTexture("AnteroomExit", Constants.BackgroundDirectory + "AnteroomExit.png");
-            //TextureManager.AddTexture("armadio_bedroom_parents", Constants.CollidableObjectDirectory + "armadio_bedroom_parents.png");
+            TextureManager.AddTexture("armadio_bedroom_parents", Constants.CollidableObjectDirectory + "armadio_bedroom_parents.png");
 
             //bedroomparents
-            //TextureManager.AddTexture("BedroomParents", Constants.BackgroundDirectory + "BedroomParents.png");
+            TextureManager.AddTexture("Pianta2", Constants.CollidableObjectDirectory + "Pianta2.png");
+            TextureManager.AddTexture("BedroomParents", Constants.BackgroundDirectory + "BedroomParents.png");
+            TextureManager.AddTexture("FramedFamilyPhoto", Constants.ItemsDirectory + "FramedFamilyPhoto.png");
+            TextureManager.AddTexture("letto_bedroom_parents", Constants.CollidableObjectDirectory + "letto_bedroom_parents.png");
+            TextureManager.AddTexture("mobile_bedroom_parents", Constants.CollidableObjectDirectory + "mobile_bedroom_parents.png");
+
+
 
             ////centralCorridor
             //TextureManager.AddTexture("CentralCorridor", Constants.BackgroundDirectory + "CentralCorridor.png");
 
             ////CollidableObject
-            //TextureManager.AddTexture("Pianta3", Constants.CollidableObjectDirectory + "Pianta3.png");
-            //TextureManager.AddTexture("batteria_laboratorio", Constants.CollidableObjectDirectory + "batteria_laboratorio.png");
-            //TextureManager.AddTexture("chitarra_laboratorio", Constants.CollidableObjectDirectory + "chitarra_laboratorio.png");
-            //TextureManager.AddTexture("letto_bedroom_parents", Constants.CollidableObjectDirectory + "letto_bedroom_parents.png");
-            //TextureManager.AddTexture("TavoloDaLavoroLaboratory", Constants.CollidableObjectDirectory + "TavoloDaLavoroLaboratory.png");
-            //TextureManager.AddTexture("ScaffaleDaLavoroLaboratory", Constants.CollidableObjectDirectory + "ScaffaleDaLavoroLaboratory.png");
-
 
 
             ////InteractbleObject-items
             //TextureManager.AddTexture("Empty", Constants.ItemsDirectory + "Empty.png");
-            //TextureManager.AddTexture("Guitar", Constants.ItemsDirectory + "Guitar.png");
             //TextureManager.AddTexture("Actionfigure", Constants.ItemsDirectory + "Actionfigure.png");
             //TextureManager.AddTexture("Sketchbook", Constants.ItemsDirectory + "Sketchbooketched.png");
-            //TextureManager.AddTexture("FramedFamilyPhoto", Constants.ItemsDirectory + "FramedFamilyPhoto.png");
 
             ////PortraitSpriteSheet
             //TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "Album.png");

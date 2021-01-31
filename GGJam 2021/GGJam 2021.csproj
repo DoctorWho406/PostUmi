@@ -154,6 +154,9 @@
     <Content Include="Assets\Textures\CollidableObject\letto_bedroom_parents.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Textures\CollidableObject\mobile_bedroom_parents.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Textures\CollidableObject\Pianta2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

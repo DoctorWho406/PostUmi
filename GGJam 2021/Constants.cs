@@ -3,7 +3,7 @@
 namespace GGJam_2021 {
     static class Constants {
         //General
-        public const Scene StartingScene = Scene.Bathroom;
+        public const Scene StartingScene = Scene.BedroomParents;
 
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
