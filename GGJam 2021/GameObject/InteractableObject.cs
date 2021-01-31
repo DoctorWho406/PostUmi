@@ -1,11 +1,11 @@
 ﻿using OpenTK;
 
 namespace GGJam_2021 {
-     class InteractableObject : ColliderObject {
+    class InteractableObject : ColliderObject {
         protected Collider trigger;
         protected Scene nextScene;
 
-        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, float eulerRotation = 0, int w = 0, int h = 0) : base(textureName, layerMask, scene, colliderType, eulerRotation, w, h) {
+        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int w = 0, int h = 0) : base(textureName, layerMask, scene, colliderType, w, h) {
             this.nextScene = nextScene;
             switch (colliderType) {
                 case ColliderType.BoxCollider:

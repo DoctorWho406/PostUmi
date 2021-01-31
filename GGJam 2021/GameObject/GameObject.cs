@@ -31,21 +31,16 @@ namespace GGJam_2021 {
         private float timer;
         protected bool glithched;
 
-        public GameObject(string textureName, LayerMask layerMask, Scene scene, float eulerRotation = 0, int w = 0, int h = 0) {
+        public GameObject(string textureName, LayerMask layerMask, Scene scene, int w = 0, int h = 0) {
             //Set LayerMask
             LayerMask = layerMask;
             //Set Texture and Sprite
             texture = TextureManager.GetTexture(textureName);
 
-            sprite = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h) {
-                EulerRotation = eulerRotation
-            };
-            spriteGlitch1 = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h) {
-                EulerRotation = eulerRotation
-            };
-            spriteGlitch2 = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h) {
-                EulerRotation = eulerRotation
-            };
+            sprite = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h);
+            spriteGlitch1 = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h);
+            spriteGlitch2 = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h);
+
             spriteGlitch1.SetMultiplyTint(Constants.tintaBlue);
             spriteGlitch2.SetMultiplyTint(Constants.tintaGialla);
 
