@@ -42,6 +42,6 @@ namespace GGJam_2021 {
         //            Game.Player.Stop();
         //        }
         //    }
-        //}
+        }
     }
 }
