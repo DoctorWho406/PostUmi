@@ -127,7 +127,6 @@ namespace GGJam_2021
                     AudioManager.FadeIn(musicEmitter03, musicEmitter03.Volume, 1);
                 }
 
-                Console.WriteLine(Window.MousePosition.X + "x" + "  " + Window.MousePosition.Y + "y");
                 Player.Input();
 
                 SceneManager.Update();
