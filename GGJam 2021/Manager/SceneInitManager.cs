@@ -4,7 +4,6 @@ namespace GGJam_2021
 {
     static class SceneInitManager
     {
-        public static int dialogue = 1;
         public static void Start()
         {
             Dialogue();
@@ -32,8 +31,8 @@ namespace GGJam_2021
             new ColliderObject("SediaRoom1", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1288, 450) }.Scale(0.5f);
             new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(800, 340) }.Scale(0.7f);
 
-            new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(1380, 210) }.Scale(0.3f);
-            new Portrait("Actionfigure", LayerMask.Foreground, Scene.Room, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(570, 380) }.Scale(0.3f);
+            new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.DialogueComputer, ColliderType.BoxCollider) { Position = new Vector2(1380, 210) }.Scale(0.3f);
+            new Portrait("Actionfigure", LayerMask.Foreground, Scene.Room, Scene.DialogueDino, ColliderType.BoxCollider) { Position = new Vector2(570, 380) }.Scale(0.3f);
 
         }
 
@@ -56,7 +55,7 @@ namespace GGJam_2021
             new ColliderObject("Pianta3", LayerMask.Middleground, Scene.AnteroomExit, ColliderType.BoxCollider) { Position = new Vector2(1450, 200) }.Scale(0.5f);
             new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.AnteroomExit, ColliderType.BoxCollider) { Position = new Vector2(470, 650) }.Scale(0.9f);
 
-            new Portrait("FamilyAlbum", LayerMask.Foreground, Scene.AnteroomExit, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(450, 500) }.Scale(0.2f);
+            new Portrait("FamilyAlbum", LayerMask.Foreground, Scene.AnteroomExit, Scene.DialogueAlbum, ColliderType.BoxCollider) { Position = new Vector2(450, 500) }.Scale(0.2f);
         }
 
         private static void LoungeAreaLoad()
@@ -69,15 +68,15 @@ namespace GGJam_2021
 
             new ColliderObject("Lampada", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1628, 1022) }.Scale(0.8f);
             new ColliderObject("SediaSalone", LayerMask.Background, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1019, 418) }.Scale(0.65f);
-            new ColliderObject("Sedia2Salone1", LayerMask.Background, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(861, 411) }.Scale(0.65f);
             new ColliderObject("SediaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(858, 642) }.Scale(0.65f);
+            new ColliderObject("Sedia2Salone1", LayerMask.Background, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(861, 411) }.Scale(0.65f);
             new ColliderObject("TavolaLungaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = Game.WindowCenter }.Scale(0.7f);
             new ColliderObject("Sedia2Salone1", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(559, 497) }.Scale(0.65f);
             new ColliderObject("TvConCasseSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1180, 960) }.Scale(0.5f);
             new ColliderObject("SediaCadutaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(413, 369) }.Scale(0.8f);
             new ColliderObject("SediaCadutaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1074, 662) }.Scale(0.8f);
 
-            new Portrait("PileMess", LayerMask.Middleground, Scene.LoungeArea, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(544, 899) }.Scale(0.4f);
+            new Portrait("PileMess", LayerMask.Middleground, Scene.LoungeArea, Scene.DialogueBordello, ColliderType.BoxCollider) { Position = new Vector2(544, 899) }.Scale(0.4f);
         }
 
         private static void KitchenLoad()
@@ -90,7 +89,7 @@ namespace GGJam_2021
             new ColliderObject("tavola_kitchen", LayerMask.Middleground, Scene.Kitchen, ColliderType.CircleCollider) { Position = new Vector2(560, 800) }.Scale(0.5f);
             new ColliderObject("banco_cucina_kitchen", LayerMask.Middleground, Scene.Kitchen, ColliderType.BoxCollider) { Position = new Vector2(1222, 305) }.Scale(0.5f);
 
-            new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(603, 815) }.Scale(0.15f);
+            new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.DialogueAlcol, ColliderType.BoxCollider) { Position = new Vector2(603, 815) }.Scale(0.15f);
 
         }
 
@@ -104,7 +103,7 @@ namespace GGJam_2021
             new ColliderObject("DoppioCesso", LayerMask.Middleground, Scene.Bathroom, ColliderType.BoxCollider) { Position = new Vector2(630, 250) }.Scale(0.8f);
             new ColliderObject("LavandinoCesso", LayerMask.Middleground, Scene.Bathroom, ColliderType.BoxCollider) { Position = new Vector2(1320, 340) }.Scale(0.7f);
 
-            new Portrait("Retched", LayerMask.Background, Scene.Bathroom, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(700, 840) }.Scale(0.5f);
+            new Portrait("Retched", LayerMask.Background, Scene.Bathroom, Scene.DialogueVomito, ColliderType.BoxCollider) { Position = new Vector2(700, 840) }.Scale(0.5f);
 
         }
 
@@ -130,9 +129,8 @@ namespace GGJam_2021
             new ColliderObject("TavoloDaLavoroLaboratory", LayerMask.Background, Scene.Laboratory, ColliderType.BoxCollider) { Position = new Vector2(366, 530) }.Scale(0.65f);
             new ColliderObject("ScaffaleDaLavoroLaboratory", LayerMask.Middleground, Scene.Laboratory, ColliderType.BoxCollider) { Position = new Vector2(506, 180) }.Scale(1.2f);
 
-            new Portrait("Guitar", LayerMask.Middleground, Scene.Laboratory, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(435, 660) }.Scale(0.25f);
-            new Portrait("Sketchbooketched", LayerMask.Foreground, Scene.Laboratory, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(366, 530) }.Scale(0.25f);
-
+            new Portrait("Guitar", LayerMask.Middleground, Scene.Laboratory, Scene.DialogueChitarra, ColliderType.BoxCollider) { Position = new Vector2(435, 660) }.Scale(0.25f);
+            new Portrait("Sketchbooketched", LayerMask.Foreground, Scene.Laboratory, Scene.DialogueBloccoDisegni, ColliderType.BoxCollider) { Position = new Vector2(366, 530) }.Scale(0.25f);
         }
 
         private static void BedroomParentsLoad()
@@ -147,60 +145,41 @@ namespace GGJam_2021
             new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position = new Vector2(360, 800) }.Scale(0.6f);
             new ColliderObject("mobile_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position = new Vector2(1197, 299) }.Scale(0.5f);
 
-            new Portrait("FramedFamilyPhoto", LayerMask.Middleground, Scene.BedroomParents, Scene.Count, ColliderType.BoxCollider) { Position = new Vector2(1210, 260) }.Scale(0.2f);
+            new Portrait("FramedFamilyPhoto", LayerMask.Middleground, Scene.BedroomParents, Scene.DialogueFoto, ColliderType.BoxCollider) { Position = new Vector2(1210, 260) }.Scale(0.2f);
         }
         #endregion
         private static void Dialogue()
         {
-            switch (dialogue)
-            {
-                case 0:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("actionfigure", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Dino", LayerMask.Background, Scene.Dialogue, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, Game.WindowCenter.Y) };
-                    break;
-                case 1:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("albumdifoto", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Album", LayerMask.Foreground, Scene.Dialogue, Scene.AnteroomExit, ColliderType.BoxCollider);
-                    break;
-                case 2:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("bloccodisegno", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("BloccoDisegni", LayerMask.Foreground, Scene.Dialogue, Scene.Laboratory, ColliderType.BoxCollider);
-                    break;
-                case 3:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("bordello", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Bordello", LayerMask.Foreground, Scene.Dialogue, Scene.LoungeArea, ColliderType.BoxCollider);
-                    break;
-                case 4:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("chitarra", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Chitarra", LayerMask.Foreground, Scene.Dialogue, Scene.Laboratory, ColliderType.BoxCollider);
-                    break;
-                case 5:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("computer", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Computer", LayerMask.Foreground, Scene.Dialogue, Scene.Room, ColliderType.BoxCollider);
-                    break;
-                case 6:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("fotoricordo", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Foto", LayerMask.Foreground, Scene.Dialogue, Scene.BedroomParents, ColliderType.BoxCollider);
-                    break;
-                case 7:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("vomito", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Vomito", LayerMask.Foreground, Scene.Dialogue, Scene.Bathroom, ColliderType.BoxCollider);
-                    break;
-                case 8:
-                    new Background("sfondo", Scene.Dialogue, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-                    new ColliderObject("whiskey", LayerMask.Middleground, Scene.Dialogue, ColliderType.BoxCollider) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-                    new Portrait("Alcol", LayerMask.Foreground, Scene.Dialogue, Scene.Kitchen, ColliderType.BoxCollider);
-                    break;
+                    new UIText("whiskey", Scene.DialogueAlcol) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("vomito",  Scene.DialogueVomito) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("bordello", Scene.DialogueBordello) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("fotoricordo",  Scene.DialogueFoto) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("actionfigure",  Scene.DialogueDino) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("albumdifoto",  Scene.DialogueAlbum) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("chitarra",  Scene.DialogueChitarra) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("computer",  Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+                    new UIText("bloccodisegno",Scene.DialogueBloccoDisegni) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
 
+                    new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18,3, 700) { Position = Game.WindowCenter };
+                    new Portrait("Alcol", LayerMask.Background, Scene.DialogueAlcol, Scene.Kitchen, ColliderType.BoxCollider,18,3,700) { Position = Game.WindowCenter };
+                    new Portrait("Vomito", LayerMask.Background, Scene.DialogueVomito, Scene.Bathroom, ColliderType.BoxCollider,3,5,700) { Position = Game.WindowCenter };
+                    new Portrait("Foto", LayerMask.Background, Scene.DialogueFoto, Scene.BedroomParents, ColliderType.BoxCollider,3,5,700) { Position = Game.WindowCenter };
+                    new Portrait("Album", LayerMask.Background, Scene.DialogueAlbum, Scene.AnteroomExit, ColliderType.BoxCollider, 18,3, 700) { Position = Game.WindowCenter };
+                    new Portrait("Bordello", LayerMask.Background, Scene.DialogueBordello, Scene.LoungeArea, ColliderType.BoxCollider,9,5,700) { Position = Game.WindowCenter };
+                    new Portrait("Chitarra", LayerMask.Background, Scene.DialogueChitarra, Scene.Laboratory, ColliderType.BoxCollider,3,5,700) { Position = Game.WindowCenter };
+                    new Portrait("ComputerPortrait", LayerMask.Background, Scene.DialogueComputer, Scene.Room, ColliderType.BoxCollider,3,5,700) { Position = Game.WindowCenter };
+                    new Portrait("BloccoDisegni", LayerMask.Background, Scene.DialogueBloccoDisegni, Scene.Laboratory, ColliderType.BoxCollider, 18,3, 700) { Position = Game.WindowCenter };
+
+                    new Background("sfondo", Scene.DialogueDino, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueFoto, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueAlbum, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueAlcol, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueVomito, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueBordello, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueChitarra, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueComputer, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+                    new Background("sfondo", Scene.DialogueBloccoDisegni, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
             }
         }
     }
-}
+

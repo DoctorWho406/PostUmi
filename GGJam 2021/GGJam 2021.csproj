@@ -82,6 +82,7 @@
     <Compile Include="Manager\SceneInitManager.cs" />
     <Compile Include="Slider.cs" />
     <Compile Include="Manager\TextureManager.cs" />
+    <Compile Include="UiText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -315,7 +316,7 @@
     <Content Include="Assets\Textures\InteractableObject\Items\Whiskey.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\PortraitSpriteSheet\Album.png">
+    <Content Include="Assets\Textures\PortraitSpriteSheet\album.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\PortraitSpriteSheet\Alcol.png">

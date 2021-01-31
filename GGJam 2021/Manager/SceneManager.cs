@@ -12,7 +12,16 @@ namespace GGJam_2021 {
         Corridor,
         Laboratory,
         BedroomParents,
-        Dialogue,
+
+        DialogueAlbum,
+        DialogueAlcol,
+        DialogueBloccoDisegni,
+        DialogueBordello,
+        DialogueChitarra,
+        DialogueComputer,
+        DialogueDino,
+        DialogueFoto,
+        DialogueVomito,
         //Add Dialogue Scene
         Count
     }

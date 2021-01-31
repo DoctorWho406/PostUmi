@@ -17,7 +17,6 @@ namespace GGJam_2021
             TextureManager.AddTexture("SediaRoom1", Constants.CollidableObjectDirectory + "SediaRoom1.png");
             TextureManager.AddTexture("ArmadioRoom", Constants.CollidableObjectDirectory + "ArmadioRoom.png");
             TextureManager.AddTexture("ComodinoRoom", Constants.CollidableObjectDirectory + "ComodinoRoom.png");
-            TextureManager.AddTexture("ComputerPortrait", Constants.PortraitSpriteSheetDirectory + "Computer.png");
 
             ////Kitchen
             TextureManager.AddTexture("Whiskey", Constants.ItemsDirectory + "Whiskey.png");
@@ -81,9 +80,10 @@ namespace GGJam_2021
             TextureManager.AddTexture("Dino", Constants.PortraitSpriteSheetDirectory + "Dino.png");
             TextureManager.AddTexture("Foto", Constants.PortraitSpriteSheetDirectory + "Foto.png");
             TextureManager.AddTexture("Alcol", Constants.PortraitSpriteSheetDirectory + "Alcol.png");
-            TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "Album.png");
+            TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "album.png");
             TextureManager.AddTexture("Chitarra", Constants.PortraitSpriteSheetDirectory + "Chitarra.png");
             TextureManager.AddTexture("Bordello", Constants.PortraitSpriteSheetDirectory + "Bordello.png");
+            TextureManager.AddTexture("ComputerPortrait", Constants.PortraitSpriteSheetDirectory + "Computer.png");
             TextureManager.AddTexture("BloccoDisegni", Constants.PortraitSpriteSheetDirectory + "BloccoDisegni.png");
 
             //Dialogue
