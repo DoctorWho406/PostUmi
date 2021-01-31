@@ -28,6 +28,7 @@ namespace GGJam_2021 {
                 animation.Stop(ref textureOffset);
                 readyForChange = false;
                 SceneManager.LoadScene(nextScene);
+                
             }
         }
 
