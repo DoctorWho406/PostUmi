@@ -31,8 +31,6 @@ namespace GGJam_2021
 
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 0)
         {
-            sprite.position = Game.WindowCenter;
-            Collider.Position = sprite.position;
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, true);
             textureOffset = Vector2.Zero;
             sprite.scale = new Vector2(0.5f);
