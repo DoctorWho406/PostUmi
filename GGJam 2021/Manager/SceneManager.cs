@@ -25,7 +25,7 @@ namespace GGJam_2021 {
 
         static SceneManager() {
             IsSceneChanging = false;
-            activeScene = Scene.Room;
+            activeScene = Constants.StartingScene;
             scenes = new Dictionary<Scene, List<GameObject>>();
             for (int s = 0; s < (int)Scene.Count; s++) {
                 scenes[(Scene)s] = new List<GameObject>();
