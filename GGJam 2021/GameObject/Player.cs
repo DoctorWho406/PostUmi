@@ -1,5 +1,5 @@
 ﻿using OpenTK;
-
+using Aiv.Fast2D;
 
 namespace GGJam_2021
 {
@@ -20,12 +20,13 @@ namespace GGJam_2021
         private Vector2 textureOffset;
         private Status status;
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider)
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 0)
         {
             sprite.position = Game.WindowCenter;
             Collider.Position = sprite.position;
-            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, false);
+            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, true);
             textureOffset = Vector2.Zero;
+            sprite.scale = new Vector2(0.5f);
             status = Status.Idle;
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.75f);
             target = -Vector2.One;
@@ -50,7 +51,7 @@ namespace GGJam_2021
         public void Stop()
         {
             speed = Vector2.Zero;
-            animation.Stop(ref textureOffset);
+            //animation.Stop(ref textureOffset);
             target = -Vector2.One;
         }
 
@@ -58,12 +59,12 @@ namespace GGJam_2021
         {
             sprite.position += speed * Game.DeltaTime;
             base.Update();
+                    animation.Play();
             if (target != -Vector2.One)
             {
                 if (status != Status.Walk)
                 {
                     status = Status.Walk;
-                    animation.Play();
                 }
                 Vector2 distance = target - sprite.position;
                 if (distance.Length <= Constants.OffsetFromTarge)
@@ -75,6 +76,7 @@ namespace GGJam_2021
                 {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                 }
+
             }
         }
 
