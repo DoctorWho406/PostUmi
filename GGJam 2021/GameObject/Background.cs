@@ -8,7 +8,7 @@ namespace GGJam_2021
         public Vector2 ColliderCenter
         {
             get => collider.Position;
-            set { collider.Position = value; collider.sprite.position = value; }/*=>*/ /*collider.Position = value;*/
+            set => collider.Position = value;
         }
         protected BoxCollider collider;
 
@@ -33,13 +33,9 @@ namespace GGJam_2021
             }
         }
 
-        public override void Glitch(bool value)
+        public override void SetGlitch(bool value)
         {
-        }
-        public override void Draw()
-        {
-            base.Draw();
-            collider.Draw();
+
         }
     }
 }

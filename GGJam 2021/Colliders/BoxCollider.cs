@@ -34,12 +34,31 @@ namespace GGJam_2021
             return (Math.Abs(deltaX) <= halfSize.X + box.halfSize.Y) && (Math.Abs(deltaY) <= halfSize.X + box.halfSize.Y);
         }
 
-        protected override bool Collides(CircleCollider circle)
+        protected override bool Collides(CircleCollider circle, out Vector2 offset)
         {
+            float x = 0, y = 0;
+            if (circle.Position.X - circle.Radius < Position.X + halfSize.X)
+            {
+                x = Position.X + halfSize.X - circle.Position.X + circle.Radius;
+            }
+            else if (circle.Position.X + circle.Radius > Position.X - halfSize.X)
+            {
+                x = Position.X - halfSize.X - circle.Position.X - circle.Radius;
+            }
+            if (circle.Position.Y - circle.Radius < Position.Y + halfSize.Y)
+            {
+                y = Position.Y + halfSize.Y - circle.Position.Y + circle.Radius;
+            }
+            else if (circle.Position.Y + circle.Radius > Position.Y - halfSize.Y)
+            {
+                y = Position.Y - halfSize.Y - circle.Position.Y - circle.Radius;
+            }
             float deltaX = circle.Position.X - Math.Max(Position.X - halfSize.X, Math.Min(circle.Position.X, Position.X + halfSize.X));
             float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
+            offset = new Vector2(x, y);
             return (deltaX * deltaX + deltaY * deltaY) < (circle.Radius * circle.Radius);
         }
+
         public bool IsInside(CircleCollider circle, out Vector2 offset)
         {
             float x = 0, y = 0;
