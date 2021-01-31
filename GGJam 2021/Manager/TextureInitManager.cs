@@ -77,14 +77,14 @@ namespace GGJam_2021
             ////InteractbleObject-items
             //TextureManager.AddTexture("Empty", Constants.ItemsDirectory + "Empty.png");
 
-            ////PortraitSpriteSheet
-            //TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "Album.png");
-            //TextureManager.AddTexture("Alcol", Constants.PortraitSpriteSheetDirectory + "Alcol.png");
-            //TextureManager.AddTexture("BloccoDisegni", Constants.PortraitSpriteSheetDirectory + "BloccoDisegni.png");
-            //TextureManager.AddTexture("Bordello", Constants.PortraitSpriteSheetDirectory + "Bordello.png");
-            //TextureManager.AddTexture("Chitarra", Constants.PortraitSpriteSheetDirectory + "Chitarra.png");
-            //TextureManager.AddTexture("Dino", Constants.PortraitSpriteSheetDirectory + "Dino.png");
-            //TextureManager.AddTexture("Foto", Constants.PortraitSpriteSheetDirectory + "Foto.png");
+            //PortraitSpriteSheet
+            TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "Album.png");
+            TextureManager.AddTexture("Alcol", Constants.PortraitSpriteSheetDirectory + "Alcol.png");
+            TextureManager.AddTexture("BloccoDisegni", Constants.PortraitSpriteSheetDirectory + "BloccoDisegni.png");
+            TextureManager.AddTexture("Bordello", Constants.PortraitSpriteSheetDirectory + "Bordello.png");
+            TextureManager.AddTexture("Chitarra", Constants.PortraitSpriteSheetDirectory + "Chitarra.png");
+            TextureManager.AddTexture("Dino", Constants.PortraitSpriteSheetDirectory + "Dino.png");
+            TextureManager.AddTexture("Foto", Constants.PortraitSpriteSheetDirectory + "Foto.png");
 
 
 
