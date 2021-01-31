@@ -12,6 +12,7 @@ namespace GGJam_2021 {
         Corridor,
         Laboratory,
         BedroomParents,
+        Dialogue,
         //Add Dialogue Scene
         Count
     }

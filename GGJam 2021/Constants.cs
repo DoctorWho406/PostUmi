@@ -3,16 +3,16 @@
 namespace GGJam_2021 {
     static class Constants {
         //General
-        public const Scene StartingScene = Scene.Room;
+        public const Scene StartingScene = Scene.Dialogue;
 
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
+        public const string DialogueDirectory = "Assets/Textures/Dialogue/";
         public const string BackgroundDirectory = "Assets/Textures/Background/";
+        public const string ItemsDirectory = "Assets/Textures/InteractableObject/Items/";
         public const string CollidableObjectDirectory = "Assets/Textures/CollidableObject/";
         public const string InteractableObjectDirectory = "Assets/Textures/InteractableObject/";
-        public const string ItemsDirectory = "Assets/Textures/InteractableObject/Items/";
         public const string PortraitSpriteSheetDirectory = "Assets/Textures/PortraitSpriteSheet/";
-
         /** ENUM
          * Enum Scene in SceneManager
          * Enum CollidersType in Collider
