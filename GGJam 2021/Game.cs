@@ -1,7 +1,6 @@
 ﻿using System;
 using Aiv.Audio;
 using Aiv.Fast2D;
-using GGJam_2021.Manager;
 using OpenTK;
 
 namespace GGJam_2021

@@ -1,19 +1,14 @@
 ﻿using Aiv.Audio;
-using GGJam_2021.Manager;
 using OpenTK;
-using Aiv.Fast2D;
 
-namespace GGJam_2021
-{
+namespace GGJam_2021 {
 
-    enum Status
-    {
+    enum Status {
         Idle,
         Walk
     }
 
-    class Player : ColliderObject
-    {
+    class Player : ColliderObject {
         private Vector2 speed;
 
         private Vector2 target;
@@ -29,8 +24,7 @@ namespace GGJam_2021
         private float counterTime;
 
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 0)
-        {
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 0) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, true);
             textureOffset = Vector2.Zero;
             sprite.scale = new Vector2(0.5f);
@@ -45,58 +39,44 @@ namespace GGJam_2021
             counterTime = 0;
         }
 
-        public void Input()
-        {
-            if (Game.Window.MouseLeft)
-            {
-                if (!InputManager.IsMovingButtonClicked)
-                {
+        public void Input() {
+            if (Game.Window.MouseLeft) {
+                if (!InputManager.IsMovingButtonClicked) {
                     InputManager.IsMovingButtonClicked = true;
                     target = Game.Window.MousePosition;
                 }
-            }
-            else
-            {
+            } else {
                 InputManager.IsMovingButtonClicked = false;
             }
         }
 
-        public void FootStepTime()
-        {
-            if (counterTime <= 0)
-            {
+        public void FootStepTime() {
+            if (counterTime <= 0) {
                 PlayerSoundEmitter.Play(footStep);
                 counterTime = 0.5f;
             }
             counterTime -= Game.DeltaTime;
         }
 
-        public void Stop()
-        {
+        public void Stop() {
             speed = Vector2.Zero;
             //animation.Stop(ref textureOffset);
             target = -Vector2.One;
         }
 
-        public override void Update()
-        {
+        public override void Update() {
             sprite.position += speed * Game.DeltaTime;
             base.Update();
-                    animation.Play();
-            if (target != -Vector2.One)
-            {
-                if (status != Status.Walk)
-                {
+            animation.Play();
+            if (target != -Vector2.One) {
+                if (status != Status.Walk) {
                     status = Status.Walk;
                 }
                 Vector2 distance = target - sprite.position;
-                if (distance.Length <= Constants.OffsetFromTarge)
-                {
+                if (distance.Length <= Constants.OffsetFromTarge) {
                     sprite.position = target;
                     Stop();
-                }
-                else
-                {
+                } else {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                     FootStepTime();
 
@@ -105,8 +85,7 @@ namespace GGJam_2021
             }
         }
 
-        public override void Draw()
-        {
+        public override void Draw() {
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
         }
     }
