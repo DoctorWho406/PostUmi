@@ -21,12 +21,14 @@ namespace GGJam_2021 {
         public static bool IsSceneChanging {
             get; private set;
         }
-        private static Scene activeScene;
+        public static Scene ActiveScene {
+            get; private set;
+        }
         private static Dictionary<Scene, List<GameObject>> scenes;
 
         static SceneManager() {
             IsSceneChanging = false;
-            activeScene = Constants.StartingScene;
+            ActiveScene = Constants.StartingScene;
             scenes = new Dictionary<Scene, List<GameObject>>();
             for (int s = 0; s < (int)Scene.Count; s++) {
                 scenes[(Scene)s] = new List<GameObject>();
@@ -38,13 +40,13 @@ namespace GGJam_2021 {
         }
 
         public static List<GameObject> GetActiveObject() {
-            return scenes[activeScene];
+            return scenes[ActiveScene];
         }
 
         public static void LoadScene(Scene Scene) {
             IsSceneChanging = true;
             StatsManager.LoadScene();
-            activeScene = Scene;
+            ActiveScene = Scene;
             IsSceneChanging = false;
         }
 
@@ -53,8 +55,8 @@ namespace GGJam_2021 {
                 for (int i = 0; i < scenes[Scene.Always].Count; i++) {
                     scenes[Scene.Always][i].Update();
                 }
-                for (int i = 0; i < scenes[activeScene].Count; i++) {
-                    scenes[activeScene][i].Update();
+                for (int i = 0; i < scenes[ActiveScene].Count; i++) {
+                    scenes[ActiveScene][i].Update();
                 }
             }
         }
@@ -62,9 +64,9 @@ namespace GGJam_2021 {
         public static void Draw() {
             if (!IsSceneChanging) {
                 for (int lM = 0; lM < (int)LayerMask.Count; lM++) {
-                    for (int gO = 0; gO < scenes[activeScene].Count; gO++) {
-                        if (scenes[activeScene][gO].LayerMask == (LayerMask)lM) {
-                            scenes[activeScene][gO].Draw();
+                    for (int gO = 0; gO < scenes[ActiveScene].Count; gO++) {
+                        if (scenes[ActiveScene][gO].LayerMask == (LayerMask)lM) {
+                            scenes[ActiveScene][gO].Draw();
                         }
                     }
                     for (int gO = 0; gO < scenes[Scene.Always].Count; gO++) {
