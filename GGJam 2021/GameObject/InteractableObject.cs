@@ -1,7 +1,7 @@
 ﻿using OpenTK;
 
 namespace GGJam_2021 {
-    abstract class InteractableObject : ColliderObject {
+     class InteractableObject : ColliderObject {
         protected Collider trigger;
         protected Scene nextScene;
 

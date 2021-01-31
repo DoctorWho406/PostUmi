@@ -1,5 +1,5 @@
 ﻿namespace GGJam_2021 {
-    abstract class ColliderObject : GameObject {
+     class ColliderObject : GameObject {
         public Collider Collider;
 
         public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h= 0) : base(textureName, layerMask, scene, w, h) {
