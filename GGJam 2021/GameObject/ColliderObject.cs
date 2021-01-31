@@ -1,8 +1,8 @@
 ﻿namespace GGJam_2021 {
-     class ColliderObject : GameObject {
+    class ColliderObject : GameObject {
         public Collider Collider;
 
-        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h= 0) : base(textureName, layerMask, scene, w, h) {
+        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h = 0, float eulerRotation = 0) : base(textureName, layerMask, scene, w, h, eulerRotation) {
             switch (colliderType) {
                 case ColliderType.BoxCollider:
                     Collider = new BoxCollider(size);
