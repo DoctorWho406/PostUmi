@@ -22,8 +22,9 @@ namespace GGJam_2021
         {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsClicked(/*//il player non dovrebbe muoversi//*/))
+            if (IsClicked() && !eating)
             {
+                //Il palyer non dovrebbe muoversi
                 animation.Play();
                 eating = true;
                 StatsManager.AddStats(Constants.HungerFromFridge, Stat.Hunger);

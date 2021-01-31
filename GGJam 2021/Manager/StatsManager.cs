@@ -102,7 +102,6 @@ namespace GGJam_2021
 
         public static void AddStats(float value, Stat stat)
         {
-            float pValue = value * 100;
             switch (stat)
             {
                 case Stat.Hunger:
