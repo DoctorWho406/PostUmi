@@ -53,7 +53,6 @@ namespace GGJam_2021
                 {
                     InputManager.IsMovingButtonClicked = true;
                     target = Game.Window.MousePosition;
-                    Game.ObjectTaken++;
                 }
             }
             else
