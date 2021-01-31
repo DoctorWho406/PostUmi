@@ -105,12 +105,12 @@ namespace GGJam_2021
             switch (stat)
             {
                 case Stat.Hunger:
-                    pValue /= Constants.HungerMax;
-                    Hunger += pValue;
+                    value /= Constants.HungerMax;
+                    Hunger += value;
                     break;
                 case Stat.Paranoia:
-                    pValue /= Constants.ParanoiaMax;
-                    Paranoia += pValue;
+                    value /= Constants.ParanoiaMax;
+                    Paranoia += value;
                     break;
             }
         }
