@@ -71,6 +71,8 @@
     <Compile Include="GameObject\InteractableObject.cs" />
     <Compile Include="GameObject\GameObject.cs" />
     <Compile Include="GameObject\Player.cs" />
+    <Compile Include="Manager\AudioClipInitManager.cs" />
+    <Compile Include="Manager\AudioManager.cs" />
     <Compile Include="Manager\TextureInitManager.cs" />
     <Compile Include="Manager\InputManager.cs" />
     <Compile Include="Manager\StatsManager.cs" />
@@ -88,6 +90,52 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\AudioClips\Credits.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\FootStep.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\GameLoop_layer_01.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\GameLoop_layer_01_glitch.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\GameLoop_layer_02.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\GameLoop_layer_02_glitch.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\GameLoop_layer_03.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\GameLoop_layer_03_glitch.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Interaction.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Intro.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Outro_layer_01.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Outro_layer_02.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Outro_layer_03.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Radio01.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Radio02.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AudioClips\Radio03.ogg">
     <Content Include="Assets\Textures\Dialogue\actionfigure.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

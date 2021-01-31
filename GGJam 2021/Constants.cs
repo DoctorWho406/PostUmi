@@ -13,11 +13,14 @@ namespace GGJam_2021 {
         public const string CollidableObjectDirectory = "Assets/Textures/CollidableObject/";
         public const string InteractableObjectDirectory = "Assets/Textures/InteractableObject/";
         public const string PortraitSpriteSheetDirectory = "Assets/Textures/PortraitSpriteSheet/";
+        public const string AudioClipsDirectory = "Assets/AudioClips/";
+      
         /** ENUM
          * Enum Scene in SceneManager
          * Enum CollidersType in Collider
          * Enum LayerMask in GameObject
          **/
+      
         //GameObject
         public const float GlitchTime = 0.5f;
         public static Vector4 tintaBlue = new Vector4(1, 1, 20, 1);
