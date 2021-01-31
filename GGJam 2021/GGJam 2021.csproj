@@ -136,6 +136,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\AudioClips\Radio03.ogg">
+    </Content>
     <Content Include="Assets\Textures\Dialogue\actionfigure.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
