@@ -79,8 +79,24 @@ namespace GGJam_2021 {
                         }
                     }
                     for (int gO = 0; gO < scenes[Scene.Always].Count; gO++) {
-                        if (scenes[Scene.Always][gO].LayerMask == (LayerMask)lM) {
-                            scenes[Scene.Always][gO].Draw();
+                        if (scenes[Scene.Always][gO] is Player) {
+                            if (!(ActiveScene == Scene.DialogueAlbum)
+                                && !(ActiveScene == Scene.DialogueAlcol)
+                                && !(ActiveScene == Scene.DialogueBloccoDisegni)
+                                && !(ActiveScene == Scene.DialogueBordello)
+                                && !(ActiveScene == Scene.DialogueChitarra)
+                                && !(ActiveScene == Scene.DialogueComputer)
+                                && !(ActiveScene == Scene.DialogueDino)
+                                && !(ActiveScene == Scene.DialogueFoto)
+                                && !(ActiveScene == Scene.DialogueVomito)) {
+                                if (scenes[Scene.Always][gO].LayerMask == (LayerMask)lM) {
+                                    scenes[Scene.Always][gO].Draw();
+                                }
+                            }
+                        } else {
+                            if (scenes[Scene.Always][gO].LayerMask == (LayerMask)lM) {
+                                scenes[Scene.Always][gO].Draw();
+                            }
                         }
                     }
                 }
