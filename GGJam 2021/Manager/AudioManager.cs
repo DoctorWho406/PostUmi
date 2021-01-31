@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GGJam_2021.Manager
+namespace GGJam_2021
 {
     static class AudioManager
     {
