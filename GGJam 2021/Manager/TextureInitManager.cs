@@ -4,6 +4,15 @@ namespace GGJam_2021 {
         public static void Start() {
 
             //Background
+            //Room
+            //Kitchen
+            //bathroom
+            //corridor
+            //loungeArea
+            //laboratory
+            //anteroomExit
+            //bedroomparents
+            //centralCorridor
             TextureManager.AddTexture("Room", Constants.BackgroundDirectory + "Room.png");
             TextureManager.AddTexture("Kitchen", Constants.BackgroundDirectory + "Kitchen.png");
             TextureManager.AddTexture("Bathroom", Constants.BackgroundDirectory + "Bathroom.png");
@@ -22,9 +31,7 @@ namespace GGJam_2021 {
             TextureManager.AddTexture("Lampada", Constants.CollidableObjectDirectory + "Lampada.png");
             TextureManager.AddTexture("LettoRoom", Constants.CollidableObjectDirectory + "LettoRoom.png");
             TextureManager.AddTexture("CessoBidet", Constants.CollidableObjectDirectory + "CessoBidet.png");
-
             TextureManager.AddTexture("SediaRoom1", Constants.CollidableObjectDirectory + "SediaRoom1.png");
-
             TextureManager.AddTexture("DoppioCesso", Constants.CollidableObjectDirectory + "DoppioCesso.png");
             TextureManager.AddTexture("SediaSalone", Constants.CollidableObjectDirectory + "SediaSalone.png");
             TextureManager.AddTexture("ArmadioRoom", Constants.CollidableObjectDirectory + "ArmadioRoom.png");
