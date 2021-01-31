@@ -19,15 +19,17 @@ namespace GGJam_2021
 
         private static void RoomLoad()
         {
-            new Background("Room", Scene.Room, new Vector2(1173, 858)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(979, 629) }.Scale(0.7f);
+            new Background("Room", Scene.Room, new Vector2(1173, 858)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(979, 629) }.Scale(1f);
 
-            new Door(Scene.Room, Scene.CentralCorridor) { Position = Game.WindowCenter }.Scale(0.5f);
+            new Door(Scene.Room, Scene.CentralCorridor) { Position = new Vector2(984, 230) }.Scale(0.7f);
 
-            new ColliderObject("SediaRoom1", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter + new Vector2(600, 300) }.Scale(0.5f);
-            new ColliderObject("Lampada", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter + new Vector2(600, 300) }.Scale(0.5f);
-            new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter + new Vector2(600, 300) }.Scale(0.5f);
-            new ColliderObject("ArmadioRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter + new Vector2(600, 300) }.Scale(0.5f);
-            new ColliderObject("LettoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter + new Vector2(600, 300) }.Scale(0.5f);
+            new ColliderObject("SediaRoom1", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =  new Vector2(1288, 651) }.Scale(0.5f);
+            new ColliderObject("Lampada", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =   new Vector2(1481, 318) }.Scale(0.8f);
+            new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =  new Vector2(450, 536) }.Scale(0.7f);
+            new ColliderObject("ArmadioRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =  new Vector2(401, 998) }.Scale(0.5f);
+            new ColliderObject("LettoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =  new Vector2(450, 331) }.Scale(0.7f);
+            new ColliderObject("Desk", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position =  new Vector2(1421, 471)}.Scale(0.3f);
+
         }
 
         private static void CentralCorridorLoad()
