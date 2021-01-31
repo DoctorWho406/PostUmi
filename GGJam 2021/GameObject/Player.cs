@@ -1,14 +1,17 @@
 ﻿using OpenTK;
 
 
-namespace GGJam_2021 {
+namespace GGJam_2021
+{
 
-    enum Status {
+    enum Status
+    {
         Idle,
         Walk
     }
 
-    class Player : ColliderObject {
+    class Player : ColliderObject
+    {
         private Vector2 speed;
 
         private Vector2 target;
@@ -17,46 +20,66 @@ namespace GGJam_2021 {
         private Vector2 textureOffset;
         private Status status;
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider) {
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider)
+        {
+            sprite.position = Game.WindowCenter;
+            Collider.Position = sprite.position;
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, false);
             textureOffset = Vector2.Zero;
             status = Status.Idle;
-            sprite.pivot = new Vector2(0, sprite.Height * 0.5f);
-
+            sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.75f);
             target = -Vector2.One;
         }
 
-        public void Input() {
-            if (Game.Window.MouseLeft) {
-                target = Game.Window.MousePosition;
+        public void Input()
+        {
+            if (Game.Window.MouseLeft)
+            {
+                if (!InputManager.IsMovingButtonClicked)
+                {
+                    InputManager.IsMovingButtonClicked = true;
+                    target = Game.Window.MousePosition;
+                }
+            }
+            else
+            {
+                InputManager.IsMovingButtonClicked = false;
             }
         }
 
-        public void Stop() {
+        public void Stop()
+        {
             speed = Vector2.Zero;
             animation.Stop(ref textureOffset);
             target = -Vector2.One;
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             sprite.position += speed * Game.DeltaTime;
-            if (target != -Vector2.One) {
-                if (status != Status.Walk) {
+            base.Update();
+            if (target != -Vector2.One)
+            {
+                if (status != Status.Walk)
+                {
                     status = Status.Walk;
                     animation.Play();
                 }
-                base.Update();
                 Vector2 distance = target - sprite.position;
-                if (distance.Length <= Constants.OffsetFromTarge) {
+                if (distance.Length <= Constants.OffsetFromTarge)
+                {
                     sprite.position = target;
                     Stop();
-                } else {
+                }
+                else
+                {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                 }
             }
         }
 
-        public override void Draw() {
+        public override void Draw()
+        {
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
         }
     }

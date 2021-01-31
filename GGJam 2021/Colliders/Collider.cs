@@ -27,5 +27,7 @@ namespace GGJam_2021 {
         protected abstract bool Collides(BoxCollider box);
 
         protected abstract bool Collides(CircleCollider circle);
+
+        
     }
 }

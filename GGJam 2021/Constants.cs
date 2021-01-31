@@ -3,7 +3,7 @@
 namespace GGJam_2021 {
     static class Constants {
         //General
-        public const Scene StartingScene = Scene.CentralCorridor;
+        public const Scene StartingScene = Scene.Bathroom;
 
         //Textures directory
         public const string TextureDirectory = "Assets/Textures/";
@@ -28,6 +28,9 @@ namespace GGJam_2021 {
 
         //Door 
         public const int FPSDoorAnimation = 5;
+
+        //Fridge
+        public const float HungerFromFridge = 10;
 
         //Player
         public const float PlayerSpeed = 250f;

@@ -1,14 +1,18 @@
-﻿using OpenTK;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using OpenTK;
+using System.Threading.Tasks;
 
-namespace GGJam_2021 {
-    class Door : ChangeSceneObject
+namespace GGJam_2021
+{
+    class Fridge : InteractableObject
     {
         protected Animation animation;
 
         private Vector2 textureOffset;
-        private bool readyForChange;
-
-        public Door(Scene actualScene, Scene nextScene) : base("FrontDoor", LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider, 390, 0)
+        public Fridge( Scene scene, ColliderType colliderType, int w = 0, int h = 0) : base("Frigorifero", LayerMask.Background, scene, colliderType, w, h)
         {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
@@ -18,16 +22,9 @@ namespace GGJam_2021 {
         {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsClicked())
+            if (IsClicked(/*//il player non dovrebbe muoversi//*/))
             {
-                animation.Play();
-                readyForChange = true;
-            }
-            if (readyForChange && !animation.IsPlaying)
-            {
-                animation.Stop(ref textureOffset);
-                readyForChange = false;
-                SceneManager.LoadScene(nextScene);
+                StatsManager.AddStats(Constants.HungerFromFridge, Stat.Hunger);
             }
         }
 

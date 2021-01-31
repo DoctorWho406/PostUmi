@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="GameObject\ChangeSceneObject.cs" />
+    <Compile Include="GameObject\Fridge.cs" />
     <Compile Include="GameObject\Background.cs" />
     <Compile Include="Colliders\BoxCollider.cs" />
     <Compile Include="Colliders\CircleCollider.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Manager\TextureInitManager.cs" />
     <Compile Include="Manager\InputManager.cs" />
     <Compile Include="Manager\StatsManager.cs" />
+    <Compile Include="GameObject\Portrait.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Manager\SceneManager.cs" />
     <Compile Include="Manager\SceneInitManager.cs" />
@@ -113,6 +116,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\CollidableObject\ArmadioRoom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\CollidableObject\armadio_bedroom_parents.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\CollidableObject\banco_cucina_kitchen.png">

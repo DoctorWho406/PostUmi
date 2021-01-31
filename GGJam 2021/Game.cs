@@ -2,18 +2,22 @@
 using Aiv.Fast2D;
 using OpenTK;
 
-namespace GGJam_2021 {
-    static class Game {
+namespace GGJam_2021
+{
+    static class Game
+    {
         public static Random Random;
         public static Window Window;
-        public static Vector2 WindowCenter {
+        public static Vector2 WindowCenter
+        {
             get; private set;
         }
         public static float DeltaTime => Window.DeltaTime;
         public static Player Player;
         public static Cursor Cursor;
 
-        public static void Init() {
+        public static void Init()
+        {
             //Init Random
             Random = new Random();
             //Init Window
@@ -24,24 +28,23 @@ namespace GGJam_2021 {
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
             TextureInitManager.Start();
             SceneInitManager.Start();
-
             //Edit cursor
             Cursor = new Cursor();
             Cursor.Scale(0.2f);
             Window.SetMouseVisible(false);
 
-
-            Player = new Player() {
-                Position = Game.WindowCenter
-            };
+            Player = new Player();
         }
-        public static void Play() {
-            while (Window.IsOpened) {
+        public static void Play()
+        {
+            while (Window.IsOpened)
+            {
                 //Exit on esc
-                if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
+                if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/)
+                {
                     break;
                 }
-
+                Console.WriteLine(Window.MousePosition.X + "x" + "  " + Window.MousePosition.Y + "y");
                 Player.Input();
 
                 SceneManager.Update();
@@ -49,6 +52,7 @@ namespace GGJam_2021 {
 
                 SceneManager.Draw();
                 StatsManager.Draw();
+               
 
                 Window.Update();
             }
