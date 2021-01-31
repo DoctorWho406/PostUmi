@@ -2,7 +2,7 @@
     class ColliderObject : GameObject {
         public Collider Collider;
 
-        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h = 0, float eulerRotation = 0) : base(textureName, layerMask, scene, w, h, eulerRotation) {
+        public ColliderObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, float eulerRotation = 0, int w = 0, int h = 0) : base(textureName, layerMask, scene, eulerRotation, w, h) {
             switch (colliderType) {
                 case ColliderType.BoxCollider:
                     Collider = new BoxCollider(size);
