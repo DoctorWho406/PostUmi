@@ -2,7 +2,7 @@
 namespace GGJam_2021 {
     static class TextureInitManager {
         public static void Start() {
-            
+
             //Background
             TextureManager.AddTexture("Room", Constants.BackgroundDirectory + "Room.png");
             TextureManager.AddTexture("AnteroomExit", Constants.BackgroundDirectory + "AnteroomExit.png");
@@ -22,7 +22,7 @@ namespace GGJam_2021 {
             TextureManager.AddTexture("DoppioCesso", Constants.CollidableObjectDirectory + "DoppioCesso.png");
             TextureManager.AddTexture("Lampada", Constants.CollidableObjectDirectory + "Lampada.png");
             TextureManager.AddTexture("LavandinoCesso", Constants.CollidableObjectDirectory + "LavandinoCesso.png");
-            TextureManager.AddTexture("LettomRoom", Constants.CollidableObjectDirectory + "LettomRoom.png");
+            TextureManager.AddTexture("LettoRoom", Constants.CollidableObjectDirectory + "LettoRoom.png");
             TextureManager.AddTexture("Pianta2", Constants.CollidableObjectDirectory + "Pianta2.png");
             TextureManager.AddTexture("Pianta3", Constants.CollidableObjectDirectory + "Pianta3.png");
             TextureManager.AddTexture("ScaffaleDaLavoroLaboratory", Constants.CollidableObjectDirectory + "ScaffaleDaLavoroLaboratory.png");
@@ -31,7 +31,7 @@ namespace GGJam_2021 {
             TextureManager.AddTexture("SediaRoom1", Constants.CollidableObjectDirectory + "SediaRoom1.png");
             TextureManager.AddTexture("SediaSalone", Constants.CollidableObjectDirectory + "SediaSalone.png");
             TextureManager.AddTexture("TavolaLungaSalone", Constants.CollidableObjectDirectory + "TavolaLungaSalone.png");
-            TextureManager.AddTexture("TavolaDaLavoroLaboratory", Constants.CollidableObjectDirectory + "TavolaDaLavoroLaboratory.png");
+            TextureManager.AddTexture("TavoloDaLavoroLaboratory", Constants.CollidableObjectDirectory + "TavoloDaLavoroLaboratory.png");
             TextureManager.AddTexture("TvConCasseSalone", Constants.CollidableObjectDirectory + "TvConCasseSalone.png");
 
             //InteractbleObject-items
@@ -46,7 +46,7 @@ namespace GGJam_2021 {
             TextureManager.AddTexture("PileMess", Constants.ItemsDirectory + "PileMess.png");
             TextureManager.AddTexture("Retched", Constants.ItemsDirectory + "Retched.png");
             TextureManager.AddTexture("Sketchbook", Constants.ItemsDirectory + "Sketchbooketched.png");
-            TextureManager.AddTexture("Wisky", Constants.ItemsDirectory + "Wisky.png");
+            TextureManager.AddTexture("Whiskey", Constants.ItemsDirectory + "Whiskey.png");
 
             //PortraitSpriteSheet
             TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "Album.png");
@@ -62,7 +62,7 @@ namespace GGJam_2021 {
 
 
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
-            TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "PlayerProva.jpg");
+            TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "PlayerProva.png");
 
 
 

@@ -20,7 +20,7 @@ namespace GGJam_2021 {
         }
 
         public override void Update() {
-            if (collider.Collides(Game.Player.Collider)) {
+            if (!collider.Collides(Game.Player.Collider)) {
                 Game.Player.Stop();
             }
         }

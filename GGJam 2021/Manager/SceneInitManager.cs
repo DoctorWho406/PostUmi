@@ -1,4 +1,4 @@
-﻿using OpenTK;
+﻿    using OpenTK;
 
 namespace GGJam_2021 {
     static class SceneInitManager
