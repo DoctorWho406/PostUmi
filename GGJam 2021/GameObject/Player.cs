@@ -1,4 +1,6 @@
-﻿using OpenTK;
+﻿using Aiv.Audio;
+using GGJam_2021.Manager;
+using OpenTK;
 
 
 namespace GGJam_2021
@@ -20,6 +22,12 @@ namespace GGJam_2021
         private Vector2 textureOffset;
         private Status status;
 
+        public static AudioSource PlayerSoundEmitter;
+
+        private static AudioClip footStep;
+        public static AudioClip Interaction;
+        private float counterTime;
+
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider)
         {
             sprite.position = Game.WindowCenter;
@@ -29,6 +37,12 @@ namespace GGJam_2021
             status = Status.Idle;
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.75f);
             target = -Vector2.One;
+            //AudioStuff
+            PlayerSoundEmitter = new AudioSource();
+            footStep = AudioManager.GetAudioClip("FootStep");
+            Interaction = AudioManager.GetAudioClip("Interaction");
+            PlayerSoundEmitter.Volume = 1f;
+            counterTime = 0;
         }
 
         public void Input()
@@ -39,12 +53,23 @@ namespace GGJam_2021
                 {
                     InputManager.IsMovingButtonClicked = true;
                     target = Game.Window.MousePosition;
+                    Game.ObjectTaken++;
                 }
             }
             else
             {
                 InputManager.IsMovingButtonClicked = false;
             }
+        }
+
+        public void FootStepTime()
+        {
+            if (counterTime <= 0)
+            {
+                PlayerSoundEmitter.Play(footStep);
+                counterTime = 0.5f;
+            }
+            counterTime -= Game.DeltaTime;
         }
 
         public void Stop()
@@ -74,6 +99,8 @@ namespace GGJam_2021
                 else
                 {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
+                    FootStepTime();
+
                 }
             }
         }

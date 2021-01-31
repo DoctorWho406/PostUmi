@@ -38,6 +38,8 @@ namespace GGJam_2021
                         if (Collider.Collides(Game.Cursor.Collider, out Vector2 v))
                         {
                             //System.Console.WriteLine("Hai cliccato su un InteractableObject");
+                            Player.PlayerSoundEmitter.Play(Player.Interaction);
+                            Game.ObjectTaken++;
                             InputManager.IsTriggerButtonClicked = true;
                             return true;
                         }
