@@ -39,7 +39,7 @@ namespace GGJam_2021 {
                     isAnimated = false;
                 }
             }
-            if (IsClicked()) {
+            if (IsNearAndClicked()) {
                 if (animation == null) {
                     if (InteractableObjectManager.CanOpenIt(this)) {
                         SceneManager.LoadScene(nextScene);

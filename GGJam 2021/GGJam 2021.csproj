@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="GameObject\Button.cs" />
     <Compile Include="GameObject\ChangeSceneObject.cs" />
     <Compile Include="GameObject\Fridge.cs" />
     <Compile Include="GameObject\Background.cs" />

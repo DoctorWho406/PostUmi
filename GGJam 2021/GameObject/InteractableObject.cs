@@ -20,7 +20,7 @@ namespace GGJam_2021 {
             trigger.Scale(scaleFactory);
         }
 
-        protected bool IsClicked() {
+        protected bool IsNearAndClicked() {
             if (trigger.Collides((CircleCollider)Game.Player.Collider, out Vector2 V)) {
                 //Controllo click
                 //System.Console.WriteLine("NEAR");
@@ -36,6 +36,23 @@ namespace GGJam_2021 {
                 } else {
                     InputManager.IsTriggerButtonClicked = false;
                 }
+            }
+            return false;
+        }
+
+        protected bool IsClicked() {
+            //Controllo click
+            if (Game.Window.MouseRight) {
+                if (!InputManager.IsTriggerButtonClicked) {
+                    if (Collider.Collides((CircleCollider)Game.Cursor.Collider, out Vector2 v)) {
+                        //System.Console.WriteLine("Hai cliccato su un InteractableObject");
+                        InputManager.IsTriggerButtonClicked = true;
+                        Player.PlayerSoundEmitter.Play(Player.Interaction);
+                        return true;
+                    }
+                }
+            } else {
+                InputManager.IsTriggerButtonClicked = false;
             }
             return false;
         }

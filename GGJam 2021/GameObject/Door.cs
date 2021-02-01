@@ -26,7 +26,7 @@ namespace GGJam_2021 {
         public override void Update() {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsClicked() && !animation.IsPlaying) {
+            if (IsNearAndClicked() && !animation.IsPlaying) {
                 animation.Play();
                 readyForChange = true;
             }

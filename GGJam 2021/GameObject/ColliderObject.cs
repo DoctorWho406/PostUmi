@@ -41,7 +41,7 @@ namespace GGJam_2021 {
             ////} else if (Collider is CircleCollider) {
             //    ((CircleCollider)Collider).sprite.position = Collider.Position;
             //}
-            if (!(this is Player) && !(this is InteractableObject)) {
+            if (!(this is Player) && !(this is InteractableObject) && !(this is Button)) {
                 if (SceneManager.ActiveScene == scene) {
                     if (Collider.Collides((CircleCollider)Game.Player.Collider, out Vector2 offset)) {
                         Game.Player.Stop();

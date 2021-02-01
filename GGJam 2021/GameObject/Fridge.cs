@@ -13,7 +13,7 @@ namespace GGJam_2021 {
         public override void Update() {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsClicked() && !eating) {
+            if (IsNearAndClicked() && !eating) {
                 Game.Player.IsActive = false;
                 animation.Play();
                 eating = true;
