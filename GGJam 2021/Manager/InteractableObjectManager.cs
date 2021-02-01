@@ -2,7 +2,9 @@
 
 namespace GGJam_2021 {
     static class InteractableObjectManager {
-        private static Dictionary<Portrait, Portrait> orderList;
+        public static Dictionary<Portrait, Portrait> orderList {
+            get; private set;        
+        }
 
         static InteractableObjectManager() {
             orderList = new Dictionary<Portrait, Portrait>();
