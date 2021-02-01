@@ -6,19 +6,19 @@ namespace GGJam_2021 {
         protected Vector2 size;
         protected Vector2 halfSize;
 
-        //public Sprite sprite;
+        public Sprite sprite;
 
         public BoxCollider(Vector2 size) : base() {
             this.size = size;
             halfSize = size * 0.5f;
 
-            //sprite = new Sprite(size.X, size.Y) { pivot = halfSize };
+            sprite = new Sprite(size.X, size.Y) { pivot = halfSize };
         }
         public override void Scale(float scaleFactory) {
             size *= scaleFactory;
             halfSize *= scaleFactory;
 
-            //sprite.scale = new Vector2(scaleFactory);
+            sprite.scale = new Vector2(scaleFactory);
         }
 
         protected override bool Collides(BoxCollider box) {
@@ -73,9 +73,9 @@ namespace GGJam_2021 {
             return true;
         }
 
-        //public void Draw() {
-        //    sprite.DrawWireframe(0, 255, 0);
-        //}
+        public void Draw() {
+            sprite.DrawWireframe(0, 255, 0);
+        }
     }
 }
 
