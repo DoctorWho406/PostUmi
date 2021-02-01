@@ -1,10 +1,9 @@
 ﻿using OpenTK;
 
 namespace GGJam_2021 {
-    class Door : ChangeSceneObject
-    {
+    class Door : ChangeSceneObject {
         public Vector2 positionPlayer;
-            
+
         protected Animation animation;
 
         private Vector2 textureOffset;
@@ -12,45 +11,35 @@ namespace GGJam_2021 {
 
         private Door nextDoor;
 
-        public Door(string texturName, Scene actualScene, Scene nextScene, Door nextDoor, Vector2 positionPlayer) : base(texturName, LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider, 390, 0)
-        {
+        public Door(string texturName, Scene actualScene, Scene nextScene, Door nextDoor, Vector2 positionPlayer) : base(texturName, LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider, 390, 0) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
-            this.positionPlayer= positionPlayer;
+            this.positionPlayer = positionPlayer;
+            this.nextDoor = nextDoor;
         }
 
-        public override void Update()
-        {
+        public override void Update() {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsClicked())
-            {
+            if (IsClicked()) {
                 animation.Play();
                 readyForChange = true;
             }
-            if (readyForChange && !animation.IsPlaying)
-            {
+            if (readyForChange && !animation.IsPlaying) {
                 animation.Stop(ref textureOffset);
                 readyForChange = false;
                 SceneManager.LoadScene(nextScene, nextDoor.positionPlayer);
-                
+
             }
         }
 
-        public override void Draw()
-        {
-            if (!glitch)
-            {
+        public override void Draw() {
+            if (!glitch) {
                 sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-            }
-            else
-            {
-                if (glithched)
-                {
+            } else {
+                if (glithched) {
                     spriteGlitch1.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-                }
-                else
-                {
+                } else {
                     spriteGlitch2.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
                 }
             }

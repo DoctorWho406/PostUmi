@@ -1,23 +1,24 @@
 ﻿using System;
+using Aiv.Fast2D;
 using OpenTK;
 namespace GGJam_2021 {
     class BoxCollider : Collider {
         protected Vector2 size;
         protected Vector2 halfSize;
 
-        //public Sprite sprite;
+        public Sprite sprite;
 
         public BoxCollider(Vector2 size) : base() {
             this.size = size;
             halfSize = size * 0.5f;
 
-            //sprite = new Sprite(size.X, size.Y) { pivot = halfSize };
+            sprite = new Sprite(size.X, size.Y) { pivot = halfSize };
         }
         public override void Scale(float scaleFactory) {
             size *= scaleFactory;
             halfSize *= scaleFactory;
 
-            //sprite.scale = new Vector2(scaleFactory);
+            sprite.scale = new Vector2(scaleFactory);
         }
 
         protected override bool Collides(BoxCollider box) {
@@ -28,7 +29,6 @@ namespace GGJam_2021 {
         }
 
         public override bool Collides(CircleCollider circle, out Vector2 offset) {
-            float x = 0, y = 0;
             //if (circle.Position.X - circle.Radius < Position.X + halfSize.X) {
             //    x = Position.X + halfSize.X - circle.Position.X + circle.Radius;
             //} else if (circle.Position.X + circle.Radius > Position.X - halfSize.X) {
@@ -43,7 +43,19 @@ namespace GGJam_2021 {
             float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
             offset = Vector2.Zero;
             if ((deltaX * deltaX + deltaY * deltaY) < (circle.Radius * circle.Radius)) {
-                offset = new Vector2(deltaX, deltaY);
+                if (deltaX * deltaX < deltaY * deltaY) {
+                    if (deltaY > 0) {
+                        offset = new Vector2(0, circle.Radius - deltaY);
+                    } else {
+                        offset = new Vector2(0, -(circle.Radius + deltaY));
+                    }
+                } else {
+                    if (deltaX > 0) {
+                        offset = new Vector2(circle.Radius - deltaX, 0);
+                    } else {
+                        offset = new Vector2(-(circle.Radius  + deltaX), 0);
+                    }
+                }
                 return true;
             }
             return false;
@@ -72,10 +84,9 @@ namespace GGJam_2021 {
             return true;
         }
 
-        //public void Draw()
-        //{
-        //    sprite.DrawWireframe(0, 255, 0);
-        //}
+        public void Draw() {
+            sprite.DrawWireframe(0, 255, 0);
+        }
     }
 }
 

@@ -83,7 +83,6 @@ namespace GGJam_2021 {
                 } else {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                     FootStepTime();
-
                 }
 
             }
