@@ -83,6 +83,23 @@ namespace GGJam_2021 {
 
         public static void LoadScene(Scene scene, Vector2 playerPosition) {
             IsSceneChanging = true;
+            if ((scene == Scene.DialogueAlbum)
+                || (scene == Scene.DialogueAlcol)
+                || (scene == Scene.DialogueBloccoDisegni)
+                || (scene == Scene.DialogueBordello)
+                || (scene == Scene.DialogueChitarra)
+                || (scene == Scene.DialogueComputer)
+                || (scene == Scene.DialogueDino)
+                || (scene == Scene.DialogueFoto)
+                || (scene == Scene.DialogueVomito)
+                || (scene == Scene.Menu)
+                || (scene == Scene.BadEndGame)) {
+                Game.Player.IsVisible = false;
+                Game.Player.IsActive = false;
+            } else {
+                Game.Player.IsVisible = true;
+                Game.Player.IsActive = true;
+            }
             Game.Player.Position = playerPosition;
             StatsManager.LoadScene();
             ActiveScene = scene;
