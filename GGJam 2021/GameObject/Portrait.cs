@@ -43,12 +43,12 @@ namespace GGJam_2021 {
                 if (animation == null) {
                     if (InteractableObjectManager.CanOpenIt(this)) {
                         SceneManager.LoadScene(nextScene);
-                        Game.ObjectTaken++;
+                        MusicManager.ObjectTaken++;
                         isOpened = true;
                     }
                 } else {
                     SceneManager.LoadScene(nextScene);
-                    Game.ObjectTaken++;
+                    MusicManager.ObjectTaken++;
                 }
             }
         }
