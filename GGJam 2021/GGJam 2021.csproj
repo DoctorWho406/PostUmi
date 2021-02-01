@@ -73,6 +73,7 @@
     <Compile Include="GameObject\Player.cs" />
     <Compile Include="Manager\AudioClipInitManager.cs" />
     <Compile Include="Manager\AudioManager.cs" />
+    <Compile Include="Manager\InteractableObjectManager.cs" />
     <Compile Include="Manager\TextureInitManager.cs" />
     <Compile Include="Manager\InputManager.cs" />
     <Compile Include="Manager\StatsManager.cs" />
