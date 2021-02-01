@@ -8,17 +8,16 @@ namespace GGJam_2021 {
         RightWalk,
         TopWalk,
         LeftWalk,
-        Walk
     }
 
     class Player : ColliderObject {
         private Vector2 speed;
-
         private Vector2 target;
 
         private Animation animation;
         private Vector2 textureOffset;
         private Status status;
+        private bool correctSide;
 
         public static AudioSource PlayerSoundEmitter;
 
@@ -31,6 +30,7 @@ namespace GGJam_2021 {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
             status = Status.FrontWalk;
             textureOffset = Vector2.Zero;
+            correctSide = true;
 
             sprite.position = new Vector2(886, 570);
             Collider.Position = sprite.position;
@@ -74,12 +74,37 @@ namespace GGJam_2021 {
         public override void Update() {
             sprite.position += speed * Game.DeltaTime;
             base.Update();
-            animation.Update(ref textureOffset);
             if (target != -Vector2.One) {
+                Vector2 distance = target - sprite.position;
+                if (distance.X < distance.Y) {
+                    if (distance.X < -distance.Y) {
+                        status = Status.LeftWalk;
+                    } else if (distance.X > -distance.Y) {
+                        status = Status.TopWalk;
+                    }
+                } else {
+                    if (distance.X < -distance.Y) {
+                        status = Status.FrontWalk;
+                    } else if (distance.X > -distance.Y) {
+                        status = Status.RightWalk;
+                    }
+                }
+                if (status == Status.LeftWalk) {
+                    if (correctSide) {
+                        correctSide = false;
+                        sprite.FlipX = false;
+                    }
+                    textureOffset.Y = 654;
+                } else if (status == Status.RightWalk && !correctSide) {
+                    correctSide = true;
+                    sprite.FlipX = true;
+                } else {
+                    textureOffset.Y = (int)status * 654;
+                }
+                animation.Update(ref textureOffset);
                 if (!animation.IsPlaying) {
                     animation.Play();
                 }
-                Vector2 distance = target - sprite.position;
                 if (distance.Length <= Constants.OffsetFromTarge) {
                     sprite.position = target;
                     Stop();
