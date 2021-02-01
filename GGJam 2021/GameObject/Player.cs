@@ -4,7 +4,10 @@ using OpenTK;
 namespace GGJam_2021 {
 
     enum Status {
-        Idle,
+        FrontWalk,
+        RightWalk,
+        TopWalk,
+        LeftWalk,
         Walk
     }
 
@@ -26,13 +29,13 @@ namespace GGJam_2021 {
 
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 654) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
+            status = Status.FrontWalk;
+            textureOffset = Vector2.Zero;
+
             sprite.position = new Vector2(886, 570);
             Collider.Position = sprite.position;
-            //((CircleCollider)Collider).sprite.position = Collider.Position;
             Collider.Scale(0.5f);
-            textureOffset = Vector2.Zero;
             sprite.scale = new Vector2(0.5f);
-            status = Status.Idle;
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.75f);
             target = -Vector2.One;
             //AudioStuff
@@ -72,12 +75,9 @@ namespace GGJam_2021 {
             sprite.position += speed * Game.DeltaTime;
             base.Update();
             animation.Update(ref textureOffset);
-            
             if (target != -Vector2.One) {
-                animation.Play();
-                if (status != Status.Walk) {
-                    status = Status.Walk;
-                    
+                if (!animation.IsPlaying) {
+                    animation.Play();
                 }
                 Vector2 distance = target - sprite.position;
                 if (distance.Length <= Constants.OffsetFromTarge) {

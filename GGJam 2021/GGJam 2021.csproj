@@ -305,6 +305,9 @@
     <Content Include="Assets\Textures\InteractableObject\pg_everystate_fiduciamenouno.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Textures\InteractableObject\pg_walkstate.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Textures\InteractableObject\PlayerProva.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

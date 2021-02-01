@@ -101,7 +101,7 @@ namespace GGJam_2021
 
             TextureManager.AddTexture("FrontDoor", Constants.ItemsDirectory + "FrontDoor.png");
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "Cursore di prova.jpg");
-            TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "bkPlayer.png");
+            TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "pg_walkstate.png");
 
 
 

@@ -36,9 +36,9 @@ namespace GGJam_2021 {
         public override void Update() {
             base.Update();
             Collider.Position = sprite.position;
-            if (Collider is BoxCollider) {
-                ((BoxCollider)Collider).sprite.position = Collider.Position;
-            }// else if (Collider is CircleCollider) {
+            //if (Collider is BoxCollider) {
+            //    ((BoxCollider)Collider).sprite.position = Collider.Position;
+            ////} else if (Collider is CircleCollider) {
             //    ((CircleCollider)Collider).sprite.position = Collider.Position;
             //}
             if (!(this is Player) && !(this is InteractableObject)) {
@@ -51,13 +51,13 @@ namespace GGJam_2021 {
             }
         }
 
-        public override void Draw() {
-            base.Draw();
-            if (Collider is BoxCollider) {
-                ((BoxCollider)Collider).Draw();
-            }// else if (Collider is CircleCollider) {
-            //    ((CircleCollider)Collider).Draw();
-            //}
-        }
+        //public override void Draw() {
+        //    base.Draw();
+        //    //if (Collider is BoxCollider) {
+        //    //    ((BoxCollider)Collider).Draw();
+        //    //} else if (Collider is CircleCollider) {
+        //    //    ((CircleCollider)Collider).Draw();
+        //    //}
+        //}
     }
 }
