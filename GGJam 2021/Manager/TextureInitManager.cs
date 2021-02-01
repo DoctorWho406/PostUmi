@@ -54,6 +54,8 @@
             TextureManager.AddTexture("Pianta3", Constants.CollidableObjectDirectory + "Pianta3.png");
             TextureManager.AddTexture("AnteroomExit", Constants.BackgroundDirectory + "AnteroomExit.png");
             TextureManager.AddTexture("armadio_bedroom_parents", Constants.CollidableObjectDirectory + "armadio_bedroom_parents.png");
+            TextureManager.AddTexture("EndingDoor", Constants.ItemsDirectory + "porta_frontale.png");
+
 
             //bedroomparents
             TextureManager.AddTexture("Pianta2", Constants.CollidableObjectDirectory + "Pianta2.png");
