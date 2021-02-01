@@ -78,15 +78,15 @@ namespace GGJam_2021 {
                 Vector2 distance = target - sprite.position;
                 if (distance.X < distance.Y) {
                     if (distance.X < -distance.Y) {
-                        status = Status.LeftWalk;
-                    } else if (distance.X > -distance.Y) {
-                        status = Status.TopWalk;
+                        status = Status.RightWalk;
+                    } else {
+                        status = Status.FrontWalk;
                     }
                 } else {
                     if (distance.X < -distance.Y) {
-                        status = Status.FrontWalk;
-                    } else if (distance.X > -distance.Y) {
-                        status = Status.RightWalk;
+                        status = Status.TopWalk;
+                    } else {
+                        status = Status.LeftWalk;
                     }
                 }
                 if (status == Status.LeftWalk) {
