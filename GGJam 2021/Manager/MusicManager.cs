@@ -37,7 +37,7 @@ namespace GGJam_2021
 
         public static float DeltaTime { get; private set; }
 
-        public static void Init()
+        public static void Start()
         {
 
             waitForMusic = 1;

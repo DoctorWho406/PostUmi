@@ -31,7 +31,9 @@ namespace GGJam_2021 {
             Cursor = new Cursor();
             Cursor.Scale(0.2f);
             Window.SetMouseVisible(false);
-            
+            MusicManager.Start();
+
+
 
         }
         public static void Play() {
@@ -48,9 +50,8 @@ namespace GGJam_2021 {
 
                 SceneManager.Update();
                 StatsManager.Update();
-                MusicManager.Init();
-
                 MusicManager.Update();
+
 
                 SceneManager.Draw();
                 StatsManager.Draw();
