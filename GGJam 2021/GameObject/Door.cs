@@ -10,20 +10,17 @@ namespace GGJam_2021 {
 
         private Door nextDoor;
 
-        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer,int w=0, bool Flip = false, LayerMask layerMask=LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w, 0)
-        {
+        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer, int w = 0, bool Flip = false, LayerMask layerMask = LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w, 0) {
             sprite.FlipX = Flip;
             spriteGlitch1.FlipX = Flip;
             spriteGlitch2.FlipX = Flip;
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
             this.positionPlayer = positionPlayer;
-            this.nextDoor = nextDoor;
         }
 
-        public void SetNextDoor(Door nxtDoor)
-        {
-            this.nextDoor = nxtDoor;
+        public void SetNextDoor(Door nxtDoor) {
+            nextDoor = nxtDoor;
         }
 
         public override void Update() {
