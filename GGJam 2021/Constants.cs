@@ -14,6 +14,7 @@ namespace GGJam_2021 {
         public const string InteractableObjectDirectory = "Assets/Textures/InteractableObject/";
         public const string PortraitSpriteSheetDirectory = "Assets/Textures/PortraitSpriteSheet/";
         public const string AudioClipsDirectory = "Assets/AudioClips/";
+        public const string SplashScreenDirectory = "Assets/Textures/SplashScreen/";
       
         /** ENUM
          * Enum Scene in SceneManager

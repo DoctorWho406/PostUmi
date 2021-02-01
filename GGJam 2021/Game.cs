@@ -1,5 +1,4 @@
 ﻿using System;
-using Aiv.Audio;
 using Aiv.Fast2D;
 using OpenTK;
 
@@ -25,33 +24,31 @@ namespace GGJam_2021 {
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
             TextureInitManager.Start();
             AudioClipInitManager.Start();
-            Player = new Player();
+            Player = new Player() {
+                IsActive = true
+            };
             SceneInitManager.Start();
             //Edit cursor
             Cursor = new Cursor();
             Cursor.Scale(0.2f);
             Window.SetMouseVisible(false);
             MusicManager.Start();
-
-
-
         }
+
         public static void Play() {
             while (Window.IsOpened) {
-
                 //Exit on esc
                 if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
                     break;
                 }
-
-               
-
+                if (!StatsManager.PlayerIsAlive) {
+                    SceneManager.LoadScene(Scene.BadEndGame);
+                }
                 Player.Input();
 
                 SceneManager.Update();
                 StatsManager.Update();
                 MusicManager.Update();
-
 
                 SceneManager.Draw();
                 StatsManager.Draw();

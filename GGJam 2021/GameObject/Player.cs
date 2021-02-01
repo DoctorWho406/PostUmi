@@ -11,6 +11,8 @@ namespace GGJam_2021 {
     }
 
     class Player : ColliderObject {
+        public bool IsActive;
+
         private Vector2 speed;
         private Vector2 target;
 
@@ -47,13 +49,15 @@ namespace GGJam_2021 {
         }
 
         public void Input() {
-            if (Game.Window.MouseLeft) {
-                if (!InputManager.IsMovingButtonClicked) {
-                    InputManager.IsMovingButtonClicked = true;
-                    target = Game.Window.MousePosition;
+            if (IsActive) {
+                if (Game.Window.MouseLeft) {
+                    if (!InputManager.IsMovingButtonClicked) {
+                        InputManager.IsMovingButtonClicked = true;
+                        target = Game.Window.MousePosition;
+                    }
+                } else {
+                    InputManager.IsMovingButtonClicked = false;
                 }
-            } else {
-                InputManager.IsMovingButtonClicked = false;
             }
         }
 

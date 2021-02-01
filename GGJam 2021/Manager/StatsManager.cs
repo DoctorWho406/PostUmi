@@ -17,6 +17,7 @@ namespace GGJam_2021 {
             get; private set;
         }
         public static bool IsActive;
+        public static bool PlayerIsAlive => Hunger > 0 && Paranoia > 0;
 
         private static List<GameObject> glitchedGameObject;
 

@@ -21,11 +21,15 @@ namespace GGJam_2021 {
         public override void Update() {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsClicked()) {
+            if (IsClicked() && !animation.IsPlaying) {
                 animation.Play();
                 readyForChange = true;
             }
+            if (animation.IsPlaying) {
+                Game.Player.IsActive = false;
+            }
             if (readyForChange && !animation.IsPlaying) {
+                Game.Player.IsActive = true;
                 animation.Stop(ref textureOffset);
                 readyForChange = false;
                 SceneManager.LoadScene(nextScene, nextDoor.positionPlayer);
