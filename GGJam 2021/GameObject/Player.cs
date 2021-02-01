@@ -24,8 +24,8 @@ namespace GGJam_2021 {
         private float counterTime;
 
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 0, 0) {
-            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, true);
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 654) {
+            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
             sprite.position = new Vector2(886, 570);
             Collider.Position = sprite.position;
             //((CircleCollider)Collider).sprite.position = Collider.Position;
@@ -64,17 +64,20 @@ namespace GGJam_2021 {
 
         public void Stop() {
             speed = Vector2.Zero;
-            //animation.Stop(ref textureOffset);
+            animation.Stop(ref textureOffset);
             target = -Vector2.One;
         }
 
         public override void Update() {
             sprite.position += speed * Game.DeltaTime;
             base.Update();
-            animation.Play();
+            animation.Update(ref textureOffset);
+            
             if (target != -Vector2.One) {
+                animation.Play();
                 if (status != Status.Walk) {
                     status = Status.Walk;
+                    
                 }
                 Vector2 distance = target - sprite.position;
                 if (distance.Length <= Constants.OffsetFromTarge) {
@@ -84,7 +87,6 @@ namespace GGJam_2021 {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
                     FootStepTime();
                 }
-
             }
         }
 
