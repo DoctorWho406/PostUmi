@@ -17,6 +17,7 @@ namespace GGJam_2021
         public static AudioSource MusicEmitter05;
         public static AudioSource MusicEmitter06;
         public static AudioSource MusicEmitter07;
+        public static AudioSource MusicEmitter08;
 
         public static AudioClip RadioClip;
         public static AudioClip BgMusic01;
@@ -48,6 +49,7 @@ namespace GGJam_2021
             MusicEmitter05 = new AudioSource();
             MusicEmitter06 = new AudioSource();
             MusicEmitter07 = new AudioSource();
+            MusicEmitter08 = new AudioSource();
             RadioEmitter = new AudioSource();
 
             BgMusic01 = AudioManager.GetAudioClip("BgMusic01");
@@ -56,20 +58,21 @@ namespace GGJam_2021
             BgMusic04 = AudioManager.GetAudioClip("BgMusic04");
             BgMusic05 = AudioManager.GetAudioClip("BgMusic05");
             BgMusic06 = AudioManager.GetAudioClip("BgMusic06");
-            BgMusic07 = AudioManager.GetAudioClip("Intro");
-            BgMusic08 = AudioManager.GetAudioClip("Credits");
+            BgMusic07 = AudioManager.GetAudioClip("Credits");
+            BgMusic08 = AudioManager.GetAudioClip("Intro");
             BgMusic09 = AudioManager.GetAudioClip("Outro01");
             BgMusic10 = AudioManager.GetAudioClip("Outro02");
             BgMusic11 = AudioManager.GetAudioClip("Outro03");
             RadioClip = AudioManager.GetAudioClip(AudioManager.Shuffle(AudioManager.RadioChannel, 3));
 
-            MusicEmitter01.Volume = 1f;
+            MusicEmitter01.Volume = 0f;
             MusicEmitter02.Volume = 0f;
             MusicEmitter03.Volume = 0f;
             MusicEmitter04.Volume = 0f;
             MusicEmitter05.Volume = 0f;
             MusicEmitter06.Volume = 0f;
             MusicEmitter07.Volume = 0f;
+            MusicEmitter08.Volume = 0f;
             RadioEmitter.Volume = 0f;
 
             
@@ -83,9 +86,20 @@ namespace GGJam_2021
             }
             else
             {
-                MusicEmitter01.Stream(BgMusic01, DeltaTime);
-                MusicEmitter02.Stream(BgMusic02, DeltaTime);
-                MusicEmitter03.Stream(BgMusic03, DeltaTime);
+                if (SceneManager.ActiveScene == Scene.Menu)
+                {
+                    AudioManager.FadeIn(MusicEmitter08, MusicEmitter08.Volume, 1);
+                    MusicEmitter08.Stream(BgMusic08, DeltaTime);
+                }
+                else
+                {   
+                    AudioManager.FadeOut(MusicEmitter08, MusicEmitter08.Volume, 1);
+                    AudioManager.FadeIn(MusicEmitter01, MusicEmitter01.Volume, 1);
+                    MusicEmitter01.Stream(BgMusic01, DeltaTime);
+                    MusicEmitter02.Stream(BgMusic02, DeltaTime);
+                    MusicEmitter03.Stream(BgMusic03, DeltaTime);
+                }
+
             }
 
             if (ObjectTaken >= 3)
@@ -118,7 +132,7 @@ namespace GGJam_2021
                 AudioManager.FadeOut(MusicEmitter04, MusicEmitter04.Volume, 1);
                 AudioManager.FadeOut(MusicEmitter05, MusicEmitter05.Volume, 1);
                 AudioManager.FadeOut(MusicEmitter06, MusicEmitter06.Volume, 1);
-                MusicEmitter07.Stream(BgMusic08, DeltaTime);
+                MusicEmitter07.Stream(BgMusic07, DeltaTime);
                 AudioManager.FadeIn(MusicEmitter07, MusicEmitter07.Volume, 1);
             }
         }
