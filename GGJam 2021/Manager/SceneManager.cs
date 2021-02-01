@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using OpenTK;
 
 namespace GGJam_2021 {
     enum Scene {
@@ -27,12 +28,15 @@ namespace GGJam_2021 {
     }
 
     static class SceneManager {
+
         public static bool IsSceneChanging {
             get; private set;
         }
+
         public static Scene ActiveScene {
             get; private set;
         }
+
         private static Dictionary<Scene, List<GameObject>> scenes;
 
         static SceneManager() {
@@ -52,10 +56,18 @@ namespace GGJam_2021 {
             return scenes[ActiveScene];
         }
 
-        public static void LoadScene(Scene Scene) {
+        public static void LoadScene(Scene scene) {
             IsSceneChanging = true;
             StatsManager.LoadScene();
-            ActiveScene = Scene;
+            ActiveScene = scene;
+            IsSceneChanging = false;
+        }
+
+        public static void LoadScene(Scene scene, Vector2 playerPosition) {
+            IsSceneChanging = true;
+            Game.Player.Position = playerPosition;
+            StatsManager.LoadScene();
+            ActiveScene = scene;
             IsSceneChanging = false;
         }
 
