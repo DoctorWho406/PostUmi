@@ -74,7 +74,7 @@ namespace GGJam_2021 {
                 Game.Player.IsActive = false;
             } else {
                 Game.Player.IsVisible = true;
-                Game.Player.IsActive = false;
+                Game.Player.IsActive = true;
             }
             StatsManager.LoadScene();
             ActiveScene = scene;
