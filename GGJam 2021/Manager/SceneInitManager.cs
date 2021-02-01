@@ -18,7 +18,7 @@ namespace GGJam_2021
             CentralCorridorLoad();
             Door();
             PortraitLoad();
-            EndGameLoad();
+            GameMenuLoad();
         }
         #region Stanze
 
@@ -239,7 +239,7 @@ namespace GGJam_2021
             new Background("sfondo", Scene.DialogueBloccoDisegni, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
         }
 
-        private static void EndGameLoad() {
+        private static void GameMenuLoad() {
             new Portrait("BadEnd", LayerMask.Background, Scene.BadEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
         }
     }

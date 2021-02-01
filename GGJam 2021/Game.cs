@@ -25,8 +25,10 @@ namespace GGJam_2021 {
             TextureInitManager.Start();
             AudioClipInitManager.Start();
             Player = new Player() {
-                IsActive = true
+                IsActive = true,
+                IsVisible = true,
             };
+            Player.Scale(0.25f);
             SceneInitManager.Start();
             //Edit cursor
             Cursor = new Cursor();

@@ -70,9 +70,9 @@ namespace GGJam_2021 {
                 && (scene == Scene.DialogueVomito)
                 && (scene == Scene.Menu)
                 && (scene == Scene.BadEndGame)) {
-                Game.Player.IsActive = false;
+                Game.Player.IsVisible = false;
             } else {
-                Game.Player.IsActive = true;
+                Game.Player.IsVisible = true;
             }
             StatsManager.LoadScene();
             ActiveScene = scene;
@@ -108,7 +108,7 @@ namespace GGJam_2021 {
                     }
                     for (int gO = 0; gO < scenes[Scene.Always].Count; gO++) {
                         if (scenes[Scene.Always][gO] is Player) {
-                            if (((Player)scenes[Scene.Always][gO]).IsActive) {
+                            if (((Player)scenes[Scene.Always][gO]).IsVisible) {
                                 if (scenes[Scene.Always][gO].LayerMask == (LayerMask)lM) {
                                     scenes[Scene.Always][gO].Draw();
                                 }
