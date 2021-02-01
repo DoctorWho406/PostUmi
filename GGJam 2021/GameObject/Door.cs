@@ -5,17 +5,25 @@ namespace GGJam_2021 {
         public Vector2 positionPlayer;
 
         protected Animation animation;
-
         private Vector2 textureOffset;
         private bool readyForChange;
 
         private Door nextDoor;
 
-        public Door(string texturName, Scene actualScene, Scene nextScene, Door nextDoor, Vector2 positionPlayer) : base(texturName, LayerMask.Background, actualScene, nextScene, ColliderType.BoxCollider, 390, 0) {
+        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer,int w=0, bool Flip = false, LayerMask layerMask=LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w, 0)
+        {
+            sprite.FlipX = Flip;
+            spriteGlitch1.FlipX = Flip;
+            spriteGlitch2.FlipX = Flip;
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
             this.positionPlayer = positionPlayer;
             this.nextDoor = nextDoor;
+        }
+
+        public void SetNextDoor(Door nxtDoor)
+        {
+            this.nextDoor = nxtDoor;
         }
 
         public override void Update() {
@@ -33,7 +41,6 @@ namespace GGJam_2021 {
                 animation.Stop(ref textureOffset);
                 readyForChange = false;
                 SceneManager.LoadScene(nextScene, nextDoor.positionPlayer);
-
             }
         }
 

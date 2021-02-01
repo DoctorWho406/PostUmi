@@ -28,17 +28,7 @@ namespace GGJam_2021 {
             return (Math.Abs(deltaX) <= halfSize.X + box.halfSize.Y) && (Math.Abs(deltaY) <= halfSize.X + box.halfSize.Y);
         }
 
-        public override bool Collides(CircleCollider circle, out Vector2 offset) {
-            //if (circle.Position.X - circle.Radius < Position.X + halfSize.X) {
-            //    x = Position.X + halfSize.X - circle.Position.X + circle.Radius;
-            //} else if (circle.Position.X + circle.Radius > Position.X - halfSize.X) {
-            //    x = Position.X - halfSize.X - circle.Position.X - circle.Radius;
-            //}
-            //if (circle.Position.Y - circle.Radius < Position.Y + halfSize.Y) {
-            //    y = Position.Y + halfSize.Y - circle.Position.Y + circle.Radius;
-            //} else if (circle.Position.Y + circle.Radius > Position.Y - halfSize.Y) {
-            //    y = Position.Y - halfSize.Y - circle.Position.Y - circle.Radius;
-            //}
+        public override bool Collides(CircleCollider circle, out Vector2 offset) {          
             float deltaX = circle.Position.X - Math.Max(Position.X - halfSize.X, Math.Min(circle.Position.X, Position.X + halfSize.X));
             float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
             offset = Vector2.Zero;
@@ -59,7 +49,6 @@ namespace GGJam_2021 {
                 return true;
             }
             return false;
-
         }
 
         public bool IsInside(CircleCollider circle, out Vector2 offset) {
