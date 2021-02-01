@@ -35,7 +35,7 @@ namespace GGJam_2021
 
         public static int ObjectTaken;
 
-        public static float DeltaTime { get; private set; }
+        public static float DeltaTime { get { return Game.DeltaTime; } }
 
         public static void Start()
         {
