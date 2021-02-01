@@ -91,14 +91,17 @@
             TextureManager.AddTexture("actionfigure", Constants.DialogueDirectory + "actionfigure.png");
             TextureManager.AddTexture("bloccodisegno", Constants.DialogueDirectory + "bloccodisegno.png");
 
+            TextureManager.AddTexture("Menu", Constants.SplashScreenDirectory + "the end.png");
+            TextureManager.AddTexture("PlayButton", Constants.SplashScreenDirectory + "play.png");
+            TextureManager.AddTexture("QuitButton", Constants.SplashScreenDirectory + "quit.png");
+            TextureManager.AddTexture("BadEnd", Constants.SplashScreenDirectory + "the end.png");
+
             TextureManager.AddTexture("FrontDoor", Constants.ItemsDirectory + "FrontDoor.png");
             TextureManager.AddTexture("LateralDoor", Constants.ItemsDirectory + "LateralDoor.png");
             TextureManager.AddTexture("BackDoor", Constants.ItemsDirectory + "BackDoor.png");
 
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "cursore.png");
             TextureManager.AddTexture("Player", Constants.TextureDirectory + "pg_walkstate.png");
-
-            TextureManager.AddTexture("BadEnd", Constants.SplashScreenDirectory + "the end.png");
         }
     }
 }
