@@ -22,7 +22,8 @@ namespace GGJam_2021
         }
         #region Stanze
 
-        private static void PortraitLoad() {
+        private static void PortraitLoad()
+        {
             Portrait portrait1 = new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.DialogueAlcol, ColliderType.BoxCollider) { Position = new Vector2(603, 815) };
             portrait1.Scale(0.15f);
             Portrait portrait2 = new Portrait("Retched", LayerMask.Background, Scene.Bathroom, Scene.DialogueVomito, ColliderType.BoxCollider) { Position = new Vector2(700, 840) };
@@ -53,13 +54,13 @@ namespace GGJam_2021
             InteractableObjectManager.AddPortarait(portrait8, portrait7);
             InteractableObjectManager.AddPortarait(portrait9, portrait8);
         }
-      
+
         private static void Door()
         {
             Door Room_Central = new Door("FrontDoor", Scene.Room, Scene.CentralCorridor, new Vector2(993, 325), 390) { Position = new Vector2(984, 120) };
-            Door Central_Room = new Door("BackDoor", Scene.CentralCorridor, Scene.Room, new Vector2(984, 917), 390 ,true, LayerMask.Foreground) { Position = new Vector2(993, 900) };
+            Door Central_Room = new Door("BackDoor", Scene.CentralCorridor, Scene.Room, new Vector2(984, 917), 390, true, LayerMask.Foreground) { Position = new Vector2(993, 900) };
 
-            Door Central_Lounge = new Door("Empty", Scene.CentralCorridor, Scene.LoungeArea, new Vector2(183, 723) ) { Position = new Vector2(2, 715) };
+            Door Central_Lounge = new Door("Empty", Scene.CentralCorridor, Scene.LoungeArea, new Vector2(183, 723)) { Position = new Vector2(2, 715) };
             Door Lounge_Central = new Door("Empty", Scene.LoungeArea, Scene.CentralCorridor, new Vector2(1552, 410)) { Position = new Vector2(1750, 410) };
 
             Door Central_Corridor = new Door("Empty", Scene.CentralCorridor, Scene.Corridor, new Vector2(1904, 752)) { Position = new Vector2(1904, 752) };
@@ -69,16 +70,16 @@ namespace GGJam_2021
             Door Anteroom_Central = new Door("Empty", Scene.AnteroomExit, Scene.CentralCorridor, new Vector2(993, 879)) { Position = new Vector2(967, 1052) };
 
             Door Lounge_Kitchen = new Door("FrontDoor", Scene.LoungeArea, Scene.Kitchen, new Vector2(713, 278), 390) { Position = new Vector2(750, 85) };
-            Door Kitchen_Lounge = new Door("BackDoor", Scene.Kitchen, Scene.LoungeArea, new Vector2(967, 970), 390,true, LayerMask.Foreground ) { Position = new Vector2(952, 900) };
+            Door Kitchen_Lounge = new Door("BackDoor", Scene.Kitchen, Scene.LoungeArea, new Vector2(967, 970), 390, true, LayerMask.Foreground) { Position = new Vector2(952, 900) };
 
-            Door Lounge_Bathroom = new Door("FrontDoor", Scene.LoungeArea, Scene.Bathroom, new Vector2(1520, 284), 390,true) { Position = new Vector2(1537, 85) };
-            Door Bathroom_Lounge = new Door("BackDoor", Scene.Bathroom, Scene.LoungeArea, new Vector2(1224,975 ), 390, true, LayerMask.Foreground) { Position = new Vector2(1287, 970) };
+            Door Lounge_Bathroom = new Door("FrontDoor", Scene.LoungeArea, Scene.Bathroom, new Vector2(1520, 284), 390, true) { Position = new Vector2(1537, 85) };
+            Door Bathroom_Lounge = new Door("BackDoor", Scene.Bathroom, Scene.LoungeArea, new Vector2(1224, 975), 390, true, LayerMask.Foreground) { Position = new Vector2(1287, 970) };
 
             Door Corridor_Parents = new Door("BackDoor", Scene.Corridor, Scene.BedroomParents, new Vector2(700, 700), 390, true, LayerMask.Foreground) { Position = new Vector2(680, 800) };
             Door Parents_Corrido = new Door("FrontDoor", Scene.BedroomParents, Scene.Corridor, new Vector2(680, 130), 390) { Position = new Vector2(700, 130) };
 
-            Door Corridor_Lab = new Door("FrontDoor", Scene.Corridor, Scene.Laboratory, new Vector2(1267, 180), 390) { Position = new Vector2(1267, 180) };             
-            Door Lab_Corridor = new Door("BackDoor", Scene.Laboratory, Scene.Corridor, new Vector2(950, 1068), 390 ,true, LayerMask.Foreground) { Position = new Vector2(950, 900) };
+            Door Corridor_Lab = new Door("FrontDoor", Scene.Corridor, Scene.Laboratory, new Vector2(1267, 180), 390) { Position = new Vector2(1267, 180) };
+            Door Lab_Corridor = new Door("BackDoor", Scene.Laboratory, Scene.Corridor, new Vector2(950, 1068), 390, true, LayerMask.Foreground) { Position = new Vector2(950, 900) };
 
             Parents_Corrido.Scale(0.55f);
             Lab_Corridor.Scale(0.7f);
@@ -239,9 +240,14 @@ namespace GGJam_2021
             new Background("sfondo", Scene.DialogueBloccoDisegni, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
         }
 
-        private static void GameMenuLoad() {
-            new Portrait("BadEnd", LayerMask.Background, Scene.BadEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
+        private static void GameMenuLoad()
+        {
+            new Portrait("BadEnd", LayerMask.Background, Scene.BadEndGame, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter };
+            new Portrait("PlayButton", LayerMask.Middleground, Scene.Menu, Scene.Room, ColliderType.CircleCollider) { Position = new Vector2(741, 771) }.Scale(1.2f);
+            new Portrait("QuitButton", LayerMask.Middleground, Scene.Menu, Scene.Count, ColliderType.CircleCollider) { Position = new Vector2(961, 728) }.Scale(1.2f);
+            new Background("Menu", Scene.Menu, new Vector2(Game.Window.Width, Game.Window.Height)) { Position = (Game.WindowCenter),ColliderCenter=Game.WindowCenter};
         }
+        
     }
 }
 
