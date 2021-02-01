@@ -3,14 +3,11 @@ using Aiv.Audio;
 using Aiv.Fast2D;
 using OpenTK;
 
-namespace GGJam_2021
-{
-    static class Game
-    {
+namespace GGJam_2021 {
+    static class Game {
         public static Random Random;
         public static Window Window;
-        public static Vector2 WindowCenter
-        {
+        public static Vector2 WindowCenter {
             get; private set;
         }
         public static float DeltaTime => Window.DeltaTime;
@@ -42,8 +39,7 @@ namespace GGJam_2021
 
         public static int ObjectTaken;
 
-        public static void Init()
-        {
+        public static void Init() {
             //Init Random
             Random = new Random();
             //Init Window
@@ -53,14 +49,14 @@ namespace GGJam_2021
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
             TextureInitManager.Start();
-            SceneInitManager.Start();
             AudioClipInitManager.Start();
+            Player = new Player();
+            SceneInitManager.Start();
             //Edit cursor
             Cursor = new Cursor();
             Cursor.Scale(0.2f);
             Window.SetMouseVisible(false);
 
-            Player = new Player();
 
             //AudioStuff
             waitForMusic = 1;
@@ -95,35 +91,27 @@ namespace GGJam_2021
 
             ObjectTaken = 0;
         }
-        public static void Play()
-        {
-            while (Window.IsOpened)
-            {   
+        public static void Play() {
+            while (Window.IsOpened) {
 
                 //Exit on esc
-                if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/)
-                {
+                if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
                     break;
                 }
 
-                if (waitForMusic > 0)
-                {
+                if (waitForMusic > 0) {
                     waitForMusic -= DeltaTime;
-                }
-                else
-                {
+                } else {
                     musicEmitter01.Stream(bgMusic01, DeltaTime);
                     musicEmitter02.Stream(bgMusic02, DeltaTime);
                     musicEmitter03.Stream(bgMusic03, DeltaTime);
                 }
 
-                if (ObjectTaken >= 3)
-                {
+                if (ObjectTaken >= 3) {
                     AudioManager.FadeIn(musicEmitter02, musicEmitter02.Volume, 1);
                 }
 
-                if (ObjectTaken >=5)
-                {
+                if (ObjectTaken >= 5) {
                     AudioManager.FadeIn(musicEmitter03, musicEmitter03.Volume, 1);
                 }
 
@@ -134,7 +122,6 @@ namespace GGJam_2021
 
                 SceneManager.Draw();
                 StatsManager.Draw();
-               
 
                 Window.Update();
             }

@@ -58,7 +58,7 @@ namespace GGJam_2021 {
             new ColliderObject("Desk", LayerMask.Background, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1380, 250) }.Scale(0.3f);
             new ColliderObject("LettoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(570, 380) }.Scale(0.8f);
             new ColliderObject("SediaRoom1", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1288, 450) }.Scale(0.5f);
-            new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(800, 340) }.Scale(0.7f);
+            //new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(800, 340) }.Scale(0.7f);
 
         }
 
@@ -68,7 +68,7 @@ namespace GGJam_2021 {
             new Door(Scene.CentralCorridor, Scene.Room) { Position = new Vector2(993, 1067) }.Scale(0.7f);
             new Door(Scene.CentralCorridor, Scene.LoungeArea) { Position = new Vector2(2, 715) }.Scale(0.7f);
             new Door(Scene.CentralCorridor, Scene.Corridor) { Position = new Vector2(1904, 752) }.Scale(0.7f);
-            new Door(Scene.CentralCorridor, Scene.AnteroomExit) { Position = new Vector2(1186, 290) }.Scale(0.7f);
+            new Door(Scene.CentralCorridor, Scene.AnteroomExit) { Position = new Vector2(1186, 320) }.Scale(0.7f);
         }
 
         private static void AnteroomExitLoad() {

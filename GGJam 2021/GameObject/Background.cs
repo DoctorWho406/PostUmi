@@ -31,7 +31,13 @@ namespace GGJam_2021
                 Game.Player.Position += offset;
                 Game.Player.Stop();
             }
+            //((BoxCollider)collider).sprite.position = collider.Position;
         }
+
+        //public override void Draw() {
+        //    base.Draw();
+        //    ((BoxCollider)collider).Draw();
+        //}
 
         public override void SetGlitch(bool value)
         {

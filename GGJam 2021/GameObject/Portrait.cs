@@ -44,6 +44,7 @@ namespace GGJam_2021 {
                     if (InteractableObjectManager.CanOpenIt(this)) {
                         SceneManager.LoadScene(nextScene);
                         Game.ObjectTaken++;
+                        isOpened = true;
                     }
                 } else {
                     SceneManager.LoadScene(nextScene);

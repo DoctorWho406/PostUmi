@@ -1,15 +1,11 @@
 ﻿using OpenTK;
 
-namespace GGJam_2021
-{
-    abstract class InteractableObject : ColliderObject
-    {
+namespace GGJam_2021 {
+    abstract class InteractableObject : ColliderObject {
         protected Collider trigger;
 
-        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h = 0) : base(textureName, layerMask, scene, colliderType, w, h)
-        {
-            switch (colliderType)
-            {
+        public InteractableObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h = 0) : base(textureName, layerMask, scene, colliderType, w, h) {
+            switch (colliderType) {
                 case ColliderType.BoxCollider:
                     trigger = new BoxCollider(size + new Vector2(Constants.TriggerColliderOffset));
                     break;
@@ -19,41 +15,32 @@ namespace GGJam_2021
             }
         }
 
-        public override void Scale(float scaleFactory)
-        {
+        public override void Scale(float scaleFactory) {
             base.Scale(scaleFactory);
             trigger.Scale(scaleFactory);
         }
 
-        protected bool IsClicked()
-        {
-            if (trigger.Collides(Game.Player.Collider,out Vector2 V))
-            {
+        protected bool IsClicked() {
+            if (trigger.Collides((CircleCollider)Game.Player.Collider, out Vector2 V)) {
                 //Controllo click
-                System.Console.WriteLine("NEAR");
-                if (Game.Window.MouseRight)
-                {
-                    if (!InputManager.IsTriggerButtonClicked)
-                    {
-                        if (Collider.Collides(Game.Cursor.Collider, out Vector2 v))
-                        {
+                //System.Console.WriteLine("NEAR");
+                if (Game.Window.MouseRight) {
+                    if (!InputManager.IsTriggerButtonClicked) {
+                        if (Collider.Collides((CircleCollider)Game.Cursor.Collider, out Vector2 v)) {
                             //System.Console.WriteLine("Hai cliccato su un InteractableObject");
                             InputManager.IsTriggerButtonClicked = true;
                             Player.PlayerSoundEmitter.Play(Player.Interaction);
                             return true;
                         }
                     }
-                }
-                else
-                {
+                } else {
                     InputManager.IsTriggerButtonClicked = false;
                 }
             }
             return false;
         }
 
-        public override void Update()
-        {
+        public override void Update() {
             base.Update();
             trigger.Position = sprite.position;
         }

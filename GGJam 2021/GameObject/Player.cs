@@ -26,7 +26,10 @@ namespace GGJam_2021 {
 
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 0) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, true);
-            sprite.position = Game.WindowCenter;
+            sprite.position = new Vector2(886, 570);
+            Collider.Position = sprite.position;
+            //((CircleCollider)Collider).sprite.position = Collider.Position;
+            Collider.Scale(0.5f);
             textureOffset = Vector2.Zero;
             sprite.scale = new Vector2(0.5f);
             status = Status.Idle;
@@ -88,6 +91,7 @@ namespace GGJam_2021 {
 
         public override void Draw() {
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
+            //((CircleCollider)Collider).Draw();
         }
     }
 }

@@ -1,17 +1,25 @@
-﻿using OpenTK;
+﻿using Aiv.Fast2D;
+using OpenTK;
 
 namespace GGJam_2021 {
     class CircleCollider : Collider {
         public float Radius;
+
+        //public Sprite sprite;
         public CircleCollider(float radius) : base() {
             Radius = radius;
+
+            //float halfRadius = Radius * 0.5f;
+            //sprite = new Sprite(radius, radius) { pivot = new Vector2(halfRadius) };
         }
 
         public override void Scale(float scaleFactory) {
             Radius *= scaleFactory;
+
+            //sprite.scale = new Vector2(scaleFactory);
         }
 
-        protected override bool Collides(CircleCollider circle, out Vector2 offset)
+        public override bool Collides(CircleCollider circle, out Vector2 offset)
         {
             offset = Vector2.Zero;
             Vector2 distance = Position - circle.Position;
@@ -27,5 +35,9 @@ namespace GGJam_2021 {
             //Da fare??
             throw new System.NotImplementedException();
         }
+
+        //public void Draw() {
+        //    sprite.DrawWireframe(0, 255, 0);
+        //}
     }
 }
