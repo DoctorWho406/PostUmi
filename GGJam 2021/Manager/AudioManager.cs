@@ -69,7 +69,7 @@ namespace GGJam_2021
         {
             if (RadioOn == true)
             {
-                Game.RadioEmitter.Stream(Game.RadioClip, Game.DeltaTime);
+                MusicManager.RadioEmitter.Stream(MusicManager.RadioClip, Game.DeltaTime);
 
             }
             else
