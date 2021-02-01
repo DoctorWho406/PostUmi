@@ -24,7 +24,7 @@ namespace GGJam_2021 {
         private float counterTime;
 
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 0) {
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 0, 0) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 5, true);
             sprite.position = new Vector2(886, 570);
             Collider.Position = sprite.position;
