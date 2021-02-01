@@ -28,7 +28,6 @@ namespace GGJam_2021
             //////bathroom
             TextureManager.AddTexture("Retched", Constants.ItemsDirectory + "Retched.png");
             TextureManager.AddTexture("Bathroom", Constants.BackgroundDirectory + "Bathroom.png");
-            TextureManager.AddTexture("Vomito", Constants.PortraitSpriteSheetDirectory + "Vomito.png");
             TextureManager.AddTexture("CessoBidet", Constants.CollidableObjectDirectory + "CessoBidet.png");
             TextureManager.AddTexture("DoppioCesso", Constants.CollidableObjectDirectory + "DoppioCesso.png");
             TextureManager.AddTexture("LavandinoCesso", Constants.CollidableObjectDirectory + "LavandinoCesso.png");
@@ -57,30 +56,31 @@ namespace GGJam_2021
             TextureManager.AddTexture("ScaffaleDaLavoroLaboratory", Constants.CollidableObjectDirectory + "ScaffaleDaLavoroLaboratory.png");
 
 
-            ////anteroomExit
+            //anteroomExit
             TextureManager.AddTexture("FamilyAlbum", Constants.ItemsDirectory + "FamilyAlbum.png");
             TextureManager.AddTexture("Pianta3", Constants.CollidableObjectDirectory + "Pianta3.png");
             TextureManager.AddTexture("AnteroomExit", Constants.BackgroundDirectory + "AnteroomExit.png");
             TextureManager.AddTexture("armadio_bedroom_parents", Constants.CollidableObjectDirectory + "armadio_bedroom_parents.png");
 
-            ////bedroomparents
+            //bedroomparents
             TextureManager.AddTexture("Pianta2", Constants.CollidableObjectDirectory + "Pianta2.png");
             TextureManager.AddTexture("BedroomParents", Constants.BackgroundDirectory + "BedroomParents.png");
             TextureManager.AddTexture("FramedFamilyPhoto", Constants.ItemsDirectory + "FramedFamilyPhoto.png");
             TextureManager.AddTexture("letto_bedroom_parents", Constants.CollidableObjectDirectory + "letto_bedroom_parents.png");
             TextureManager.AddTexture("mobile_bedroom_parents", Constants.CollidableObjectDirectory + "mobile_bedroom_parents.png");
 
-            ////centralCorridor
+            //centralCorridor
             TextureManager.AddTexture("CentralCorridor", Constants.BackgroundDirectory + "CentralCorridor.png");
 
-            ////InteractbleObject-items
-            //TextureManager.AddTexture("Empty", Constants.ItemsDirectory + "Empty.png");
+            //InteractbleObject-items
+            TextureManager.AddTexture("Empty", Constants.ItemsDirectory + "Empty.png");
 
             //PortraitSpriteSheet
             TextureManager.AddTexture("Dino", Constants.PortraitSpriteSheetDirectory + "Dino.png");
             TextureManager.AddTexture("Foto", Constants.PortraitSpriteSheetDirectory + "Foto.png");
             TextureManager.AddTexture("Alcol", Constants.PortraitSpriteSheetDirectory + "Alcol.png");
             TextureManager.AddTexture("Album", Constants.PortraitSpriteSheetDirectory + "album.png");
+            TextureManager.AddTexture("Vomito", Constants.PortraitSpriteSheetDirectory + "Vomito.png");
             TextureManager.AddTexture("Chitarra", Constants.PortraitSpriteSheetDirectory + "Chitarra.png");
             TextureManager.AddTexture("Bordello", Constants.PortraitSpriteSheetDirectory + "Bordello.png");
             TextureManager.AddTexture("ComputerPortrait", Constants.PortraitSpriteSheetDirectory + "Computer.png");
