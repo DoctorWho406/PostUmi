@@ -96,8 +96,20 @@ namespace GGJam_2021 {
 
         public static void Draw() {
             //Draw Slider
-            paranoiaSlider.Draw();
-            hungherSlider.Draw();
+            if ((SceneManager.ActiveScene != Scene.DialogueAlbum)
+                && (SceneManager.ActiveScene != Scene.DialogueAlcol)
+                && (SceneManager.ActiveScene != Scene.DialogueBloccoDisegni)
+                && (SceneManager.ActiveScene != Scene.DialogueBordello)
+                && (SceneManager.ActiveScene != Scene.DialogueChitarra)
+                && (SceneManager.ActiveScene != Scene.DialogueComputer)
+                && (SceneManager.ActiveScene != Scene.DialogueDino)
+                && (SceneManager.ActiveScene != Scene.DialogueFoto)
+                && (SceneManager.ActiveScene != Scene.DialogueVomito)
+                && (SceneManager.ActiveScene != Scene.Menu)
+                && (SceneManager.ActiveScene != Scene.BadEndGame)) {
+                paranoiaSlider.Draw();
+                hungherSlider.Draw();
+            }
         }
     }
 }

@@ -24,10 +24,7 @@ namespace GGJam_2021 {
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
             TextureInitManager.Start();
             AudioClipInitManager.Start();
-            Player = new Player() {
-                IsActive = true,
-                IsVisible = true,
-            };
+            Player = new Player();
             Player.Scale(0.25f);
             SceneInitManager.Start();
             //Edit cursor
