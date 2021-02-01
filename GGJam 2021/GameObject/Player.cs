@@ -62,13 +62,13 @@ namespace GGJam_2021 {
             }
         }
 
-        public void FootStepTime() {
-            if (counterTime <= 0) {
-                PlayerSoundEmitter.Play(footStep);
-                counterTime = 0.5f;
-            }
-            counterTime -= Game.DeltaTime;
-        }
+        //public void FootStepTime() {
+        //    if (counterTime <= 0) {
+        //        PlayerSoundEmitter.Play(footStep);
+        //        counterTime = 0.5f;
+        //    }
+        //    counterTime -= Game.DeltaTime;
+        //}
 
         public void Stop() {
             speed = Vector2.Zero;
@@ -115,7 +115,7 @@ namespace GGJam_2021 {
                     Stop();
                 } else {
                     speed = distance.Normalized() * Constants.PlayerSpeed;
-                    FootStepTime();
+                    //FootStepTime();
                 }
             }
         }

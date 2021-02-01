@@ -98,7 +98,7 @@ namespace GGJam_2021
                 AudioManager.FadeIn(MusicEmitter03, MusicEmitter03.Volume, 1);
             }
 
-            if (ObjectTaken >= 7)
+            if (ObjectTaken >= InteractableObjectManager.orderList.Count)
             {
                 MusicEmitter04.Stream(BgMusic09, DeltaTime);
                 MusicEmitter05.Stream(BgMusic10, DeltaTime);
@@ -113,14 +113,14 @@ namespace GGJam_2021
                 AudioManager.FadeIn(MusicEmitter06, MusicEmitter06.Volume, 1);
             }
 
-            //if (//PortaFinaleIsOpened)
-            //{
-            //    AudioManager.FadeOut(MusicEmitter04, MusicEmitter04.Volume, 1);
-            //    AudioManager.FadeOut(MusicEmitter05, MusicEmitter05.Volume, 1);
-            //    AudioManager.FadeOut(MusicEmitter06, MusicEmitter06.Volume, 1);
-            //    MusicEmitter07.Stream(BgMusic08, DeltaTime);
-            //    AudioManager.FadeIn(MusicEmitter07, MusicEmitter07.Volume, 1);
-            //}
+            if (SceneManager.ActiveScene == Scene.GoodEndGame)
+            {
+                AudioManager.FadeOut(MusicEmitter04, MusicEmitter04.Volume, 1);
+                AudioManager.FadeOut(MusicEmitter05, MusicEmitter05.Volume, 1);
+                AudioManager.FadeOut(MusicEmitter06, MusicEmitter06.Volume, 1);
+                MusicEmitter07.Stream(BgMusic08, DeltaTime);
+                AudioManager.FadeIn(MusicEmitter07, MusicEmitter07.Volume, 1);
+            }
         }
     }
 
