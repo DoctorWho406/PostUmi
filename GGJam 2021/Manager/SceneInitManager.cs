@@ -6,18 +6,18 @@ namespace GGJam_2021
     {
         public static void Start()
         {
-            //Dialogue();
-            //RoomLoad();
-            //KitchenLoad();
-            //BathroomLoad();
-            //CorridorLoad();
-            //LoungeAreaLoad();
-            //LaboratoryLoad();
-            //AnteroomExitLoad();
-            //BedroomParentsLoad();
-            //CentralCorridorLoad();
-            //Door();
-            //PortraitLoad();
+            Dialogue();
+            RoomLoad();
+            KitchenLoad();
+            BathroomLoad();
+            CorridorLoad();
+            LoungeAreaLoad();
+            LaboratoryLoad();
+            AnteroomExitLoad();
+            BedroomParentsLoad();
+            CentralCorridorLoad();
+            Door();
+            PortraitLoad();
             GameMenuLoad();
         }
         #region Stanze
