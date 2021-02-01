@@ -3,6 +3,7 @@ using OpenTK;
 
 namespace GGJam_2021 {
     enum Scene {
+        Menu,
         Always,
         Room,
         AnteroomExit,
@@ -13,6 +14,8 @@ namespace GGJam_2021 {
         Corridor,
         Laboratory,
         BedroomParents,
+        BadEndGame,
+        GoodEndGame,
 
         DialogueAlbum,
         DialogueAlcol,
@@ -23,12 +26,10 @@ namespace GGJam_2021 {
         DialogueDino,
         DialogueFoto,
         DialogueVomito,
-        //Add Dialogue Scene
         Count
     }
 
     static class SceneManager {
-
         public static bool IsSceneChanging {
             get; private set;
         }
@@ -58,6 +59,21 @@ namespace GGJam_2021 {
 
         public static void LoadScene(Scene scene) {
             IsSceneChanging = true;
+            if ((scene == Scene.DialogueAlbum)
+                && (scene == Scene.DialogueAlcol)
+                && (scene == Scene.DialogueBloccoDisegni)
+                && (scene == Scene.DialogueBordello)
+                && (scene == Scene.DialogueChitarra)
+                && (scene == Scene.DialogueComputer)
+                && (scene == Scene.DialogueDino)
+                && (scene == Scene.DialogueFoto)
+                && (scene == Scene.DialogueVomito)
+                && (scene == Scene.Menu)
+                && (scene == Scene.BadEndGame)) {
+                Game.Player.IsActive = false;
+            } else {
+                Game.Player.IsActive = true;
+            }
             StatsManager.LoadScene();
             ActiveScene = scene;
             IsSceneChanging = false;
@@ -92,15 +108,7 @@ namespace GGJam_2021 {
                     }
                     for (int gO = 0; gO < scenes[Scene.Always].Count; gO++) {
                         if (scenes[Scene.Always][gO] is Player) {
-                            if (!(ActiveScene == Scene.DialogueAlbum)
-                                && !(ActiveScene == Scene.DialogueAlcol)
-                                && !(ActiveScene == Scene.DialogueBloccoDisegni)
-                                && !(ActiveScene == Scene.DialogueBordello)
-                                && !(ActiveScene == Scene.DialogueChitarra)
-                                && !(ActiveScene == Scene.DialogueComputer)
-                                && !(ActiveScene == Scene.DialogueDino)
-                                && !(ActiveScene == Scene.DialogueFoto)
-                                && !(ActiveScene == Scene.DialogueVomito)) {
+                            if (((Player)scenes[Scene.Always][gO]).IsActive) {
                                 if (scenes[Scene.Always][gO].LayerMask == (LayerMask)lM) {
                                     scenes[Scene.Always][gO].Draw();
                                 }

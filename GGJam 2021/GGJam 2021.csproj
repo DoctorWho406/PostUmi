@@ -74,6 +74,7 @@
     <Compile Include="Manager\AudioClipInitManager.cs" />
     <Compile Include="Manager\AudioManager.cs" />
     <Compile Include="Manager\InteractableObjectManager.cs" />
+    <Compile Include="Manager\MusicManager.cs" />
     <Compile Include="Manager\TextureInitManager.cs" />
     <Compile Include="Manager\InputManager.cs" />
     <Compile Include="Manager\StatsManager.cs" />
@@ -314,10 +315,7 @@
     <Content Include="Assets\Textures\InteractableObject\Items\PileMess.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\InteractableObject\pg_everystate_fiduciamenouno.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Textures\InteractableObject\PlayerProva.png">
+    <Content Include="Assets\Textures\pg_walkstate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\InteractableObject\Items\Retched.png">
@@ -357,6 +355,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\Dialogue\whiskey.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Textures\SplashScreen\the end.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

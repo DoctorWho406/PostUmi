@@ -17,12 +17,12 @@ namespace GGJam_2021
             BedroomParentsLoad();
             CentralCorridorLoad();
             Door();
-            Portrait();
+            PortraitLoad();
+            EndGameLoad();
         }
         #region Stanze
 
-        private static void Portrait()
-        {
+        private static void PortraitLoad() {
             Portrait portrait1 = new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.DialogueAlcol, ColliderType.BoxCollider) { Position = new Vector2(603, 815) };
             portrait1.Scale(0.15f);
             Portrait portrait2 = new Portrait("Retched", LayerMask.Background, Scene.Bathroom, Scene.DialogueVomito, ColliderType.BoxCollider) { Position = new Vector2(700, 840) };
@@ -53,6 +53,7 @@ namespace GGJam_2021
             InteractableObjectManager.AddPortarait(portrait8, portrait7);
             InteractableObjectManager.AddPortarait(portrait9, portrait8);
         }
+      
         private static void Door()
         {
             Door Room_Central = new Door("FrontDoor", Scene.Room, Scene.CentralCorridor, new Vector2(993, 325), 390) { Position = new Vector2(984, 120) };
@@ -123,7 +124,6 @@ namespace GGJam_2021
         private static void RoomLoad()
         {
             new Background("Room", Scene.Room, new Vector2(1173, 858)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(979, 655) };
-
             new ColliderObject("Lampada", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1481, 980) };
             new ColliderObject("ArmadioRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(600, 998) };
             new ColliderObject("Desk", LayerMask.Background, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1380, 280) }.Scale(0.3f);
@@ -140,7 +140,6 @@ namespace GGJam_2021
         private static void AnteroomExitLoad()
         {
             new Background("AnteroomExit", Scene.AnteroomExit, new Vector2(1241, 892)) { Position = Game.WindowCenter + Vector2.UnitY * 50, ColliderCenter = new Vector2(957, 579) }.Scale(0.8f);
-
             new ColliderObject("Pianta3", LayerMask.Middleground, Scene.AnteroomExit, ColliderType.BoxCollider) { Position = new Vector2(1350, 200) }.Scale(0.35f);
             new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.AnteroomExit, ColliderType.BoxCollider) { Position = new Vector2(470, 650) }.Scale(0.7f);
         }
@@ -238,6 +237,10 @@ namespace GGJam_2021
             new Background("sfondo", Scene.DialogueChitarra, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
             new Background("sfondo", Scene.DialogueComputer, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
             new Background("sfondo", Scene.DialogueBloccoDisegni, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
+        }
+
+        private static void EndGameLoad() {
+            new Portrait("BadEnd", LayerMask.Background, Scene.BadEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
         }
     }
 }

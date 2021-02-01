@@ -17,6 +17,7 @@ namespace GGJam_2021 {
             get; private set;
         }
         public static bool IsActive;
+        public static bool PlayerIsAlive => Hunger > 0 && Paranoia > 0;
 
         private static List<GameObject> glitchedGameObject;
 
@@ -52,7 +53,7 @@ namespace GGJam_2021 {
                 List<GameObject> activeGameObjects = SceneManager.GetActiveObject();
                 int elementi = (int)((1 - Paranoia) * activeGameObjects.Count);
                 if (Paranoia >= 0) {
-                    System.Console.WriteLine($"Paranoia {Paranoia} -> Elementi {elementi}");
+                    //System.Console.WriteLine($"Paranoia {Paranoia} -> Elementi {elementi}");
                 }
                 if (elementi < glitchedGameObject.Count) {
                     //remove

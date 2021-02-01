@@ -1,11 +1,6 @@
-﻿using OpenTK;
-namespace GGJam_2021
-{
-    static class TextureInitManager
-    {
-        public static void Start()
-        {
-
+﻿namespace GGJam_2021 {
+    static class TextureInitManager {
+        public static void Start() {
             //Background
             ////Room
             TextureManager.AddTexture("Room", Constants.BackgroundDirectory + "Room.png");
@@ -36,7 +31,6 @@ namespace GGJam_2021
             TextureManager.AddTexture("Corridor", Constants.BackgroundDirectory + "Corridor.png");
             TextureManager.AddTexture("Pianta1", Constants.CollidableObjectDirectory + "Pianta1.png");
 
-
             ////loungeArea
             TextureManager.AddTexture("PileMess", Constants.ItemsDirectory + "PileMess.png");
             TextureManager.AddTexture("LoungeArea", Constants.BackgroundDirectory + "LoungeArea.png");
@@ -54,7 +48,6 @@ namespace GGJam_2021
             TextureManager.AddTexture("chitarra_laboratorio", Constants.CollidableObjectDirectory + "chitarra_laboratorio.png");
             TextureManager.AddTexture("TavoloDaLavoroLaboratory", Constants.CollidableObjectDirectory + "TavoloDaLavoroLaboratory.png");
             TextureManager.AddTexture("ScaffaleDaLavoroLaboratory", Constants.CollidableObjectDirectory + "ScaffaleDaLavoroLaboratory.png");
-
 
             //anteroomExit
             TextureManager.AddTexture("FamilyAlbum", Constants.ItemsDirectory + "FamilyAlbum.png");
@@ -98,16 +91,14 @@ namespace GGJam_2021
             TextureManager.AddTexture("actionfigure", Constants.DialogueDirectory + "actionfigure.png");
             TextureManager.AddTexture("bloccodisegno", Constants.DialogueDirectory + "bloccodisegno.png");
 
-
             TextureManager.AddTexture("FrontDoor", Constants.ItemsDirectory + "FrontDoor.png");
             TextureManager.AddTexture("LateralDoor", Constants.ItemsDirectory + "LateralDoor.png");
             TextureManager.AddTexture("BackDoor", Constants.ItemsDirectory + "BackDoor.png");
 
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "cursore.png");
-            TextureManager.AddTexture("Player", Constants.InteractableObjectDirectory + "PlayerProva.png");
+            TextureManager.AddTexture("Player", Constants.TextureDirectory + "pg_walkstate.png");
 
-
-
+            TextureManager.AddTexture("BadEnd", Constants.SplashScreenDirectory + "the end.png");
         }
     }
 }

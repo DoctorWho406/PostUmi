@@ -38,14 +38,14 @@ namespace GGJam_2021 {
             Collider.Position = sprite.position;
             //if (Collider is BoxCollider) {
             //    ((BoxCollider)Collider).sprite.position = Collider.Position;
-            //} else if (Collider is CircleCollider) {
+            ////} else if (Collider is CircleCollider) {
             //    ((CircleCollider)Collider).sprite.position = Collider.Position;
             //}
             if (!(this is Player) && !(this is InteractableObject)) {
                 if (SceneManager.ActiveScene == scene) {
                     if (Collider.Collides((CircleCollider)Game.Player.Collider, out Vector2 offset)) {
-                        Game.Player.Position += offset;
                         Game.Player.Stop();
+                        Game.Player.Position += offset;
                     }
                 }
             }
@@ -53,11 +53,11 @@ namespace GGJam_2021 {
 
         //public override void Draw() {
         //    base.Draw();
-        //    if (Collider is BoxCollider) {
-        //        ((BoxCollider)Collider).Draw();
-        //    } else if (Collider is CircleCollider){
-        //        ((CircleCollider)Collider).Draw();
-        //    }
+        //    //if (Collider is BoxCollider) {
+        //    //    ((BoxCollider)Collider).Draw();
+        //    //} else if (Collider is CircleCollider) {
+        //    //    ((CircleCollider)Collider).Draw();
+        //    //}
         //}
     }
 }
