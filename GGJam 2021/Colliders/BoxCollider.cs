@@ -28,22 +28,33 @@ namespace GGJam_2021 {
         }
 
         public override bool Collides(CircleCollider circle, out Vector2 offset) {
-            float x = 0, y = 0;
-            //if (circle.Position.X - circle.Radius < Position.X + halfSize.X) {
-            //    x = Position.X + halfSize.X - circle.Position.X + circle.Radius;
-            //} else if (circle.Position.X + circle.Radius > Position.X - halfSize.X) {
-            //    x = Position.X - halfSize.X - circle.Position.X - circle.Radius;
-            //}
-            //if (circle.Position.Y - circle.Radius < Position.Y + halfSize.Y) {
-            //    y = Position.Y + halfSize.Y - circle.Position.Y + circle.Radius;
-            //} else if (circle.Position.Y + circle.Radius > Position.Y - halfSize.Y) {
-            //    y = Position.Y - halfSize.Y - circle.Position.Y - circle.Radius;
-            //}
             float deltaX = circle.Position.X - Math.Max(Position.X - halfSize.X, Math.Min(circle.Position.X, Position.X + halfSize.X));
             float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
             offset = Vector2.Zero;
-            if ((deltaX * deltaX + deltaY * deltaY) < (circle.Radius * circle.Radius)) {
-                offset = new Vector2(deltaX, deltaY);
+            if ((deltaX * deltaX + deltaY * deltaY) < (circle.Radius * circle.Radius))
+            {
+                if (deltaX * deltaX < deltaY * deltaY)
+                {
+                    if (deltaY > 0)
+                    {
+                        offset = new Vector2(0, circle.Radius - deltaY);
+                    }
+                    else
+                    {
+                        offset = new Vector2(0, -(circle.Radius + deltaY));
+                    }
+                }
+                else
+                {
+                    if (deltaX > 0)
+                    {
+                        offset = new Vector2(circle.Radius - deltaX, 0);
+                    }
+                    else
+                    {
+                        offset = new Vector2(-(circle.Radius + deltaX), 0);
+                    }
+                }
                 return true;
             }
             return false;

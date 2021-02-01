@@ -1,8 +1,11 @@
 ﻿using OpenTK;
 
-namespace GGJam_2021 {
-    static class SceneInitManager {
-        public static void Start() {
+namespace GGJam_2021
+{
+    static class SceneInitManager
+    {
+        public static void Start()
+        {
             Dialogue();
             RoomLoad();
             KitchenLoad();
@@ -13,11 +16,13 @@ namespace GGJam_2021 {
             AnteroomExitLoad();
             BedroomParentsLoad();
             CentralCorridorLoad();
+            Door();
             Portrait();
         }
         #region Stanze
 
-        private static void Portrait() {
+        private static void Portrait()
+        {
             Portrait portrait1 = new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.DialogueAlcol, ColliderType.BoxCollider) { Position = new Vector2(603, 815) };
             portrait1.Scale(0.15f);
             Portrait portrait2 = new Portrait("Retched", LayerMask.Background, Scene.Bathroom, Scene.DialogueVomito, ColliderType.BoxCollider) { Position = new Vector2(700, 840) };
@@ -48,93 +53,142 @@ namespace GGJam_2021 {
             InteractableObjectManager.AddPortarait(portrait8, portrait7);
             InteractableObjectManager.AddPortarait(portrait9, portrait8);
         }
+        private static void Door()
+        {
+            Door Room_Central = new Door("FrontDoor", Scene.Room, Scene.CentralCorridor, new Vector2(993, 325), 390) { Position = new Vector2(984, 120) };
+            Door Central_Room = new Door("BackDoor", Scene.CentralCorridor, Scene.Room, new Vector2(984, 917), 390 ,true, LayerMask.Foreground) { Position = new Vector2(993, 900) };
 
-        private static void RoomLoad() {
+            Door Central_Lounge = new Door("Empty", Scene.CentralCorridor, Scene.LoungeArea, new Vector2(183, 723) ) { Position = new Vector2(2, 715) };
+            Door Lounge_Central = new Door("Empty", Scene.LoungeArea, Scene.CentralCorridor, new Vector2(1552, 410)) { Position = new Vector2(1750, 410) };
+
+            Door Central_Corridor = new Door("Empty", Scene.CentralCorridor, Scene.Corridor, new Vector2(1904, 752)) { Position = new Vector2(1904, 752) };
+            Door Corridor_Central = new Door("Empty", Scene.Corridor, Scene.CentralCorridor, new Vector2(100, 500)) { Position = new Vector2(100, 500) };
+
+            Door Central_Anteroom = new Door("Empty", Scene.CentralCorridor, Scene.AnteroomExit, new Vector2(1100, 536)) { Position = new Vector2(1114, 306) };
+            Door Anteroom_Central = new Door("Empty", Scene.AnteroomExit, Scene.CentralCorridor, new Vector2(993, 879)) { Position = new Vector2(967, 1052) };
+
+            Door Lounge_Kitchen = new Door("FrontDoor", Scene.LoungeArea, Scene.Kitchen, new Vector2(713, 278), 390) { Position = new Vector2(750, 85) };
+            Door Kitchen_Lounge = new Door("BackDoor", Scene.Kitchen, Scene.LoungeArea, new Vector2(967, 970), 390,true, LayerMask.Foreground ) { Position = new Vector2(952, 900) };
+
+            Door Lounge_Bathroom = new Door("FrontDoor", Scene.LoungeArea, Scene.Bathroom, new Vector2(1520, 284), 390,true) { Position = new Vector2(1537, 85) };
+            Door Bathroom_Lounge = new Door("BackDoor", Scene.Bathroom, Scene.LoungeArea, new Vector2(1224,975 ), 390, true, LayerMask.Foreground) { Position = new Vector2(1287, 970) };
+
+            Door Corridor_Parents = new Door("BackDoor", Scene.Corridor, Scene.BedroomParents, new Vector2(700, 700), 390, true, LayerMask.Foreground) { Position = new Vector2(680, 800) };
+            Door Parents_Corrido = new Door("FrontDoor", Scene.BedroomParents, Scene.Corridor, new Vector2(680, 130), 390) { Position = new Vector2(700, 130) };
+
+            Door Corridor_Lab = new Door("FrontDoor", Scene.Corridor, Scene.Laboratory, new Vector2(1267, 180), 390) { Position = new Vector2(1267, 180) };             
+            Door Lab_Corridor = new Door("BackDoor", Scene.Laboratory, Scene.Corridor, new Vector2(950, 1068), 390 ,true, LayerMask.Foreground) { Position = new Vector2(950, 900) };
+
+            Parents_Corrido.Scale(0.55f);
+            Lab_Corridor.Scale(0.7f);
+            Corridor_Parents.Scale(0.7f);
+            Corridor_Central.Scale(0.7f);
+            Corridor_Lab.Scale(0.8f);
+            Bathroom_Lounge.Scale(0.7f);
+            Kitchen_Lounge.Scale(0.7f);
+            Room_Central.Scale(0.6f);
+            Lounge_Central.Scale(0.6f);
+            Central_Room.Scale(0.7f);
+            Central_Lounge.Scale(0.7f);
+            Central_Corridor.Scale(0.7f);
+            Central_Anteroom.Scale(0.7f);
+            Lounge_Kitchen.Scale(0.6f);
+            Lounge_Bathroom.Scale(0.6f);
+
+            Room_Central.SetNextDoor(Central_Room);
+
+            Central_Room.SetNextDoor(Room_Central);
+            Central_Lounge.SetNextDoor(Lounge_Central);
+            Central_Anteroom.SetNextDoor(Anteroom_Central);
+            Central_Corridor.SetNextDoor(Corridor_Central);
+
+            Lounge_Central.SetNextDoor(Central_Lounge);
+            Lounge_Bathroom.SetNextDoor(Bathroom_Lounge);
+            Lounge_Kitchen.SetNextDoor(Kitchen_Lounge);
+
+            Kitchen_Lounge.SetNextDoor(Lounge_Kitchen);
+
+            Bathroom_Lounge.SetNextDoor(Lounge_Bathroom);
+
+            Anteroom_Central.SetNextDoor(Central_Anteroom);
+
+            Corridor_Central.SetNextDoor(Central_Corridor);
+            Corridor_Lab.SetNextDoor(Lab_Corridor);
+            Corridor_Parents.SetNextDoor(Parents_Corrido);
+
+            Parents_Corrido.SetNextDoor(Corridor_Parents);
+
+            Lab_Corridor.SetNextDoor(Corridor_Lab);
+        }
+        private static void RoomLoad()
+        {
             new Background("Room", Scene.Room, new Vector2(1173, 858)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(979, 655) };
-
-            new Door(Scene.Room, Scene.CentralCorridor) { Position = new Vector2(984, 120) }.Scale(0.6f);
 
             new ColliderObject("Lampada", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1481, 980) };
             new ColliderObject("ArmadioRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(600, 998) };
-            new ColliderObject("Desk", LayerMask.Background, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1380, 250) }.Scale(0.3f);
+            new ColliderObject("Desk", LayerMask.Background, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1380, 280) }.Scale(0.3f);
             new ColliderObject("LettoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(570, 380) }.Scale(0.8f);
             new ColliderObject("SediaRoom1", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1288, 450) }.Scale(0.5f);
-            //new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(800, 340) }.Scale(0.7f);
-
+            new ColliderObject("ComodinoRoom", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(800, 340) }.Scale(0.7f);
         }
 
-        private static void CentralCorridorLoad() {
+        private static void CentralCorridorLoad()
+        {
             new Background("CentralCorridor", Scene.CentralCorridor, new Vector2(2175, 485)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(976, 736) };
-
-            new Door(Scene.CentralCorridor, Scene.Room) { Position = new Vector2(993, 1067) }.Scale(0.7f);
-            new Door(Scene.CentralCorridor, Scene.LoungeArea) { Position = new Vector2(2, 715) }.Scale(0.7f);
-            new Door(Scene.CentralCorridor, Scene.Corridor) { Position = new Vector2(1904, 752) }.Scale(0.7f);
-            new Door(Scene.CentralCorridor, Scene.AnteroomExit) { Position = new Vector2(1186, 400) }.Scale(0.7f);
         }
 
-        private static void AnteroomExitLoad() {
+        private static void AnteroomExitLoad()
+        {
             new Background("AnteroomExit", Scene.AnteroomExit, new Vector2(1241, 892)) { Position = Game.WindowCenter + Vector2.UnitY * 50, ColliderCenter = new Vector2(957, 579) }.Scale(0.8f);
-
-            new Door(Scene.AnteroomExit, Scene.CentralCorridor) { Position = Game.WindowCenter+Vector2.UnitY*600};
 
             new ColliderObject("Pianta3", LayerMask.Middleground, Scene.AnteroomExit, ColliderType.BoxCollider) { Position = new Vector2(1350, 200) }.Scale(0.35f);
             new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.AnteroomExit, ColliderType.BoxCollider) { Position = new Vector2(470, 650) }.Scale(0.7f);
-
         }
 
-        private static void LoungeAreaLoad() {
+        private static void LoungeAreaLoad()
+        {
             new Background("LoungeArea", Scene.LoungeArea, new Vector2(1895, 1296)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(951, 750) }.Scale(0.8f);
-
-            new Door(Scene.LoungeArea, Scene.Kitchen) { Position = new Vector2(713, 85) }.Scale(0.6f);
-            new Door(Scene.LoungeArea, Scene.Bathroom) { Position = new Vector2(200, 420) }.Scale(0.6f);
-            new Door(Scene.LoungeArea, Scene.CentralCorridor) { Position = new Vector2(1750, 410) }.Scale(0.6f);
 
             new ColliderObject("Lampada", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1628, 1022) }.Scale(0.8f);
             new ColliderObject("SediaSalone", LayerMask.Background, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1019, 418) }.Scale(0.65f);
-            new ColliderObject("SediaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(858, 642) }.Scale(0.65f);
+            new ColliderObject("SediaSalone", LayerMask.Background, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(858, 642) }.Scale(0.65f);
             new ColliderObject("Sedia2Salone1", LayerMask.Background, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(861, 411) }.Scale(0.65f);
             new ColliderObject("TavolaLungaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = Game.WindowCenter }.Scale(0.7f);
             new ColliderObject("Sedia2Salone1", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(559, 497) }.Scale(0.65f);
             new ColliderObject("TvConCasseSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1180, 960) }.Scale(0.5f);
             new ColliderObject("SediaCadutaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(413, 369) }.Scale(0.8f);
             new ColliderObject("SediaCadutaSalone", LayerMask.Middleground, Scene.LoungeArea, ColliderType.BoxCollider) { Position = new Vector2(1074, 662) }.Scale(0.8f);
-
         }
 
-        private static void KitchenLoad() {
+        private static void KitchenLoad()
+        {
             new Background("Kitchen", Scene.Kitchen, new Vector2(2379, 1527)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(952, 645) }.Scale(0.5f);
 
-            new Door(Scene.Kitchen, Scene.LoungeArea) { Position = new Vector2(952, 1079) };
             new Fridge(Scene.Kitchen, ColliderType.BoxCollider) { Position = new Vector2(484, 349) }.Scale(0.5f);
 
             new ColliderObject("tavola_kitchen", LayerMask.Middleground, Scene.Kitchen, ColliderType.CircleCollider) { Position = new Vector2(560, 800) }.Scale(0.5f);
             new ColliderObject("banco_cucina_kitchen", LayerMask.Middleground, Scene.Kitchen, ColliderType.BoxCollider) { Position = new Vector2(1222, 305) }.Scale(0.5f);
         }
 
-        private static void BathroomLoad() {
+        private static void BathroomLoad()
+        {
             new Background("Bathroom", Scene.Bathroom, new Vector2(1273, 858)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(1015, 660) }.Scale(0.8f);
-
-            new Door(Scene.Bathroom, Scene.LoungeArea) { Position = new Vector2(1287, 1079) };
 
             new ColliderObject("CessoBidet", LayerMask.Middleground, Scene.Bathroom, ColliderType.BoxCollider) { Position = new Vector2(570, 800) }.Scale(0.6f);
             new ColliderObject("DoppioCesso", LayerMask.Middleground, Scene.Bathroom, ColliderType.BoxCollider) { Position = new Vector2(630, 250) }.Scale(0.8f);
             new ColliderObject("LavandinoCesso", LayerMask.Middleground, Scene.Bathroom, ColliderType.BoxCollider) { Position = new Vector2(1320, 340) }.Scale(0.7f);
         }
 
-        private static void CorridorLoad() {
+        private static void CorridorLoad()
+        {
             new Background("Corridor", Scene.Corridor, new Vector2(1622, 484)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(835, 621) };
-
-            new Door(Scene.Corridor, Scene.CentralCorridor) { Position = new Vector2(100, 500) };
-            new Door(Scene.Corridor, Scene.BedroomParents) { Position = new Vector2(680, 1013) };
-            new Door(Scene.Corridor, Scene.Laboratory) { Position = new Vector2(1267, 180) }.Scale(0.8f);
 
             new ColliderObject("Pianta1", LayerMask.Middleground, Scene.Corridor, ColliderType.BoxCollider) { Position = new Vector2(1567, 341) }.Scale(0.5f);
         }
 
-        private static void LaboratoryLoad() {
+        private static void LaboratoryLoad()
+        {
             new Background("Laboratory", Scene.Laboratory, new Vector2(1883, 1040)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(954, 600) }.Scale(0.7f);
-
-            new Door(Scene.Laboratory, Scene.Corridor) { Position = new Vector2(950, 1068) };
 
             new ColliderObject("chitarra_laboratorio", LayerMask.Middleground, Scene.Laboratory, ColliderType.BoxCollider) { Position = new Vector2(900, 280) }.Scale(0.8f);
             new ColliderObject("batteria_laboratorio", LayerMask.Middleground, Scene.Laboratory, ColliderType.BoxCollider) { Position = new Vector2(1229, 320) }.Scale(0.5f);
@@ -142,10 +196,9 @@ namespace GGJam_2021 {
             new ColliderObject("ScaffaleDaLavoroLaboratory", LayerMask.Middleground, Scene.Laboratory, ColliderType.BoxCollider) { Position = new Vector2(506, 180) }.Scale(1.2f);
         }
 
-        private static void BedroomParentsLoad() {
+        private static void BedroomParentsLoad()
+        {
             new Background("BedroomParents", Scene.BedroomParents, new Vector2(1631, 984)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(920, 620) }.Scale(0.7f);
-
-            new Door(Scene.BedroomParents, Scene.Corridor) { Position = new Vector2(700, 130) }.Scale(0.55f);
 
             new ColliderObject("Pianta2", LayerMask.Middleground, Scene.BedroomParents, ColliderType.CircleCollider) { Position = new Vector2(420, 260) }.Scale(0.3f);
             new ColliderObject("letto_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position = new Vector2(1280, 700) }.Scale(0.75f);
@@ -154,7 +207,8 @@ namespace GGJam_2021 {
             new ColliderObject("mobile_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position = new Vector2(1197, 299) }.Scale(0.5f);
         }
         #endregion
-        private static void Dialogue() {
+        private static void Dialogue()
+        {
             new UIText("whiskey", Scene.DialogueAlcol) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("vomito", Scene.DialogueVomito) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("bordello", Scene.DialogueBordello) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
