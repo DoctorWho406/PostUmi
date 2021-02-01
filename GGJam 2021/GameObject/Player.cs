@@ -32,6 +32,7 @@ namespace GGJam_2021 {
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 654) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
             status = Status.FrontWalk;
+            
             textureOffset = Vector2.Zero;
             correctSide = true;
 
