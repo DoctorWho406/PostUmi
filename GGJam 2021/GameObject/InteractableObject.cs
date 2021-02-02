@@ -60,6 +60,16 @@ namespace GGJam_2021 {
         public override void Update() {
             base.Update();
             trigger.Position = sprite.position;
+            if (trigger is BoxCollider) {
+                ((BoxCollider)trigger).sprite.position = trigger.Position;
+            }
+        }
+
+        public override void Draw() {
+            base.Draw();
+            if (trigger is BoxCollider) {
+                ((BoxCollider)trigger).Draw();
+            }
         }
     }
 }

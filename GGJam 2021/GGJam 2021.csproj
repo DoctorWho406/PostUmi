@@ -58,6 +58,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="GameObject\Button.cs" />
     <Compile Include="GameObject\ChangeSceneObject.cs" />
+    <Compile Include="GameObject\EndDoor.cs" />
     <Compile Include="GameObject\Fridge.cs" />
     <Compile Include="GameObject\Background.cs" />
     <Compile Include="Colliders\BoxCollider.cs" />

@@ -36,7 +36,6 @@ namespace GGJam_2021 {
         public static void Reset() {
             Hunger = Constants.HungerMax;
             Paranoia = Constants.ParanoiaMax;
-            glitchedGameObject.Clear();
         }
 
         public static void LoadScene() {

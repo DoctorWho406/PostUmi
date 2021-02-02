@@ -1,5 +1,4 @@
-﻿using Aiv.Fast2D;
-using OpenTK;
+﻿using OpenTK;
 
 namespace GGJam_2021 {
     class CircleCollider : Collider {
@@ -19,14 +18,12 @@ namespace GGJam_2021 {
             //sprite.scale = new Vector2(scaleFactory);
         }
 
-        public override bool Collides(CircleCollider circle, out Vector2 offset)
-        {
+        public override bool Collides(CircleCollider circle, out Vector2 offset) {
             offset = Vector2.Zero;
-            Vector2 distance = Position - circle.Position;
-            if (distance.Length < Radius + circle.Radius)
-            {
-                offset = distance.Normalized() * (Radius + circle.Radius - distance.Length);
-                return true;
+            Vector2 distance = circle.Position - Position;
+            if (distance.Length < Radius + circle.Radius) {
+                offset = distance.Normalized() * (Radius + circle.Radius - distance.Length + 1);
+                return true;                
             }
             return false;
         }

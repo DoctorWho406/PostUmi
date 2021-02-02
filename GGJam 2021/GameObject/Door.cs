@@ -12,7 +12,7 @@ namespace GGJam_2021
 
         private Door nextDoor;
 
-        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer, int w = 0, bool Flip = false, LayerMask layerMask = LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w, 0)
+        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer, int w = 0, bool Flip = false, LayerMask layerMask = LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w)
         {
             sprite.FlipX = Flip;
             spriteGlitch1.FlipX = Flip;
@@ -38,11 +38,11 @@ namespace GGJam_2021
             }
             if (animation.IsPlaying)
             {
-                Game.Player.IsActive = false;
+                Game.Player.SetIsActive(false);
             }
             if (readyForChange && !animation.IsPlaying)
             {
-                Game.Player.IsActive = true;
+                Game.Player.SetIsActive(true);
                 animation.Stop(ref textureOffset);
                 readyForChange = false;
                 SceneManager.LoadScene(nextScene, nextDoor.positionPlayer);

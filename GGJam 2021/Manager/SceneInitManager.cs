@@ -17,10 +17,9 @@ namespace GGJam_2021 {
             PortraitLoad();
             GameMenuLoad();
         }
-        #region Stanze
 
         private static void PortraitLoad() {
-            Portrait portrait1 = new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.DialogueAlcol, ColliderType.BoxCollider) { Position = new Vector2(603, 815) };
+            Portrait portrait1 = new Portrait("Whiskey", LayerMask.Foreground, Scene.Kitchen, Scene.DialogueAlcol, ColliderType.BoxCollider) { Position = new Vector2(618, 830/*603, 815*/) };
             portrait1.Scale(0.15f);
             Portrait portrait2 = new Portrait("Retched", LayerMask.Background, Scene.Bathroom, Scene.DialogueVomito, ColliderType.BoxCollider) { Position = new Vector2(700, 840) };
             portrait2.Scale(0.5f);
@@ -63,7 +62,7 @@ namespace GGJam_2021 {
 
             Door Central_Anteroom = new Door("Empty", Scene.CentralCorridor, Scene.AnteroomExit, new Vector2(1100, 536)) { Position = new Vector2(1114, 306) };
             Door Anteroom_Central = new Door("Empty", Scene.AnteroomExit, Scene.CentralCorridor, new Vector2(993, 879)) { Position = new Vector2(967, 1052) };
-            Door Anteroom_Exit = new Door("EndDoor", Scene.AnteroomExit, Scene.Menu, new Vector2(950, 950), 67) { Position = new Vector2(967, 110) };
+            new EndDoor(67) { Position = new Vector2(967, 110) }.Scale(3.5f);
 
             Door Lounge_Kitchen = new Door("FrontDoor", Scene.LoungeArea, Scene.Kitchen, new Vector2(713, 278), 390) { Position = new Vector2(750, 85) };
             Door Kitchen_Lounge = new Door("BackDoor", Scene.Kitchen, Scene.LoungeArea, new Vector2(967, 970), 390, true, LayerMask.Foreground) { Position = new Vector2(952, 900) };
@@ -77,7 +76,6 @@ namespace GGJam_2021 {
             Door Corridor_Lab = new Door("FrontDoor", Scene.Corridor, Scene.Laboratory, new Vector2(1267, 180), 390) { Position = new Vector2(1267, 180) };
             Door Lab_Corridor = new Door("BackDoor", Scene.Laboratory, Scene.Corridor, new Vector2(950, 950), 390, true, LayerMask.Foreground) { Position = new Vector2(950, 900) };
 
-            Anteroom_Exit.Scale(3.5f);
             Parents_Corrido.Scale(0.55f);
             Lab_Corridor.Scale(0.7f);
             Corridor_Parents.Scale(0.7f);
@@ -109,7 +107,6 @@ namespace GGJam_2021 {
 
             Bathroom_Lounge.SetNextDoor(Lounge_Bathroom);
 
-            //Anteroom_Exit.SetNextDoor()
             Anteroom_Central.SetNextDoor(Central_Anteroom);
 
             Corridor_Central.SetNextDoor(Central_Corridor);
@@ -195,7 +192,7 @@ namespace GGJam_2021 {
             new ColliderObject("armadio_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position = new Vector2(360, 800) }.Scale(0.6f);
             new ColliderObject("mobile_bedroom_parents", LayerMask.Middleground, Scene.BedroomParents, ColliderType.BoxCollider) { Position = new Vector2(1197, 299) }.Scale(0.5f);
         }
-        #endregion
+
         private static void Dialogue() {
             new UIText("whiskey", Scene.DialogueAlcol) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("vomito", Scene.DialogueVomito) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);

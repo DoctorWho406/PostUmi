@@ -5,7 +5,7 @@ namespace GGJam_2021 {
         protected Animation animation;
         private bool eating;
         private Vector2 textureOffset;
-        public Fridge(Scene scene, ColliderType colliderType) : base("Frigorifero", LayerMask.Background, scene, colliderType, 460, 0) {
+        public Fridge(Scene scene, ColliderType colliderType) : base("Frigorifero", LayerMask.Middleground, scene, colliderType, 460, 0) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
             textureOffset = Vector2.Zero;
         }
@@ -14,13 +14,13 @@ namespace GGJam_2021 {
             animation.Update(ref textureOffset);
             base.Update();
             if (IsNearAndClicked() && !eating) {
-                Game.Player.IsActive = false;
+                Game.Player.SetIsActive(false);
                 animation.Play();
                 eating = true;
                 StatsManager.AddStats(Constants.HungerFromFridge, Stat.Hunger);
             }
             if (eating && !animation.IsPlaying) {
-                Game.Player.IsActive = true;
+                Game.Player.SetIsActive(true);
                 animation.Stop(ref textureOffset);
                 eating = false;
             }

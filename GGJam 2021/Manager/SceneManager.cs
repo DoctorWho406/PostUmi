@@ -60,8 +60,8 @@ namespace GGJam_2021 {
         public static void LoadScene(Scene scene) {
             IsSceneChanging = true;
             if (scene == Scene.Menu) {
-                Game.Player.IsVisible = false;
-                Game.Player.IsActive = false;
+                Game.Player.SetIsVisible(false);
+                Game.Player.SetIsActive(false);
                 StatsManager.Reset();
                 InteractableObjectManager.Reset();
             } else {
@@ -76,13 +76,13 @@ namespace GGJam_2021 {
                     || (scene == Scene.DialogueVomito)
                     || (scene == Scene.BadEndGame)
                     || (scene == Scene.GoodEndGame)) {
-                    Game.Player.IsVisible = false;
+                    Game.Player.SetIsVisible(false);
                     //Game.Player.IsActive = false;
                 } else {
                     if (scene == Scene.Room) {
-                        Game.Player.IsActive = true;
+                        Game.Player.SetIsActive(true);
                     }
-                    Game.Player.IsVisible = true;
+                    Game.Player.SetIsVisible(true);
                 }
                 StatsManager.LoadScene();
             }
