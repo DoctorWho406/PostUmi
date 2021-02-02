@@ -10,27 +10,24 @@ namespace GGJam_2021
     static class MusicManager
     {
         public static AudioSource RadioEmitter;
-        public static AudioSource MusicEmitter01;
-        public static AudioSource MusicEmitter02;
-        public static AudioSource MusicEmitter03;
-        public static AudioSource MusicEmitter04;
-        public static AudioSource MusicEmitter05;
-        public static AudioSource MusicEmitter06;
-        public static AudioSource MusicEmitter07;
-        public static AudioSource MusicEmitter08;
+        public static AudioSource IntroEmitter;
+        public static AudioSource BgMusicEmitter01;
+        public static AudioSource BgMusicEmitter02;
+        public static AudioSource BgMusicEmitter03;
+        public static AudioSource OutroEmitter01;
+        public static AudioSource OutroEmitter02;
+        public static AudioSource OutroEmitter03;
+        public static AudioSource CreditsEmitter;
 
         public static AudioClip RadioClip;
+        public static AudioClip Intro;
         public static AudioClip BgMusic01;
         public static AudioClip BgMusic02;
         public static AudioClip BgMusic03;
-        public static AudioClip BgMusic04;
-        public static AudioClip BgMusic05;
-        public static AudioClip BgMusic06;
-        public static AudioClip BgMusic07;
-        public static AudioClip BgMusic08;
-        public static AudioClip BgMusic09;
-        public static AudioClip BgMusic10;
-        public static AudioClip BgMusic11;
+        public static AudioClip Outro01;
+        public static AudioClip Outro02;
+        public static AudioClip Outro03;
+        public static AudioClip Credits;
 
         private static float waitForMusic;
 
@@ -42,44 +39,61 @@ namespace GGJam_2021
         {
 
             waitForMusic = 1;
-            MusicEmitter01 = new AudioSource();
-            MusicEmitter02 = new AudioSource();
-            MusicEmitter03 = new AudioSource();
-            MusicEmitter04 = new AudioSource();
-            MusicEmitter05 = new AudioSource();
-            MusicEmitter06 = new AudioSource();
-            MusicEmitter07 = new AudioSource();
-            MusicEmitter08 = new AudioSource();
+            ObjectTaken = 0;
             RadioEmitter = new AudioSource();
+            IntroEmitter = new AudioSource();
+            BgMusicEmitter01 = new AudioSource();
+            BgMusicEmitter02 = new AudioSource();
+            BgMusicEmitter03 = new AudioSource();
+            OutroEmitter01 = new AudioSource();
+            OutroEmitter02 = new AudioSource();
+            OutroEmitter03 = new AudioSource();
+            CreditsEmitter = new AudioSource();
 
+            RadioClip = AudioManager.GetAudioClip(AudioManager.Shuffle(AudioManager.RadioChannel, 3));
+            Intro = AudioManager.GetAudioClip("Intro");
             BgMusic01 = AudioManager.GetAudioClip("BgMusic01");
             BgMusic02 = AudioManager.GetAudioClip("BgMusic02");
             BgMusic03 = AudioManager.GetAudioClip("BgMusic03");
-            BgMusic04 = AudioManager.GetAudioClip("BgMusic04");
-            BgMusic05 = AudioManager.GetAudioClip("BgMusic05");
-            BgMusic06 = AudioManager.GetAudioClip("BgMusic06");
-            BgMusic07 = AudioManager.GetAudioClip("Credits");
-            BgMusic08 = AudioManager.GetAudioClip("Intro");
-            BgMusic09 = AudioManager.GetAudioClip("Outro01");
-            BgMusic10 = AudioManager.GetAudioClip("Outro02");
-            BgMusic11 = AudioManager.GetAudioClip("Outro03");
-            RadioClip = AudioManager.GetAudioClip(AudioManager.Shuffle(AudioManager.RadioChannel, 3));
+            Outro01 = AudioManager.GetAudioClip("Outro01");
+            Outro02 = AudioManager.GetAudioClip("Outro02");
+            Outro03 = AudioManager.GetAudioClip("Outro03");
+            Credits = AudioManager.GetAudioClip("Credits");
 
-            MusicEmitter01.Volume = 0f;
-            MusicEmitter02.Volume = 0f;
-            MusicEmitter03.Volume = 0f;
-            MusicEmitter04.Volume = 0f;
-            MusicEmitter05.Volume = 0f;
-            MusicEmitter06.Volume = 0f;
-            MusicEmitter07.Volume = 0f;
-            MusicEmitter08.Volume = 0f;
             RadioEmitter.Volume = 0f;
+            IntroEmitter.Volume = 1f;
+            BgMusicEmitter01.Volume = 1f;
+            BgMusicEmitter02.Volume = 0f;
+            BgMusicEmitter03.Volume = 0f;
+            OutroEmitter01.Volume = 0f;
+            OutroEmitter02.Volume = 0f;
+            OutroEmitter03.Volume = 0f;
+            CreditsEmitter.Volume = 1f;
 
             
+            
+        }
+
+        public static void Reset()
+        {
+            waitForMusic = 1;
+            ObjectTaken = 0;
+            RadioEmitter.Volume = 0f;
+            IntroEmitter.Volume = 1f;
+            BgMusicEmitter01.Volume = 1f;
+            BgMusicEmitter02.Volume = 0f;
+            BgMusicEmitter03.Volume = 0f;
+            OutroEmitter01.Volume = 0f;
+            OutroEmitter02.Volume = 0f;
+            OutroEmitter03.Volume = 0f;
+            CreditsEmitter.Volume = 1f;
+
         }
 
         public static void Update()
         {
+            
+
             if (waitForMusic > 0)
             {
                 waitForMusic -= DeltaTime;
@@ -88,53 +102,79 @@ namespace GGJam_2021
             {
                 if (SceneManager.ActiveScene == Scene.Menu)
                 {
-                    AudioManager.FadeIn(MusicEmitter08, MusicEmitter08.Volume, 1);
-                    MusicEmitter08.Stream(BgMusic08, DeltaTime);
+                    IntroEmitter.Stream(Intro, DeltaTime);
+                    //BgMusicEmitter01.Stream(BgMusic01, DeltaTime);
+                    //AudioManager.FadeOut(BgMusicEmitter01, BgMusicEmitter01.Volume, 1);
+                    //AudioManager.FadeIn(IntroEmitter, IntroEmitter.Volume, 1);
+
                 }
-                else
-                {   
-                    AudioManager.FadeOut(MusicEmitter08, MusicEmitter08.Volume, 1);
-                    AudioManager.FadeIn(MusicEmitter01, MusicEmitter01.Volume, 1);
-                    MusicEmitter01.Stream(BgMusic01, DeltaTime);
-                    MusicEmitter02.Stream(BgMusic02, DeltaTime);
-                    MusicEmitter03.Stream(BgMusic03, DeltaTime);
+                else if (SceneManager.ActiveScene != Scene.Menu && SceneManager.ActiveScene != Scene.GoodEndGame && SceneManager.ActiveScene != Scene.BadEndGame)
+                {
+
+
+                    //IntroEmitter.Stream(Intro, DeltaTime);
+                    //AudioManager.FadeOut(IntroEmitter, IntroEmitter.Volume, 1);
+                    //AudioManager.FadeIn(BgMusicEmitter01, BgMusicEmitter01.Volume, 1);
+                    BgMusicEmitter01.Stream(BgMusic01, DeltaTime);
+                    //BgMusicEmitter02.Stream(BgMusic02, DeltaTime);
+                    //BgMusicEmitter03.Stream(BgMusic03, DeltaTime); 
+                }
+
+                if (SceneManager.ActiveScene == Scene.BadEndGame)
+                {
+                    CreditsEmitter.Stream(Credits, DeltaTime);
+                    //AudioManager.FadeOut(BgMusicEmitter01, BgMusicEmitter01.Volume, 1);
+
                 }
 
             }
 
-            if (ObjectTaken >= 3)
-            {
-                AudioManager.FadeIn(MusicEmitter02, MusicEmitter02.Volume, 1);
-            }
+            //if (ObjectTaken >= 3)
+            //{
+            //    AudioManager.FadeIn(BgMusicEmitter02, BgMusicEmitter02.Volume, 1);
+            //}
 
-            if (ObjectTaken >= 5)
-            {
-                AudioManager.FadeIn(MusicEmitter03, MusicEmitter03.Volume, 1);
-            }
+            //if (ObjectTaken >= 5)
+            //{
+            //    AudioManager.FadeIn(BgMusicEmitter03, BgMusicEmitter03.Volume, 1);
+            //}
 
-            if (ObjectTaken >= InteractableObjectManager.orderList.Count)
-            {
-                MusicEmitter04.Stream(BgMusic09, DeltaTime);
-                MusicEmitter05.Stream(BgMusic10, DeltaTime);
-                MusicEmitter06.Stream(BgMusic11, DeltaTime);
+            //if (ObjectTaken >= InteractableObjectManager.orderList.Count)
+            //{
+            //    OutroEmitter01.Stream(Outro01, DeltaTime);
+            //    OutroEmitter02.Stream(Outro02, DeltaTime);
+            //    OutroEmitter03.Stream(Outro03, DeltaTime);
 
-                AudioManager.FadeOut(MusicEmitter01, MusicEmitter01.Volume, 1);
-                AudioManager.FadeOut(MusicEmitter02, MusicEmitter01.Volume, 1);
-                AudioManager.FadeOut(MusicEmitter03, MusicEmitter01.Volume, 1);
+            //    AudioManager.FadeOut(BgMusicEmitter01, BgMusicEmitter01.Volume, 1);
+            //    AudioManager.FadeOut(BgMusicEmitter02, BgMusicEmitter02.Volume, 1);
+            //    AudioManager.FadeOut(BgMusicEmitter03, BgMusicEmitter03.Volume, 1);
 
-                AudioManager.FadeIn(MusicEmitter04, MusicEmitter04.Volume, 1);
-                AudioManager.FadeIn(MusicEmitter05, MusicEmitter05.Volume, 1);
-                AudioManager.FadeIn(MusicEmitter06, MusicEmitter06.Volume, 1);
-            }
+            //    AudioManager.FadeIn(OutroEmitter01, OutroEmitter01.Volume, 1);
+            //    AudioManager.FadeIn(OutroEmitter02, OutroEmitter02.Volume, 1);
+            //    AudioManager.FadeIn(OutroEmitter03, OutroEmitter03.Volume, 1);
 
-            if (SceneManager.ActiveScene == Scene.GoodEndGame)
-            {
-                AudioManager.FadeOut(MusicEmitter04, MusicEmitter04.Volume, 1);
-                AudioManager.FadeOut(MusicEmitter05, MusicEmitter05.Volume, 1);
-                AudioManager.FadeOut(MusicEmitter06, MusicEmitter06.Volume, 1);
-                MusicEmitter07.Stream(BgMusic07, DeltaTime);
-                AudioManager.FadeIn(MusicEmitter07, MusicEmitter07.Volume, 1);
-            }
+            //    if (BgMusicEmitter01.Volume == 0 && BgMusicEmitter02.Volume == 0 && BgMusicEmitter03.Volume == 0)
+            //    {
+            //        BgMusicEmitter01.Stop();
+            //        BgMusicEmitter02.Stop();
+            //        BgMusicEmitter03.Stop();
+            //    }
+            //}
+
+            //if (SceneManager.ActiveScene == Scene.GoodEndGame)
+            //{
+            //    AudioManager.FadeOut(OutroEmitter01, OutroEmitter01.Volume, 1);
+            //    AudioManager.FadeOut(OutroEmitter02, OutroEmitter02.Volume, 1);
+            //    AudioManager.FadeOut(OutroEmitter03, OutroEmitter03.Volume, 1);
+            //    CreditsEmitter.Stream(Credits, DeltaTime);
+            //    AudioManager.FadeIn(CreditsEmitter, CreditsEmitter.Volume, 1);
+            //    if (OutroEmitter01.Volume == 0 && OutroEmitter02.Volume == 0 && OutroEmitter03.Volume == 0)
+            //    {
+            //        OutroEmitter01.Stop();
+            //        OutroEmitter02.Stop();
+            //        OutroEmitter03.Stop();
+            //    }
+            //}
         }
     }
 

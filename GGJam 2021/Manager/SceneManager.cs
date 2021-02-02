@@ -64,6 +64,7 @@ namespace GGJam_2021 {
                 Game.Player.IsActive = false;
                 StatsManager.Reset();
                 InteractableObjectManager.Reset();
+                MusicManager.Reset();
             } else {
                 if ((scene == Scene.DialogueAlbum)
                     || (scene == Scene.DialogueAlcol)

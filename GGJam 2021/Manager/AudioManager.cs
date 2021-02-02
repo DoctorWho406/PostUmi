@@ -58,6 +58,10 @@ namespace GGJam_2021
         {
             volume -= Game.DeltaTime * (seconds * 0.1f);
             s.Volume = volume;
+            //if (volume <= 0)
+            //{
+            //    s.Stop();
+            //}
         }
 
         public static string Shuffle(string[] array, int max)
