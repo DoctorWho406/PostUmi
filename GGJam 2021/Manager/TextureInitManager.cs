@@ -104,8 +104,11 @@
             TextureManager.AddTexture("FrontDoor", Constants.ItemsDirectory + "FrontDoor.png");
             TextureManager.AddTexture("LateralDoor", Constants.ItemsDirectory + "LateralDoor.png");
 
-
+            //UI
             TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "cursore.png");
+            TextureManager.AddTexture("Hunger", Constants.TextureDirectory + "barrafame.png");
+            TextureManager.AddTexture("Paranoia", Constants.TextureDirectory + "barraparanoia.png");
+
             TextureManager.AddTexture("Player", Constants.TextureDirectory + "pg_walkstate.png");
         }
     }

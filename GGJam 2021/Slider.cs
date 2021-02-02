@@ -3,28 +3,41 @@ using OpenTK;
 
 namespace GGJam_2021 {
     class Slider {
-        private Sprite sprite;
+        private Sprite slider;
+        private Sprite bg;
+        private Texture textureBg;
         private Stat stat;
+        private Vector4 color;
 
         public Slider(Vector2 position, Stat stat) {
             this.stat = stat;
             switch (stat) {
                 case Stat.Hunger:
-                    sprite = new Sprite(Constants.HungerMax, 50);
+                    textureBg = TextureManager.GetTexture("Hunger");
+                    bg = new Sprite(textureBg.Width, textureBg.Height);
+                    bg.scale = new Vector2(Constants.HungerMax / bg.Width, 0.5f);
+                    slider = new Sprite(Constants.HungerMax, textureBg.Height);
+                    color = new Vector4(120, 131, 102, 255);
                     break;
                 case Stat.Paranoia:
-                    sprite = new Sprite(Constants.ParanoiaMax, 50);
+                    textureBg = TextureManager.GetTexture("Paranoia");
+                    bg = new Sprite(textureBg.Width, textureBg.Height);
+                    bg.scale = new Vector2(Constants.ParanoiaMax / bg.Width, 0.5f);
+                    slider = new Sprite(Constants.ParanoiaMax, textureBg.Height);
+                    color = new Vector4(125, 102, 131, 255);
                     break;
             }
-            sprite.position = position;
+            slider.position = position;
+            bg.position = position;
         }
 
         public void Update() {
-            sprite.scale = new Vector2(stat == Stat.Paranoia ? StatsManager.Paranoia/Constants.ParanoiaMax : StatsManager.Hunger/Constants.HungerMax, 1);
+            slider.scale = new Vector2(stat == Stat.Paranoia ? StatsManager.Paranoia / Constants.ParanoiaMax : StatsManager.Hunger / Constants.HungerMax, 1);
         }
 
         public void Draw() {
-            sprite.DrawColor(new Vector4(255, 0, 0, 255));
+            bg.DrawTexture(textureBg);
+            slider.DrawColor(color);
         }
     }
 }

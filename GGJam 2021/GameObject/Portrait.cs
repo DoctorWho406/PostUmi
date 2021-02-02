@@ -29,28 +29,22 @@ namespace GGJam_2021 {
         public override void Update() {
             base.Update();
             if (animation != null) {
+                if (IsClicked()) {
+                    SceneManager.LoadScene(nextScene);
+                }
                 animation.Update(ref textureOffset);
                 if (SceneManager.ActiveScene == scene) {
                     animation.Play();
-                    isAnimated = true;
                 }
-                if (isAnimated && !animation.IsPlaying) {
-                    animation.Stop(ref textureOffset);
-                    isAnimated = false;
-                }
-            }
-            if (IsNearAndClicked()) {
-                if (animation == null) {
-                    if (InteractableObjectManager.CanOpenIt(this)) {
-                        SceneManager.LoadScene(nextScene);
-                        if (!isOpened) {
-                            MusicManager.ObjectTaken++;
-                        }
-                        isOpened = true;
-                    }
-                } else {
+            } else if (IsNearAndClicked()) {
+                if (InteractableObjectManager.CanOpenIt(this)) {
                     SceneManager.LoadScene(nextScene);
+                    if (!isOpened) {
+                        MusicManager.ObjectTaken++;
+                    }
+                    isOpened = true;
                 }
+
             }
         }
         public override void Draw() {
