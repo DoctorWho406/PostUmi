@@ -313,7 +313,7 @@
     <Content Include="Assets\Textures\InteractableObject\Items\PileMess.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\InteractableObject\Items\porta_frontale.png">
+    <Content Include="Assets\Textures\InteractableObject\Items\EndDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\pg_walkstate.png">
