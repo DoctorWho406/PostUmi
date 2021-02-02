@@ -207,15 +207,15 @@ namespace GGJam_2021 {
             new UIText("computer", Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("bloccodisegno", Scene.DialogueBloccoDisegni) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
 
+            new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
             new Portrait("Alcol", LayerMask.Background, Scene.DialogueAlcol, Scene.Kitchen, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
             new Portrait("Vomito", LayerMask.Background, Scene.DialogueVomito, Scene.Bathroom, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("Bordello", LayerMask.Background, Scene.DialogueBordello, Scene.LoungeArea, ColliderType.BoxCollider, 9, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("ComputerPortrait", LayerMask.Background, Scene.DialogueComputer, Scene.Room, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("Album", LayerMask.Background, Scene.DialogueAlbum, Scene.AnteroomExit, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
-            new Portrait("Chitarra", LayerMask.Background, Scene.DialogueChitarra, Scene.Laboratory, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("BloccoDisegni", LayerMask.Background, Scene.DialogueBloccoDisegni, Scene.Laboratory, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
-            new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
             new Portrait("Foto", LayerMask.Background, Scene.DialogueFoto, Scene.BedroomParents, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
+            new Portrait("Album", LayerMask.Background, Scene.DialogueAlbum, Scene.AnteroomExit, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
+            new Portrait("Bordello", LayerMask.Background, Scene.DialogueBordello, Scene.LoungeArea, ColliderType.BoxCollider, 9, 5, 700) { Position = Game.WindowCenter };
+            new Portrait("Chitarra", LayerMask.Background, Scene.DialogueChitarra, Scene.Laboratory, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
+            new Portrait("ComputerPortrait", LayerMask.Background, Scene.DialogueComputer, Scene.Room, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
+            new Portrait("BloccoDisegni", LayerMask.Background, Scene.DialogueBloccoDisegni, Scene.Laboratory, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
 
             new Background("sfondo", Scene.DialogueDino, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
             new Background("sfondo", Scene.DialogueFoto, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
@@ -229,10 +229,10 @@ namespace GGJam_2021 {
         }
 
         private static void GameMenuLoad() {
-            new Portrait("BadEnd", LayerMask.Background, Scene.BadEndGame, Scene.Room, ColliderType.BoxCollider) { Position = Game.WindowCenter };
-            new Button("PlayButton") { Position = new Vector2(741, 771) }.Scale(1.2f);
-            new Button("QuitButton") { Position = new Vector2(961, 728) }.Scale(1.2f);
             new Background("Menu", Scene.Menu, new Vector2(Game.Window.Width, Game.Window.Height)) { Position = (Game.WindowCenter), ColliderCenter = Game.WindowCenter };
+            new Button("BadEnd", Scene.BadEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
+            new Button("PlayButton", Scene.Menu,Scene.Room,ColliderType.CircleCollider) { Position = new Vector2(741, 771) }.Scale(1.2f);
+            new Button("QuitButton", Scene.Menu,Scene.BadEndGame, ColliderType.CircleCollider) { Position = new Vector2(961, 728) }.Scale(1.2f);
         }
     }
 }
