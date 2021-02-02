@@ -1,7 +1,9 @@
 ﻿using OpenTK;
 
-namespace GGJam_2021 {
-    class Door : ChangeSceneObject {
+namespace GGJam_2021
+{
+    class Door : ChangeSceneObject
+    {
         public Vector2 positionPlayer;
 
         protected Animation animation;
@@ -10,7 +12,8 @@ namespace GGJam_2021 {
 
         private Door nextDoor;
 
-        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer, int w = 0, bool Flip = false, LayerMask layerMask = LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w, 0) {
+        public Door(string texturName, Scene actualScene, Scene nextScene, Vector2 positionPlayer, int w = 0, bool Flip = false, LayerMask layerMask = LayerMask.Background) : base(texturName, layerMask, actualScene, nextScene, ColliderType.BoxCollider, w, 0)
+        {
             sprite.FlipX = Flip;
             spriteGlitch1.FlipX = Flip;
             spriteGlitch2.FlipX = Flip;
@@ -19,21 +22,26 @@ namespace GGJam_2021 {
             this.positionPlayer = positionPlayer;
         }
 
-        public void SetNextDoor(Door nxtDoor) {
+        public void SetNextDoor(Door nxtDoor)
+        {
             nextDoor = nxtDoor;
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             animation.Update(ref textureOffset);
             base.Update();
-            if (IsNearAndClicked() && !animation.IsPlaying) {
+            if (IsNearAndClicked() && !animation.IsPlaying)
+            {
                 animation.Play();
                 readyForChange = true;
             }
-            if (animation.IsPlaying) {
+            if (animation.IsPlaying)
+            {
                 Game.Player.IsActive = false;
             }
-            if (readyForChange && !animation.IsPlaying) {
+            if (readyForChange && !animation.IsPlaying)
+            {
                 Game.Player.IsActive = true;
                 animation.Stop(ref textureOffset);
                 readyForChange = false;
@@ -41,13 +49,20 @@ namespace GGJam_2021 {
             }
         }
 
-        public override void Draw() {
-            if (!glitch) {
+        public override void Draw()
+        {
+            if (!glitch)
+            {
                 sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-            } else {
-                if (glithched) {
+            }
+            else
+            {
+                if (glithched)
+                {
                     spriteGlitch1.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-                } else {
+                }
+                else
+                {
                     spriteGlitch2.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
                 }
             }
