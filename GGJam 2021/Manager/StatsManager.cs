@@ -26,8 +26,8 @@ namespace GGJam_2021 {
         static StatsManager() {
             Hunger = Constants.HungerMax;
             Paranoia = Constants.ParanoiaMax;
-            paranoiaSlider = new Slider(new Vector2(25), Stat.Paranoia);
-            hungherSlider = new Slider(new Vector2(25, Game.Window.Height - 75), Stat.Hunger);
+            paranoiaSlider = new Slider(new Vector2(Game.Window.Width - 25 - Constants.ParanoiaMax, Game.Window.Height - 25 - Constants.SliderHeight), Stat.Paranoia);
+            hungherSlider = new Slider(new Vector2(25, Game.Window.Height - 25 - Constants.SliderHeight), Stat.Hunger);
 
             glitchedGameObject = new List<GameObject>();
 

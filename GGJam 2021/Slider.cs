@@ -7,7 +7,7 @@ namespace GGJam_2021 {
         private Sprite bg;
         private Texture textureBg;
         private Stat stat;
-        private Vector4 color;
+        int r, g, b;
 
         public Slider(Vector2 position, Stat stat) {
             this.stat = stat;
@@ -15,16 +15,22 @@ namespace GGJam_2021 {
                 case Stat.Hunger:
                     textureBg = TextureManager.GetTexture("Hunger");
                     bg = new Sprite(textureBg.Width, textureBg.Height);
-                    bg.scale = new Vector2(Constants.HungerMax / bg.Width, 0.5f);
+                    bg.scale = new Vector2(Constants.HungerMax / bg.Width, Constants.SliderHeight / bg.Height);
                     slider = new Sprite(Constants.HungerMax, textureBg.Height);
-                    color = new Vector4(120, 131, 102, 255);
+                    slider.scale = new Vector2(1, Constants.SliderHeight / slider.Height);
+                    r = 120;
+                    g = 131;
+                    b = 102;
                     break;
                 case Stat.Paranoia:
                     textureBg = TextureManager.GetTexture("Paranoia");
                     bg = new Sprite(textureBg.Width, textureBg.Height);
-                    bg.scale = new Vector2(Constants.ParanoiaMax / bg.Width, 0.5f);
+                    bg.scale = new Vector2(Constants.ParanoiaMax / bg.Width, Constants.SliderHeight / bg.Height);
                     slider = new Sprite(Constants.ParanoiaMax, textureBg.Height);
-                    color = new Vector4(125, 102, 131, 255);
+                    slider.scale = new Vector2(1, Constants.SliderHeight / slider.Height);
+                    r = 125;
+                    g = 102;
+                    b = 131;
                     break;
             }
             slider.position = position;
@@ -32,12 +38,12 @@ namespace GGJam_2021 {
         }
 
         public void Update() {
-            slider.scale = new Vector2(stat == Stat.Paranoia ? StatsManager.Paranoia / Constants.ParanoiaMax : StatsManager.Hunger / Constants.HungerMax, 1);
+            slider.scale = new Vector2(stat == Stat.Paranoia ? 1 - (StatsManager.Paranoia / Constants.ParanoiaMax) : 1 - (StatsManager.Hunger / Constants.HungerMax), slider.scale.Y);
         }
 
         public void Draw() {
             bg.DrawTexture(textureBg);
-            slider.DrawColor(color);
+            slider.DrawColor(r, g, b);
         }
     }
 }

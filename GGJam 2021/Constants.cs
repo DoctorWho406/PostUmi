@@ -44,5 +44,8 @@ namespace GGJam_2021 {
         public const float ParanoiaDecrease = 1f;
         public const float OffsetFromTarge = 10f;
         public const int FPSPlayerAnimation = 5;
+
+        //Slider
+        public const int SliderHeight = 50;
     }
 }
