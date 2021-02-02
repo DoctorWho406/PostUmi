@@ -18,6 +18,7 @@ namespace GGJam_2021 {
                     bg.scale = new Vector2(Constants.HungerMax / bg.Width, Constants.SliderHeight / bg.Height);
                     slider = new Sprite(Constants.HungerMax, textureBg.Height);
                     slider.scale = new Vector2(1, Constants.SliderHeight / slider.Height);
+                    slider.position = position;
                     r = 120;
                     g = 131;
                     b = 102;
@@ -28,12 +29,13 @@ namespace GGJam_2021 {
                     bg.scale = new Vector2(Constants.ParanoiaMax / bg.Width, Constants.SliderHeight / bg.Height);
                     slider = new Sprite(Constants.ParanoiaMax, textureBg.Height);
                     slider.scale = new Vector2(1, Constants.SliderHeight / slider.Height);
+                    slider.pivot = Vector2.UnitX * slider.Width;
+                    slider.position = position + Vector2.UnitX * slider.Width;
                     r = 125;
                     g = 102;
                     b = 131;
                     break;
             }
-            slider.position = position;
             bg.position = position;
         }
 
