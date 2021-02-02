@@ -1,24 +1,19 @@
 ﻿using System.Collections.Generic;
 using OpenTK;
 
-namespace GGJam_2021
-{
+namespace GGJam_2021 {
 
-    enum Stat
-    {
+    enum Stat {
         Hunger,
         Paranoia,
         Count
     }
 
-    static class StatsManager
-    {
-        public static float Hunger
-        {
+    static class StatsManager {
+        public static float Hunger {
             get; private set;
         }
-        public static float Paranoia
-        {
+        public static float Paranoia {
             get; private set;
         }
 
@@ -28,10 +23,9 @@ namespace GGJam_2021
 
         private static Slider paranoiaSlider, hungherSlider;
 
-        static StatsManager()
-        {
-            Hunger = 1f;
-            Paranoia = 1f;
+        static StatsManager() {
+            Hunger = Constants.HungerMax;
+            Paranoia = Constants.ParanoiaMax;
             paranoiaSlider = new Slider(new Vector2(25), Stat.Paranoia);
             hungherSlider = new Slider(new Vector2(25, Game.Window.Height - 75), Stat.Hunger);
 
@@ -39,20 +33,22 @@ namespace GGJam_2021
 
         }
 
-        public static void LoadScene()
-        {
-            for (int i = 0; i < glitchedGameObject.Count; i++)
-            {
+        public static void Reset() {
+            Hunger = Constants.HungerMax;
+            Paranoia = Constants.ParanoiaMax;
+            glitchedGameObject.Clear();
+        }
+
+        public static void LoadScene() {
+            for (int i = 0; i < glitchedGameObject.Count; i++) {
                 glitchedGameObject[i].SetGlitch(false);
             }
             glitchedGameObject.Clear();
         }
 
 
-        public static void Update()
-        {
-            if (Game.Player.IsActive && !SceneManager.IsSceneChanging)
-            {
+        public static void Update() {
+            if (Game.Player.IsActive && !SceneManager.IsSceneChanging) {
                 //Decrese hungry and paranoia
                 Hunger -= Constants.HungerDecrease * Game.DeltaTime;
                 Paranoia -= Constants.ParanoiaDecrease * Game.DeltaTime;
@@ -61,33 +57,25 @@ namespace GGJam_2021
                 paranoiaSlider.Update();
                 hungherSlider.Update();
                 List<GameObject> activeGameObjects = SceneManager.GetActiveObject();
-                int elementi = (int)((1 - Paranoia) * activeGameObjects.Count);
-                if (Paranoia >= 0)
-                {
-                    //System.Console.WriteLine($"Paranoia {Paranoia} -> Elementi {elementi}");
-                }
-                if (elementi < glitchedGameObject.Count)
-                {
-                    //remove
+                int elementi = (int)((1 - (Paranoia / Constants.ParanoiaMax)) * activeGameObjects.Count);
+                //if (Paranoia >= 0) {
+                //    System.Console.WriteLine($"Paranoia {Paranoia} -> Elementi {elementi}");
+                //}
+                if (elementi < glitchedGameObject.Count) {
+                    //Remove
                     int itemToRelase = glitchedGameObject.Count - elementi;
-                    for (int i = 0; i < itemToRelase; i++)
-                    {
+                    for (int i = 0; i < itemToRelase; i++) {
                         int index = Game.Random.Next(0, glitchedGameObject.Count);
                         glitchedGameObject[index].SetGlitch(false);
                         glitchedGameObject.RemoveAt(index);
                     }
-                }
-                else if (elementi > glitchedGameObject.Count)
-                {
+                } else if (elementi > glitchedGameObject.Count) {
                     //Add
-                    if (elementi != 0)
-                    {
+                    if (elementi != 0) {
                         int itemToAdd = elementi - glitchedGameObject.Count;
-                        for (int i = 0; i < itemToAdd; i++)
-                        {
+                        for (int i = 0; i < itemToAdd; i++) {
                             int index;
-                            do
-                            {
+                            do {
                                 index = Game.Random.Next(0, activeGameObjects.Count);
                             } while (activeGameObjects[index].GetGlitch());
                             activeGameObjects[index].SetGlitch(true);
@@ -99,23 +87,24 @@ namespace GGJam_2021
         }
 
 
-        public static void AddStats(float value, Stat stat)
-        {
-            switch (stat)
-            {
+        public static void AddStats(float value, Stat stat) {
+            switch (stat) {
                 case Stat.Hunger:
-                    value /= Constants.HungerMax;
                     Hunger += value;
+                    if (Hunger > Constants.HungerMax) {
+                        Hunger = Constants.HungerMax;
+                    }
                     break;
                 case Stat.Paranoia:
-                    value /= Constants.ParanoiaMax;
                     Paranoia += value;
+                    if (Paranoia > Constants.ParanoiaMax) {
+                        Paranoia = Constants.ParanoiaMax;
+                    }
                     break;
             }
         }
 
-        public static void Draw()
-        {
+        public static void Draw() {
             //Draw Slider
             if ((SceneManager.ActiveScene != Scene.DialogueAlbum)
                 && (SceneManager.ActiveScene != Scene.DialogueAlcol)
@@ -127,8 +116,7 @@ namespace GGJam_2021
                 && (SceneManager.ActiveScene != Scene.DialogueFoto)
                 && (SceneManager.ActiveScene != Scene.DialogueVomito)
                 && (SceneManager.ActiveScene != Scene.Menu)
-                && (SceneManager.ActiveScene != Scene.BadEndGame))
-            {
+                && (SceneManager.ActiveScene != Scene.BadEndGame)) {
                 paranoiaSlider.Draw();
                 hungherSlider.Draw();
             }

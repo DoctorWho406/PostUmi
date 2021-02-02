@@ -44,7 +44,7 @@ namespace GGJam_2021 {
                 if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
                     break;
                 }
-                if (!StatsManager.PlayerIsAlive) {
+                if (SceneManager.ActiveScene != Scene.BadEndGame && !StatsManager.PlayerIsAlive) {
                     SceneManager.LoadScene(Scene.BadEndGame);
                 }
                 Player.Input();

@@ -20,7 +20,7 @@ namespace GGJam_2021 {
         }
 
         public void Update() {
-            sprite.scale = new Vector2(stat == Stat.Paranoia ? StatsManager.Paranoia : StatsManager.Hunger, 1);
+            sprite.scale = new Vector2(stat == Stat.Paranoia ? StatsManager.Paranoia/Constants.ParanoiaMax : StatsManager.Hunger/Constants.HungerMax, 1);
         }
 
         public void Draw() {

@@ -60,6 +60,8 @@ namespace GGJam_2021 {
                 } else {
                     InputManager.IsMovingButtonClicked = false;
                 }
+            } else {
+                Stop();
             }
         }
 

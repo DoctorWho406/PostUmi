@@ -3,11 +3,17 @@
 namespace GGJam_2021 {
     static class InteractableObjectManager {
         public static Dictionary<Portrait, Portrait> orderList {
-            get; private set;        
+            get; private set;
         }
 
         static InteractableObjectManager() {
             orderList = new Dictionary<Portrait, Portrait>();
+        }
+
+        public static void Reset() {
+            foreach (KeyValuePair<Portrait, Portrait> item in orderList) {
+                item.Key.isOpened = false;
+            }
         }
 
         public static void AddPortarait(Portrait key, Portrait needed) {

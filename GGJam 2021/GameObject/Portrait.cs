@@ -7,7 +7,7 @@ namespace GGJam_2021 {
         private Vector2 textureOffset;
         private bool isAnimated;
         public bool isOpened {
-            get; private set;
+            get; set;
         }
 
         public Portrait(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int fotogrammi = 0, int fps = 0, int w = 0, int h = 0) : base(textureName, layerMask, scene, nextScene, colliderType, w, h) {
