@@ -98,7 +98,7 @@
             TextureManager.AddTexture("QuitButton", Constants.SplashScreenDirectory + "quit.png");
             TextureManager.AddTexture("BadEnd", Constants.SplashScreenDirectory + "the end.png");
 
-            TextureManager.AddTexture(/*GoodEnd*/, Constants.SplashScreenDirectory + /*GoodEnd*/); //Good end da mettere sprite
+            //TextureManager.AddTexture(/*GoodEnd*/, Constants.SplashScreenDirectory + /*GoodEnd*/); //Good end da mettere sprite
 
 
             //Door

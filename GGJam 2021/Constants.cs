@@ -28,7 +28,7 @@ namespace GGJam_2021 {
         public static Vector4 tintaGialla = new Vector4(1, 10, 10, 1);
 
         //InteractableObject
-        public const float TriggerColliderOffset = 55;
+        public const float TriggerColliderOffset = 180;
 
         //Door 
         public const int FPSDoorAnimation = 5;
