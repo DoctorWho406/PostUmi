@@ -92,6 +92,13 @@
             TextureManager.AddTexture("actionfigure", Constants.DialogueDirectory + "actionfigure.png");
             TextureManager.AddTexture("bloccodisegno", Constants.DialogueDirectory + "bloccodisegno.png");
 
+            TextureManager.AddTexture("DialogoEmpty", Constants.BackgroundDirectory + "DialogoEmpty.png");
+
+            TextureManager.AddTexture("Start_1", Constants.DialogueDirectory + "Start_1.jpg");
+            TextureManager.AddTexture("Start_2", Constants.DialogueDirectory + "Start_2.jpg");
+            TextureManager.AddTexture("Start_3", Constants.DialogueDirectory + "Start_3.jpg");
+
+
             //Menu
             TextureManager.AddTexture("Menu", Constants.SplashScreenDirectory + "BG.png");
             TextureManager.AddTexture("PlayButton", Constants.SplashScreenDirectory + "play.png");
@@ -99,7 +106,6 @@
             TextureManager.AddTexture("BadEnd", Constants.SplashScreenDirectory + "the end.png");
 
             //TextureManager.AddTexture(/*GoodEnd*/, Constants.SplashScreenDirectory + /*GoodEnd*/); //Good end da mettere sprite
-
 
             //Door
             TextureManager.AddTexture("EndDoor", Constants.ItemsDirectory + "EndDoor.png");
@@ -113,6 +119,8 @@
             TextureManager.AddTexture("Paranoia", Constants.TextureDirectory + "barraparanoia.png");
 
             TextureManager.AddTexture("Player", Constants.TextureDirectory + "pg_walkstate.png");
+
+            TextureManager.AddTexture("BackPlayer", Constants.TextureDirectory + "BackPlayer.png");
         }
     }
 }
