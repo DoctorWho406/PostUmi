@@ -98,7 +98,6 @@
             TextureManager.AddTexture("Start_2", Constants.DialogueDirectory + "Start_2.jpg");
             TextureManager.AddTexture("Start_3", Constants.DialogueDirectory + "Start_3.jpg");
 
-
             //Menu
             TextureManager.AddTexture("Menu", Constants.SplashScreenDirectory + "BG.png");
             TextureManager.AddTexture("PlayButton", Constants.SplashScreenDirectory + "play.png");
