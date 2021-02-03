@@ -13,7 +13,7 @@ namespace GGJam_2021
         private static Random random;
         public static string[] RadioChannel;
         public static bool RadioOn;
-
+        public static float DeltaTime { get { return Game.DeltaTime; } }
         static AudioManager()
         {
             audioclips = new Dictionary<string, AudioClip>();
@@ -31,7 +31,6 @@ namespace GGJam_2021
             AudioClip a = new AudioClip(clipPath);
             audioclips[key] = a;
         }
-
         public static AudioClip GetAudioClip(string key)
         {
             AudioClip a = null;
@@ -41,30 +40,61 @@ namespace GGJam_2021
             }
             return a;
         }
-
         public static void Clear()
         {
             audioclips.Clear();
         }
-
-        public static void FadeIn(AudioSource s, float volume, float seconds)
+        public static void FadeIn(AudioSource s, float volume, AudioClip a)
         {
-            //seconds = 1 -> FadeIn = 10seconds
-            volume += Game.DeltaTime * (seconds * 0.1f);
-            s.Volume = volume;
-        }
+            s.Stream(a, DeltaTime);
+            if (volume < 1f)
+            {   
 
-        public static void FadeOut(AudioSource s, float volume, float seconds)
+                //seconds = 1 -> FadeIn = 10seconds
+                volume += Game.DeltaTime * (2 * 0.1f);
+                s.Volume = volume;
+            }
+        }
+        public static void FadeIn(AudioSource s, float volume)
         {
-            volume -= Game.DeltaTime * (seconds * 0.1f);
-            s.Volume = volume;
-        }
+            
+            if (volume < 1f)
+            {
 
+                //seconds = 1 -> FadeIn = 10seconds
+                volume += Game.DeltaTime * (2 * 0.1f);
+                s.Volume = volume;
+            }
+        }
+        public static void FadeOut(AudioSource s, float volume, AudioClip a)
+        {
+            s.Stream(a, DeltaTime);
+            if (volume > 0f)
+            {
+                volume -= Game.DeltaTime * (3 * 0.1f);
+                s.Volume = volume;
+            }
+            else
+            {
+                s.Stop();
+            }
+        }
+        public static void FadeOut(AudioSource s, float volume)
+        {
+            if (volume > 0f)
+            {
+                volume -= Game.DeltaTime * (3 * 0.1f);
+                s.Volume = volume;
+            }
+            else
+            {
+                s.Stop();
+            }
+        }
         public static string Shuffle(string[] array, int max)
         {
             return array[random.Next(0, max)];
         }
-
         public static void Radio()
         {
             if (RadioOn == true)
@@ -74,7 +104,7 @@ namespace GGJam_2021
             }
             else
             {
-
+                MusicManager.RadioEmitter.Stop();
             }
         }
     }

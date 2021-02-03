@@ -28,10 +28,7 @@ namespace GGJam_2021 {
 
         public static AudioSource PlayerSoundEmitter;
 
-        private static AudioClip footStep;
         public static AudioClip Interaction;
-        private float counterTime;
-
 
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider,369, 654) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
@@ -48,10 +45,8 @@ namespace GGJam_2021 {
             target = -Vector2.One;
             //AudioStuff
             PlayerSoundEmitter = new AudioSource();
-            footStep = AudioManager.GetAudioClip("FootStep");
             Interaction = AudioManager.GetAudioClip("Interaction");
             PlayerSoundEmitter.Volume = 1f;
-            counterTime = 0;
         }
 
         public void SetIsVisible(bool value) {
@@ -83,13 +78,7 @@ namespace GGJam_2021 {
             }
         }
 
-        //public void FootStepTime() {
-        //    if (counterTime <= 0) {
-        //        PlayerSoundEmitter.Play(footStep);
-        //        counterTime = 0.5f;
-        //    }
-        //    counterTime -= Game.DeltaTime;
-        //}
+        
 
         public void Stop() {
             speed = Vector2.Zero;
