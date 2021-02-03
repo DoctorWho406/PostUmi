@@ -17,6 +17,10 @@ namespace GGJam_2021 {
         BadEndGame,
         GoodEndGame,
 
+        DialogueInit_1,
+        DialogueInit_2,
+        DialogueInit_3,
+
         DialogueAlbum,
         DialogueAlcol,
         DialogueBloccoDisegni,
@@ -75,7 +79,10 @@ namespace GGJam_2021 {
                     || (scene == Scene.DialogueFoto)
                     || (scene == Scene.DialogueVomito)
                     || (scene == Scene.BadEndGame)
-                    || (scene == Scene.GoodEndGame)) {
+                    || (scene == Scene.GoodEndGame)
+                    || (scene==Scene.DialogueInit_1)
+                    || (scene == Scene.DialogueInit_2)
+                    || (scene == Scene.DialogueInit_3)) {
                     Game.Player.SetIsVisible(false);
                     //Game.Player.IsActive = false;
                 } else {

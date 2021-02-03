@@ -34,12 +34,12 @@ namespace GGJam_2021 {
         public const int FPSDoorAnimation = 5;
 
         //Fridge
-        public const float HungerFromFridge = 10;
+        public const float HungerFromFridge = 25;
 
         //Player
         public const float PlayerSpeed = 250f;
         public const float HungerMax = 250f;
-        public const float HungerDecrease = 3f;
+        public const float HungerDecrease = 2f;
         public const float ParanoiaMax = 250f;
         public const float ParanoiaDecrease = 1f;
         public const float OffsetFromTarge = 10f;
