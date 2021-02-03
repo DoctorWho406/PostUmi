@@ -87,14 +87,14 @@ namespace GGJam_2021
             }
             else
             {
-                if (SceneManager.ActiveScene == Scene.Menu)
+                if (SceneManager.ActiveScene == Scene.Menu || SceneManager.ActiveScene == Scene.DialogueInit_1 || SceneManager.ActiveScene == Scene.DialogueInit_2 || SceneManager.ActiveScene == Scene.MeDialogueInit_3)
                 {
                     AudioManager.FadeOut(CreditsEmitter, CreditsEmitter.Volume, Credits);
                     AudioManager.FadeIn(IntroEmitter, IntroEmitter.Volume, Intro);
 
                 }
 
-                if (SceneManager.ActiveScene != Scene.Menu && SceneManager.ActiveScene != Scene.GoodEndGame && SceneManager.ActiveScene != Scene.BadEndGame)
+                if (SceneManager.ActiveScene != Scene.Menu && SceneManager.ActiveScene != Scene.DialogueInit_1 || SceneManager.ActiveScene != Scene.DialogueInit_2 || SceneManager.ActiveScene != Scene.MeDialogueInit_3 && SceneManager.ActiveScene != Scene.GoodEndGame && SceneManager.ActiveScene != Scene.BadEndGame)
                 {
                     AudioManager.FadeOut(IntroEmitter, IntroEmitter.Volume, Intro);
                     AudioManager.FadeIn(BgMusicEmitter01, BgMusicEmitter01.Volume, BgMusic01);
