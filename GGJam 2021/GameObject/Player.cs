@@ -30,7 +30,7 @@ namespace GGJam_2021 {
 
         public static AudioClip Interaction;
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider,369, 654) {
+        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 654) {
             animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
             status = Status.FrontWalk;
 
@@ -65,7 +65,7 @@ namespace GGJam_2021 {
 
         public void Input() {
             if (IsActive && IsVisible) {
-                if (Game.Window.MouseLeft) {
+                if (Game.Window.MouseRight) {
                     if (!InputManager.IsMovingButtonClicked) {
                         InputManager.IsMovingButtonClicked = true;
                         target = Game.Window.MousePosition;
@@ -78,7 +78,7 @@ namespace GGJam_2021 {
             }
         }
 
-        
+
 
         public void Stop() {
             speed = Vector2.Zero;
