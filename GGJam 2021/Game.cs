@@ -40,7 +40,7 @@ namespace GGJam_2021 {
         public static void Play() {
             while (Window.IsOpened) {
                 //Exit on esc
-                Console.WriteLine(Window.MousePosition);
+                //Console.WriteLine(Window.MousePosition);
                 if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
                     break;
                 }
