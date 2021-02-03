@@ -214,7 +214,7 @@ namespace GGJam_2021 {
             new UIText("actionfigure", Scene.DialogueDino) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("albumdifoto", Scene.DialogueAlbum) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("chitarra", Scene.DialogueChitarra) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-            new UIText("computer", Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
+            new UIText("computer", Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 930) }.Scale(0.75f);
             new UIText("bloccodisegno", Scene.DialogueBloccoDisegni) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
 
             new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18, 3, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
