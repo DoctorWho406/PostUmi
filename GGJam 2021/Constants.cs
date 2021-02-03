@@ -15,23 +15,26 @@ namespace GGJam_2021 {
         public const string PortraitSpriteSheetDirectory = "Assets/Textures/PortraitSpriteSheet/";
         public const string AudioClipsDirectory = "Assets/AudioClips/";
         public const string SplashScreenDirectory = "Assets/Textures/SplashScreen/";
-      
+
         /** ENUM
          * Enum Scene in SceneManager
          * Enum CollidersType in Collider
          * Enum LayerMask in GameObject
          **/
-      
+
         //GameObject
         public const float GlitchTime = 0.5f;
         public static Vector4 tintaBlue = new Vector4(1, 1, 20, 1);
         public static Vector4 tintaGialla = new Vector4(1, 10, 10, 1);
 
-        //InteractableObject
-        public const float TriggerColliderOffset = 180;
-
         //Door 
         public const int FPSDoorAnimation = 5;
+
+        //InteractableObject
+        public const float TriggerColliderOffset = 230;
+
+        //Portrait
+        public const float ParanoiaValue = 15;
 
         //Fridge
         public const float HungerFromFridge = 25;

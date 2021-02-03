@@ -217,15 +217,15 @@ namespace GGJam_2021 {
             new UIText("computer", Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("bloccodisegno", Scene.DialogueBloccoDisegni) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
 
-            new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
-            new Portrait("Alcol", LayerMask.Background, Scene.DialogueAlcol, Scene.Kitchen, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
-            new Portrait("Vomito", LayerMask.Background, Scene.DialogueVomito, Scene.Bathroom, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("Foto", LayerMask.Background, Scene.DialogueFoto, Scene.BedroomParents, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("Album", LayerMask.Background, Scene.DialogueAlbum, Scene.AnteroomExit, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
-            new Portrait("Bordello", LayerMask.Background, Scene.DialogueBordello, Scene.LoungeArea, ColliderType.BoxCollider, 9, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("Chitarra", LayerMask.Background, Scene.DialogueChitarra, Scene.Laboratory, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("ComputerPortrait", LayerMask.Background, Scene.DialogueComputer, Scene.Room, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
-            new Portrait("BloccoDisegni", LayerMask.Background, Scene.DialogueBloccoDisegni, Scene.Laboratory, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
+            new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18, 3, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("Alcol", LayerMask.Background, Scene.DialogueAlcol, Scene.Kitchen, ColliderType.BoxCollider, 18, 3, 700, -Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("Vomito", LayerMask.Background, Scene.DialogueVomito, Scene.Bathroom, ColliderType.BoxCollider, 3, 5, 700, -Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("Foto", LayerMask.Background, Scene.DialogueFoto, Scene.BedroomParents, ColliderType.BoxCollider, 3, 5, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("Album", LayerMask.Background, Scene.DialogueAlbum, Scene.AnteroomExit, ColliderType.BoxCollider, 18, 3, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("Bordello", LayerMask.Background, Scene.DialogueBordello, Scene.LoungeArea, ColliderType.BoxCollider, 9, 5, 700, -Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("Chitarra", LayerMask.Background, Scene.DialogueChitarra, Scene.Laboratory, ColliderType.BoxCollider, 3, 5, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("ComputerPortrait", LayerMask.Background, Scene.DialogueComputer, Scene.Room, ColliderType.BoxCollider, 3, 5, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
+            new Portrait("BloccoDisegni", LayerMask.Background, Scene.DialogueBloccoDisegni, Scene.Laboratory, ColliderType.BoxCollider, 18, 3, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
 
             new Portrait("BackPlayer", LayerMask.Background, Scene.DialogueInit_1, Scene.DialogueInit_2, ColliderType.BoxCollider, 8, 5, 370) { Position = Game.WindowCenter }.Scale(0.7f);
             new Portrait("BackPlayer", LayerMask.Background, Scene.DialogueInit_2, Scene.DialogueInit_3, ColliderType.BoxCollider, 8, 5, 370) { Position = Game.WindowCenter }.Scale(0.7f);
