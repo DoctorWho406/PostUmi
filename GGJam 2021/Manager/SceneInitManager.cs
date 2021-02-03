@@ -25,8 +25,8 @@ namespace GGJam_2021 {
             portrait2.Scale(0.5f);
             Portrait portrait3 = new Portrait("PileMess", LayerMask.Middleground, Scene.LoungeArea, Scene.DialogueBordello, ColliderType.BoxCollider) { Position = new Vector2(544, 899) };
             portrait3.Scale(0.4f);
-            Portrait portrait4 = new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.DialogueComputer, ColliderType.BoxCollider) { Position = new Vector2(1380, 230) };
-            portrait4.Scale(0.3f);
+            Portrait portrait4 = new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.DialogueComputer, ColliderType.BoxCollider) { Position = new Vector2(1380, 210) };
+            portrait4.Scale(0.4f);
             Portrait portrait5 = new Portrait("FamilyAlbum", LayerMask.Foreground, Scene.AnteroomExit, Scene.DialogueAlbum, ColliderType.BoxCollider) { Position = new Vector2(450, 600) };
             portrait5.Scale(0.15f);
             Portrait portrait6 = new Portrait("Guitar", LayerMask.Middleground, Scene.Laboratory, Scene.DialogueChitarra, ColliderType.BoxCollider) { Position = new Vector2(435, 660) };

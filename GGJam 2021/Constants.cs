@@ -31,7 +31,7 @@ namespace GGJam_2021 {
         public const int FPSDoorAnimation = 5;
 
         //InteractableObject
-        public const float TriggerColliderOffset = 350;
+        public const float TriggerColliderOffset = 550;
 
         //Portrait
         public const float ParanoiaValue = 15;
