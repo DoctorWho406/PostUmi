@@ -25,7 +25,7 @@ namespace GGJam_2021 {
             portrait2.Scale(0.5f);
             Portrait portrait3 = new Portrait("PileMess", LayerMask.Middleground, Scene.LoungeArea, Scene.DialogueBordello, ColliderType.BoxCollider) { Position = new Vector2(544, 899) };
             portrait3.Scale(0.4f);
-            Portrait portrait4 = new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.DialogueComputer, ColliderType.BoxCollider) { Position = new Vector2(1380, 210) };
+            Portrait portrait4 = new Portrait("Computer", LayerMask.Foreground, Scene.Room, Scene.DialogueComputer, ColliderType.BoxCollider) { Position = new Vector2(1380, 230) };
             portrait4.Scale(0.3f);
             Portrait portrait5 = new Portrait("FamilyAlbum", LayerMask.Foreground, Scene.AnteroomExit, Scene.DialogueAlbum, ColliderType.BoxCollider) { Position = new Vector2(450, 600) };
             portrait5.Scale(0.15f);
@@ -214,7 +214,7 @@ namespace GGJam_2021 {
             new UIText("actionfigure", Scene.DialogueDino) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("albumdifoto", Scene.DialogueAlbum) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("chitarra", Scene.DialogueChitarra) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
-            new UIText("computer", Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 930) }.Scale(0.75f);
+            new UIText("computer", Scene.DialogueComputer) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("bloccodisegno", Scene.DialogueBloccoDisegni) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
 
             new Portrait("Dino", LayerMask.Background, Scene.DialogueDino, Scene.Room, ColliderType.BoxCollider, 18, 3, 700, Constants.ParanoiaValue) { Position = Game.WindowCenter };
