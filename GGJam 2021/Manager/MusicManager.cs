@@ -75,15 +75,6 @@ namespace GGJam_2021
         {
             waitForMusic = 0;
             ObjectTaken = 0;
-            //RadioEmitter.Volume = 0f;
-            //IntroEmitter.Volume = 0f;
-            //BgMusicEmitter01.Volume = 0f;
-            //BgMusicEmitter02.Volume = 0f;
-            //BgMusicEmitter03.Volume = 0f;
-            //OutroEmitter01.Volume = 0f;
-            //OutroEmitter02.Volume = 0f;
-            //OutroEmitter03.Volume = 0f;
-            //CreditsEmitter.Volume = 0f;
         }
 
         public static void Update()
