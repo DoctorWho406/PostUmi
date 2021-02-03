@@ -35,7 +35,7 @@ namespace GGJam_2021 {
             portrait7.Scale(0.25f);
             Portrait portrait8 = new Portrait("Actionfigure", LayerMask.Foreground, Scene.Room, Scene.DialogueDino, ColliderType.BoxCollider) { Position = new Vector2(570, 380) };
             portrait8.Scale(0.3f);
-            Portrait portrait9 = new Portrait("FramedFamilyPhoto", LayerMask.Middleground, Scene.BedroomParents, Scene.DialogueFoto, ColliderType.BoxCollider) { Position = new Vector2(1210, 260) };
+            Portrait portrait9 = new Portrait("FramedFamilyPhoto", LayerMask.Middleground, Scene.BedroomParents, Scene.DialogueFoto, ColliderType.BoxCollider) { Position = new Vector2(1100, 260) };
             portrait9.Scale(0.2f);
 
 
