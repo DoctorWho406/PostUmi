@@ -10,7 +10,7 @@ namespace GGJam_2021 {
         private Animation animation;
         private Vector2 textureOffset;
 
-        private int paranoia;
+        private float paranoia;
 
         public Portrait(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int fotogrammi = 0, int fps = 0, int w = 0, float paranoia = 0) : base(textureName, layerMask, scene, nextScene, colliderType, w, 0) {
             textureOffset = Vector2.Zero;
