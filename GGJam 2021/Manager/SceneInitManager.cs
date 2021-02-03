@@ -194,6 +194,16 @@ namespace GGJam_2021 {
         }
 
         private static void Dialogue() {
+            new UIText("sfondo", Scene.DialogueDino/*,new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueFoto/*,new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueAlbum/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueAlcol/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueVomito/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueBordello/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueChitarra/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueComputer/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+            new UIText("sfondo", Scene.DialogueBloccoDisegni/*, new Vector2(1759, 325)*/) { Position = new Vector2(Game.WindowCenter.X, 900)/*, ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450)*/ };
+
             new UIText("whiskey", Scene.DialogueAlcol) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("vomito", Scene.DialogueVomito) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
             new UIText("bordello", Scene.DialogueBordello) { Position = new Vector2(Game.WindowCenter.X, 900) }.Scale(0.75f);
@@ -214,21 +224,12 @@ namespace GGJam_2021 {
             new Portrait("ComputerPortrait", LayerMask.Background, Scene.DialogueComputer, Scene.Room, ColliderType.BoxCollider, 3, 5, 700) { Position = Game.WindowCenter };
             new Portrait("BloccoDisegni", LayerMask.Background, Scene.DialogueBloccoDisegni, Scene.Laboratory, ColliderType.BoxCollider, 18, 3, 700) { Position = Game.WindowCenter };
 
-            new Background("sfondo", Scene.DialogueDino, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueFoto, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueAlbum, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueAlcol, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueVomito, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueBordello, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueChitarra, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueComputer, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
-            new Background("sfondo", Scene.DialogueBloccoDisegni, new Vector2(1759, 325)) { Position = new Vector2(Game.WindowCenter.X, 900), ColliderCenter = new Vector2(Game.WindowCenter.X * 0.5f, 450) };
         }
 
         private static void GameMenuLoad() {
             new Button("BadEnd", Scene.BadEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
-            new Button("PlayButton", Scene.Menu,Scene.Room,ColliderType.CircleCollider) { Position = new Vector2(741, 771) }.Scale(1.2f);
-            new Button("QuitButton", Scene.Menu,Scene.BadEndGame, ColliderType.CircleCollider) { Position = new Vector2(961, 728) }.Scale(1.2f);
+            new Button("PlayButton", Scene.Menu, Scene.Room, ColliderType.CircleCollider) { Position = new Vector2(741, 771) }.Scale(1.2f);
+            new Button("QuitButton", Scene.Menu, Scene.BadEndGame, ColliderType.CircleCollider) { Position = new Vector2(961, 728) }.Scale(1.2f);
             //new Button(/*GoodEnd*/, Scene.GoodEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };//da mettere lo sprite del good end
             new Background("Menu", Scene.Menu, new Vector2(Game.Window.Width, Game.Window.Height)) { Position = (Game.WindowCenter), ColliderCenter = Game.WindowCenter };
         }

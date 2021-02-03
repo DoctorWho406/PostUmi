@@ -10,11 +10,14 @@ namespace GGJam_2021 {
         private Animation animation;
         private Vector2 textureOffset;
 
-        public Portrait(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int fotogrammi = 0, int fps = 0, int w = 0, int h = 0) : base(textureName, layerMask, scene, nextScene, colliderType, w, h) {
+        private int paranoia;
+
+        public Portrait(string textureName, LayerMask layerMask, Scene scene, Scene nextScene, ColliderType colliderType, int fotogrammi = 0, int fps = 0, int w = 0, int h = 0, int paranoia = 0) : base(textureName, layerMask, scene, nextScene, colliderType, w, h) {
             textureOffset = Vector2.Zero;
             isOpened = false;
             if (fotogrammi == 0) {
                 animation = null;
+                this.paranoia = paranoia;
             } else {
                 animation = new Animation((int)sprite.Width, (int)sprite.Height, fps, fotogrammi, true);
             }
@@ -38,6 +41,7 @@ namespace GGJam_2021 {
                 }
             } else if (IsNearAndClicked()) {
                 if (InteractableObjectManager.CanOpenIt(this)) {
+                    StatsManager.AddStats(paranoia, Stat.Paranoia);
                     SceneManager.LoadScene(nextScene);
                     if (!isOpened) {
                         MusicManager.ObjectTaken++;
