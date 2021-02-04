@@ -247,7 +247,7 @@ namespace GGJam_2021 {
             new Button("BadEnd", Scene.BadEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
             new Button("PlayButton", Scene.Menu, Scene.DialogueInit_1, ColliderType.CircleCollider) { Position = new Vector2(741, 771) }.Scale(1.2f);
             new Button("QuitButton", Scene.Menu, Scene.BadEndGame, ColliderType.CircleCollider) { Position = new Vector2(961, 728) }.Scale(1.2f);
-            //new Button(/*GoodEnd*/, Scene.GoodEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };//da mettere lo sprite del good end
+            new Button("GoodEnd", Scene.GoodEndGame, Scene.Menu, ColliderType.BoxCollider) { Position = Game.WindowCenter };
             new Background("Menu", Scene.Menu, new Vector2(Game.Window.Width, Game.Window.Height)) { Position = (Game.WindowCenter), ColliderCenter = Game.WindowCenter };
         }
     }
