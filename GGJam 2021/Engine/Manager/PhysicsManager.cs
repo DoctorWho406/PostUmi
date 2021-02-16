@@ -2,17 +2,17 @@
 
 namespace GGJam_2021 {
     static class PhysicsManager {
-        static List<RigidBody> items;
+        static List<Rigidbody> items;
 
         static PhysicsManager() {
-            items = new List<RigidBody>();
+            items = new List<Rigidbody>();
         }
 
-        public static void AddItem(RigidBody rb) {
+        public static void AddItem(Rigidbody rb) {
             items.Add(rb);
         }
 
-        public static void RemoveItem(RigidBody rb) {
+        public static void RemoveItem(Rigidbody rb) {
             items.Remove(rb);
         }
 

@@ -1,52 +1,42 @@
-﻿using OpenTK;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using OpenTK;
 
 namespace GGJam_2021 {
-    class BoxCollider : Collider
-    {
-        protected float halfWidth;
-        protected float halfHeight;
+    class BoxCollider : Collider {
+        public Vector2 Size => halfSize * 2;
 
-        public float Width { get { return halfWidth * 2; } }
-        public float Height { get { return halfHeight * 2; } }
+        protected Vector2 halfSize;
 
-        public BoxCollider(RigidBody owner, int w, int h) : base(owner)
-        {
-            halfWidth = w * 0.5f;
-            halfHeight = h * 0.5f;
+        public BoxCollider(Rigidbody owner, Vector2 halfSize) : base(owner) {
+            this.halfSize = halfSize;
         }
 
-        public override bool Collides(Collider collider)
-        {
+        public override bool Collides(Collider collider) {
             return collider.Collides(this);
         }
 
-        public override bool Collides(CircleCollider circle)
-        {
-            throw new NotImplementedException();
+        public override bool Collides(CompoundCollider compoundCollider) {
+            return compoundCollider.Collides(this);
         }
 
-        public override bool Contains(Vector2 point)
-        {
-            return
-                point.X >= Position.X - halfWidth &&
-                point.X <= Position.X + halfWidth &&
-                point.Y >= Position.Y - halfHeight &&
-                point.Y <= Position.Y + halfHeight;
+        public override bool Collides(CircleCollider circle) {
+            float deltaX = circle.Position.X - Math.Max(Position.X - halfSize.X, Math.Min(circle.Position.X, Position.X + halfSize.X));
+            float deltaY = circle.Position.Y - Math.Max(Position.Y - halfSize.Y, Math.Min(circle.Position.Y, Position.Y + halfSize.Y));
+            return (deltaX * deltaX + deltaY * deltaY) <= (circle.Radius * circle.Radius);
         }
 
-        public override bool Collides(BoxCollider other)
-        {
-            float deltaX = other.Position.X - Position.X;
-            float deltaY = other.Position.Y - Position.Y;
+        public override bool Collides(BoxCollider box) {
+            float deltaX = box.Position.X - Position.X;
+            float deltaY = box.Position.Y - Position.Y;
+            return (Math.Abs(deltaX) <= halfSize.X + box.halfSize.X)
+                && (Math.Abs(deltaY) <= halfSize.Y + box.halfSize.Y);
+        }
 
-            return
-                (Math.Abs(deltaX) <= halfWidth + other.halfWidth) &&
-                (Math.Abs(deltaY) <= halfHeight + other.halfHeight);
+        public override bool Contains(Vector2 point) {
+            return point.X >= Position.X - halfSize.X
+                && point.X <= Position.X + halfSize.X
+                && point.Y >= Position.Y - halfSize.Y
+                && point.Y <= Position.Y + halfSize.Y;
         }
     }
 }

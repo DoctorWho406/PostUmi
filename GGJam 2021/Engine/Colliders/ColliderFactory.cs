@@ -5,20 +5,19 @@ namespace GGJam_2021 {
         public static CircleCollider CreateCircleFor(GameObject obj, bool innerCircle = true) {
             float radius;
             if (innerCircle) {
-                if (obj.HalfWidth < obj.HalfHeight) {
-                    radius = obj.HalfWidth;
+                if (obj.halfSize.X < obj.halfSize.Y) {
+                    radius = obj.halfSize.X;
                 } else {
-                    radius = obj.HalfHeight;
+                    radius = obj.halfSize.Y;
                 }
             } else {
-                radius = (float)Math.Sqrt(obj.HalfWidth * obj.HalfWidth + obj.HalfHeight * obj.HalfHeight);
+                radius = (float)Math.Sqrt(obj.halfSize.X * obj.halfSize.X + obj.halfSize.Y * obj.halfSize.Y);
             }
-
-            return new CircleCollider(obj.RigidBody, radius);
+            return new CircleCollider(obj.Rigidbody, radius);
         }
 
-        public static BoxCollider CreateBoxFor(GameObject obj) {
-            return new BoxCollider(obj.RigidBody, obj.HalfWidth * 2, obj.HalfHeight * 2);
+        public static BoxCollider CreateBoxCollider(GameObject obj) {
+            return new BoxCollider(obj.Rigidbody, obj.halfSize);
         }
     }
 }

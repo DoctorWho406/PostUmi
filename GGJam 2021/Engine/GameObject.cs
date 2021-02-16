@@ -16,17 +16,17 @@ namespace GGJam_2021 {
             get => sprite.position;
             set => sprite.position = value;
         }
-        public Vector2 Size;
-        public RigidBody RigidBody;
-        public LayerMask LayerMask;
-
-        protected Sprite sprite;
-        protected Texture texture;
-        protected Animation animation;
-        protected Vector2 textureOffset;
-        protected Vector2 halfSize {
+        public Vector2 halfSize {
             get; private set;
         }
+        public Rigidbody Rigidbody;
+        public LayerMask LayerMask;
+
+        protected Texture texture;
+        protected Sprite sprite;
+        protected Vector2 size;
+        protected Animation animation;
+        protected Vector2 textureOffset;
 
         public GameObject(string textureName, LayerMask layerMask, int w = 0, int h = 0, float fps = 0) {
             //Set LayerMask
@@ -42,13 +42,13 @@ namespace GGJam_2021 {
             sprite = new Sprite(w, h);
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.5f);
 
-            Size = new Vector2(sprite.Width, sprite.Height);
-            halfSize = new Vector2(Size.X * 0.5f, Size.Y * 0.5f);
+            size = new Vector2(sprite.Width, sprite.Height);
+            halfSize = new Vector2(size.X * 0.5f, size.Y * 0.5f);
         }
 
         public virtual void Scale(float scaleFactory) {
             sprite.scale = new Vector2(scaleFactory);
-            Size *= scaleFactory;
+            size *= scaleFactory;
             halfSize *= scaleFactory;
         }
 

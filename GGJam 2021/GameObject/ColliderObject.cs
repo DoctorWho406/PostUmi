@@ -12,7 +12,7 @@ namespace GGJam_2021 {
             //}
             switch (colliderType) {
                 case ColliderType.BoxCollider:
-                    Collider = new BoxCollider(Size);
+                    Collider = new BoxCollider(size);
 
                     break;
                 case ColliderType.CircleCollider:

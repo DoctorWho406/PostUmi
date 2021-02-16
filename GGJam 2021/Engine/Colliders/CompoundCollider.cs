@@ -4,26 +4,23 @@ using OpenTK;
 namespace GGJam_2021 {
     class CompoundCollider : Collider {
         public Collider BoundingCollider;
+        protected List<Collider> innerColliders;
 
-        protected List<Collider> colliders;
-
-        public CompoundCollider(RigidBody owner, Collider boundingCollider) : base(owner) {
+        public CompoundCollider(Rigidbody owner, Collider boundingCollider) : base(owner) {
             BoundingCollider = boundingCollider;
-            colliders = new List<Collider>();
+            innerColliders = new List<Collider>();
         }
 
         public virtual void AddCollider(Collider collider) {
-            colliders.Add(collider);
+            innerColliders.Add(collider);
         }
 
-        public virtual bool InnerCollidersCollide(Collider collider) {
-            //search for collision with inner colliders
-            for (int i = 0; i < colliders.Count; i++) {
-                if (collider.Collides(colliders[i])) {
+        public virtual bool InnerCollidersCollide(Collider other) {
+            for (int i = 0; i < innerColliders.Count; i++) {
+                if (innerColliders[i].Collides(other)) {
                     return true;
                 }
             }
-
             return false;
         }
 
@@ -31,37 +28,38 @@ namespace GGJam_2021 {
             return collider.Collides(this);
         }
 
-        public override bool Collides(BoxCollider box) {
-            return (box.Collides(BoundingCollider) && InnerCollidersCollide(box));
-        }
-
-        public override bool Collides(CircleCollider circle) {
-            return (circle.Collides(BoundingCollider) && InnerCollidersCollide(circle));
-        }
-
-        public override bool Collides(CompoundCollider other) {
-            if (BoundingCollider.Collides(other.BoundingCollider)) {
-                for (int i = 0; i < colliders.Count; i++) {
-                    for (int j = 0; j < other.colliders.Count; j++) {
-                        if (colliders[i].Collides(other.colliders[j])) {
+        public override bool Collides(CompoundCollider compoundCollider) {
+            if (BoundingCollider.Collides(compoundCollider.BoundingCollider)) {
+                for (int i = 0; i < compoundCollider.innerColliders.Count; i++) {
+                    //if (InnerCollidersCollide(compoundCollider.innerColliders[i])) {
+                    //    return true;
+                    //}
+                    for (int j = 0; j < innerColliders.Count; j++) {
+                        if (innerColliders[j].Collides(compoundCollider.innerColliders[i])) {
                             return true;
                         }
                     }
                 }
             }
-
             return false;
+        }
+
+        public override bool Collides(CircleCollider circle) {
+            return circle.Collides(BoundingCollider) && InnerCollidersCollide(circle);
+        }
+
+        public override bool Collides(BoxCollider box) {
+            return box.Collides(BoundingCollider) && InnerCollidersCollide(box);
         }
 
         public override bool Contains(Vector2 point) {
             if (BoundingCollider.Contains(point)) {
-                for (int i = 0; i < colliders.Count; i++) {
-                    if (colliders[i].Contains(point)) {
+                for (int i = 0; i < innerColliders.Count; i++) {
+                    if (innerColliders[i].Contains(point)) {
                         return true;
                     }
                 }
             }
-
             return false;
         }
     }

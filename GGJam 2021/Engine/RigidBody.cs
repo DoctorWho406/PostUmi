@@ -1,16 +1,10 @@
-﻿using System;
-using OpenTK;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenTK;
 
-namespace GGJam_2021
-{
-    enum RigidBodyType {}
+namespace GGJam_2021 {
+    enum RigidBodyType {
+    }
 
-    class RigidBody
-    {
+    class Rigidbody {
         protected uint collisionMask;
 
         public Vector2 Velocity;
@@ -22,19 +16,19 @@ namespace GGJam_2021
         public Collider Collider;
 
 
-        public bool IsActive { get { return GameObject.IsActive; } set { GameObject.IsActive = value; } }
-        public Vector2 Position { get { return GameObject.Position; } }
+        public bool IsActive {
+            get => GameObject.IsActive; set => GameObject.IsActive = value;
+        }
+        public Vector2 Position => GameObject.Position;
 
-        public RigidBody(GameObject owner)
-        {
+        public Rigidbody(GameObject owner) {
             GameObject = owner;
             PhysicsManager.AddItem(this);
         }
 
         //Collider
 
-        public void Update()
-        {
+        public void Update() {
             //gravity
             //if (IsGravityAffected)
             //{
@@ -44,24 +38,20 @@ namespace GGJam_2021
             GameObject.Position += Velocity * Game.DeltaTime;
         }
 
-        public void AddCollisionType(RigidBodyType type)
-        {
+        public void AddCollisionType(RigidBodyType type) {
             //collisionMask = collisionMask | (uint)type;
             collisionMask |= (uint)type;
         }
 
-        public void AddCollisionType(uint value)
-        {
+        public void AddCollisionType(uint value) {
             collisionMask |= value;
         }
 
-        public bool CollisionTypeMatches(RigidBodyType type)
-        {
+        public bool CollisionTypeMatches(RigidBodyType type) {
             return ((uint)type & collisionMask) != 0;
         }
 
-        public bool Collides(RigidBody other)
-        {
+        public bool Collides(Rigidbody other) {
             return Collider.Collides(other.Collider);
         }
     }

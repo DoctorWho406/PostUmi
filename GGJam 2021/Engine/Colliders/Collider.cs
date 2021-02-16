@@ -4,18 +4,19 @@ namespace GGJam_2021 {
     abstract class Collider {
         public Vector2 Offset;
 
-        public Vector2 Position => RigidBody.Position + Offset;
+        public Vector2 Position => Rigidbody.Position + Offset;
 
-        public RigidBody RigidBody;
+        public Rigidbody Rigidbody;
 
-        public Collider(RigidBody owner) {
-            RigidBody = owner;
+        public Collider(Rigidbody owner) {
+            Rigidbody = owner;
             Offset = Vector2.Zero;
         }
 
-        public abstract bool Collides(Collider collider);
-        public abstract bool Collides(BoxCollider collider);
+        public abstract bool Collides(Collider other);
+        public abstract bool Collides(CompoundCollider compoundCollider);
         public abstract bool Collides(CircleCollider circle);
+        public abstract bool Collides(BoxCollider box);
         public abstract bool Contains(Vector2 point);
     }
 }
