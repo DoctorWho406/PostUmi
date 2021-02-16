@@ -4,23 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceShooter_2020
-{
-    static class UpdateMgr
+namespace GGJam_2021 {
+    static class DrawManager
     {
-        private static List<IUpdatable> items;
+        private static List<IDrawable> items;
 
-        static UpdateMgr()
+        static DrawManager()
         {
-            items = new List<IUpdatable>();
+            items = new List<IDrawable>();
         }
 
-        public static void AddItem(IUpdatable item)
+        public static void AddItem(IDrawable item)
         {
             items.Add(item);
         }
 
-        public static void RemoveItem(IUpdatable item)
+        public static void RemoveItem(IDrawable item)
         {
             items.Remove(item);
         }
@@ -30,12 +29,12 @@ namespace SpaceShooter_2020
             items.Clear();
         }
 
-        public static void Update()
+        public static void Draw()
         {
             //update all items
             for (int i = 0; i < items.Count; i++)
             {
-                items[i].Update();
+                items[i].Draw();
             }
         }
     }

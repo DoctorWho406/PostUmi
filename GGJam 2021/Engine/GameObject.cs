@@ -11,7 +11,7 @@ namespace GGJam_2021 {
     }
 
     abstract class GameObject : IUpdatable, IDrawable{
-        public Vector2 Position {
+        public virtual Vector2 Position {
             get => sprite.position;
             set {
                 sprite.position = value;

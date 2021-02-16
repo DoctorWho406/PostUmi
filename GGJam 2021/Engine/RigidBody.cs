@@ -28,7 +28,7 @@ namespace GGJam_2021
         public RigidBody(GameObject owner)
         {
             GameObject = owner;
-            PhysicsMgr.AddItem(this);
+            PhysicsManager.AddItem(this);
         }
 
         //Collider

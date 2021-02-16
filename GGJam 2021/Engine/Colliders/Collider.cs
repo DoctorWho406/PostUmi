@@ -1,22 +1,14 @@
 ﻿using OpenTK;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SpaceShooter_2020
-{
-    abstract class Collider
-    {
+namespace GGJam_2021 {
+    abstract class Collider {
         public Vector2 Offset;
 
-        public Vector2 Position { get { return RigidBody.Position + Offset; } }
+        public Vector2 Position => RigidBody.Position + Offset;
 
         public RigidBody RigidBody;
 
-        public Collider(RigidBody owner)
-        {
+        public Collider(RigidBody owner) {
             RigidBody = owner;
             Offset = Vector2.Zero;
         }

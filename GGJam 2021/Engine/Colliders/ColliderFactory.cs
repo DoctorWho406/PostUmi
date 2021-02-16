@@ -1,37 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SpaceShooter_2020
-{
-    static class ColliderFactory
-    {
-        public static CircleCollider CreateCircleFor(GameObject obj, bool innerCircle=true)
-        {
+namespace GGJam_2021 {
+    static class ColliderFactory {
+        public static CircleCollider CreateCircleFor(GameObject obj, bool innerCircle = true) {
             float radius;
-            if (innerCircle)
-            {
-                if (obj.HalfWidth < obj.HalfHeight)
-                {
+            if (innerCircle) {
+                if (obj.HalfWidth < obj.HalfHeight) {
                     radius = obj.HalfWidth;
-                }
-                else
-                {
+                } else {
                     radius = obj.HalfHeight;
                 }
-            }
-            else
-            {
+            } else {
                 radius = (float)Math.Sqrt(obj.HalfWidth * obj.HalfWidth + obj.HalfHeight * obj.HalfHeight);
             }
 
             return new CircleCollider(obj.RigidBody, radius);
         }
 
-        public static BoxCollider CreateBoxFor(GameObject obj)
-        {
+        public static BoxCollider CreateBoxFor(GameObject obj) {
             return new BoxCollider(obj.RigidBody, obj.HalfWidth * 2, obj.HalfHeight * 2);
         }
     }

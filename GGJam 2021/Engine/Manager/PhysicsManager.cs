@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceShooter_2020
-{
-    static class PhysicsMgr
+namespace GGJam_2021 {
+    static class PhysicsManager
     {
         static List<RigidBody> items;
 
-        static PhysicsMgr()
+        static PhysicsManager()
         {
             items = new List<RigidBody>();
         }

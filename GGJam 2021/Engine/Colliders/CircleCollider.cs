@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceShooter_2020
-{
+namespace GGJam_2021 {
     class CircleCollider : Collider
     {
         public float Radius;
