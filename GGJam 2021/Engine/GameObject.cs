@@ -10,7 +10,7 @@ namespace GGJam_2021 {
         Count
     }
 
-    abstract class GameObject {
+    abstract class GameObject : IUpdatable, IDrawable{
         public Vector2 Position {
             get => sprite.position;
             set {
@@ -21,6 +21,7 @@ namespace GGJam_2021 {
         }
         public LayerMask LayerMask;
         public Vector2 Size;
+        public RigidBody RigidBody;
 
         protected Sprite sprite, spriteGlitch1, spriteGlitch2;
         protected Texture texture;
@@ -30,7 +31,7 @@ namespace GGJam_2021 {
         protected bool glitch;
         private float timer;
         protected bool glithched;
-        protected Scene scene;
+        
         public GameObject(string textureName, LayerMask layerMask, Scene scene, int w = 0, int h = 0) {
             //Set LayerMask
             LayerMask = layerMask;
@@ -88,6 +89,10 @@ namespace GGJam_2021 {
                     spriteGlitch2.DrawTexture(texture);
                 }
             }
+        }
+
+        public virtual void OnCollide(GameObject other) { 
+        
         }
     }
 }

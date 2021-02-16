@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Engine\IDrawable.cs" />
+    <Compile Include="Engine\IUpdatable.cs" />
+    <Compile Include="Engine\RigidBody.cs" />
     <Compile Include="GameObject\Button.cs" />
     <Compile Include="GameObject\ChangeSceneObject.cs" />
     <Compile Include="GameObject\EndDoor.cs" />
@@ -71,7 +74,7 @@
     <Compile Include="GameObject\Door.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject\InteractableObject.cs" />
-    <Compile Include="GameObject\GameObject.cs" />
+    <Compile Include="Engine\GameObject.cs" />
     <Compile Include="GameObject\Player.cs" />
     <Compile Include="Manager\AudioClipInitManager.cs" />
     <Compile Include="Manager\AudioManager.cs" />
@@ -93,9 +96,7 @@
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Engine\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\AudioClips\Credits.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
