@@ -14,22 +14,20 @@ namespace GGJam_2021 {
         public bool IsActive;
         public virtual Vector2 Position {
             get => sprite.position;
-            set {
-                sprite.position = value;
-            }
+            set => sprite.position = value;
         }
-        public LayerMask LayerMask;
         public Vector2 Size;
         public RigidBody RigidBody;
+        public LayerMask LayerMask;
 
-        protected Sprite sprite, spriteGlitch1, spriteGlitch2;
+        protected Sprite sprite;
         protected Texture texture;
         protected Animation animation;
         protected Vector2 textureOffset;
         protected Vector2 halfSize {
             get; private set;
         }
-        
+
         public GameObject(string textureName, LayerMask layerMask, int w = 0, int h = 0, float fps = 0) {
             //Set LayerMask
             LayerMask = layerMask;
@@ -38,14 +36,11 @@ namespace GGJam_2021 {
             w = w == 0 ? texture.Width : w;
             h = h == 0 ? texture.Height : h;
             //Create Animation
-            animation = new Animation(w , h, fps, texture.Width / w);
+            animation = new Animation(w, h, fps, texture.Width / w);
             textureOffset = Vector2.Zero;
 
             sprite = new Sprite(w, h);
-            
-
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.5f);
-            
 
             Size = new Vector2(sprite.Width, sprite.Height);
             halfSize = new Vector2(Size.X * 0.5f, Size.Y * 0.5f);
@@ -57,17 +52,16 @@ namespace GGJam_2021 {
             halfSize *= scaleFactory;
         }
 
-
-
-        public virtual void Draw()
-        {
-            spriteGlitch2.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-        }  
-            
-            
-
         public virtual void OnCollide(GameObject other) {
 
+        }
+
+        public virtual void Update() {
+
+        }
+
+        public virtual void Draw() {
+            sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
         }
     }
 }
