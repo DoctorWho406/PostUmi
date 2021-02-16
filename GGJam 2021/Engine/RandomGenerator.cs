@@ -1,27 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SpaceShooter_2020
-{
-    static class RandomGenerator
-    {
+namespace SpaceShooter_2020 {
+    static class RandomGenerator {
         private static Random rand;
 
-        static RandomGenerator()
-        {
+        static RandomGenerator() {
             rand = new Random();
         }
 
-        public static int GetRandomInt(int min, int max)
-        {
+        public static int GetRandomInt(int min, int max) {
             return rand.Next(min, max);
         }
 
-        public static float GetRandomFloat()
-        {
+        public static float GetRandomFloat() {
             return (float)rand.NextDouble();
         }
     }

@@ -1,39 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace GGJam_2021 {
-    static class DrawManager
-    {
+    static class DrawManager {
         private static List<IDrawable> items;
 
-        static DrawManager()
-        {
+        static DrawManager() {
             items = new List<IDrawable>();
         }
 
-        public static void AddItem(IDrawable item)
-        {
+        public static void AddItem(IDrawable item) {
             items.Add(item);
         }
 
-        public static void RemoveItem(IDrawable item)
-        {
+        public static void RemoveItem(IDrawable item) {
             items.Remove(item);
         }
 
-        public static void ClearAll()
-        {
+        public static void ClearAll() {
             items.Clear();
         }
 
-        public static void Draw()
-        {
+        public static void Draw() {
             //update all items
-            for (int i = 0; i < items.Count; i++)
-            {
+            for (int i = 0; i < items.Count; i++) {
                 items[i].Draw();
             }
         }

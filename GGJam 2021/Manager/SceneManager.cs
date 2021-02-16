@@ -81,7 +81,7 @@ namespace GGJam_2021 {
                     || (scene == Scene.DialogueVomito)
                     || (scene == Scene.BadEndGame)
                     || (scene == Scene.GoodEndGame)
-                    || (scene==Scene.DialogueInit_1)
+                    || (scene == Scene.DialogueInit_1)
                     || (scene == Scene.DialogueInit_2)
                     || (scene == Scene.DialogueInit_3)) {
                     Game.Player.SetIsVisible(false);

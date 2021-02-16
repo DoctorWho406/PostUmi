@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GGJam_2021
-{
-    static class AudioClipInitManager
-    {
-        static public void Start()
-        {
+﻿namespace GGJam_2021 {
+    static class AudioClipInitManager {
+        public static void Start() {
             AudioManager.AddClips("Intro", Constants.AudioClipsDirectory + "Intro.ogg");
             AudioManager.AddClips("BgMusic01", Constants.AudioClipsDirectory + "GameLoop_layer_01.ogg");
             AudioManager.AddClips("BgMusic02", Constants.AudioClipsDirectory + "GameLoop_layer_02.ogg");
