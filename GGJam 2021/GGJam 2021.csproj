@@ -62,8 +62,8 @@
     <Compile Include="Engine\Colliders\ColliderFactory.cs" />
     <Compile Include="Engine\Colliders\CompoundCollider.cs" />
     <Compile Include="Engine\GUI\ProgressBar.cs" />
-    <Compile Include="Engine\IDrawable.cs" />
-    <Compile Include="Engine\IUpdatable.cs" />
+    <Compile Include="Engine\Interfaces\IDrawable.cs" />
+    <Compile Include="Engine\Interfaces\IUpdatable.cs" />
     <Compile Include="Engine\Manager\GfxManager.cs" />
     <Compile Include="Engine\Manager\PhysicsManager.cs" />
     <Compile Include="Engine\RigidBody.cs" />

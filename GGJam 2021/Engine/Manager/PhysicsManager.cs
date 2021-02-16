@@ -1,65 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace GGJam_2021 {
-    static class PhysicsManager
-    {
+    static class PhysicsManager {
         static List<RigidBody> items;
 
-        static PhysicsManager()
-        {
+        static PhysicsManager() {
             items = new List<RigidBody>();
         }
 
-        public static void AddItem(RigidBody rb)
-        {
+        public static void AddItem(RigidBody rb) {
             items.Add(rb);
         }
 
-        public static void RemoveItem(RigidBody rb)
-        {
+        public static void RemoveItem(RigidBody rb) {
             items.Remove(rb);
         }
 
-        public static void Update()
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].IsActive)
-                {
+        public static void Update() {
+            for (int i = 0; i < items.Count; i++) {
+                if (items[i].IsActive) {
                     items[i].Update();
                 }
             }
         }
 
-        public static void CheckCollisions()
-        {
-            for (int i = 0; i < items.Count -1; i++)
-            {
-                if(items[i].IsActive && items[i].IsCollisionsAffected)
-                {
+        public static void CheckCollisions() {
+            for (int i = 0; i < items.Count - 1; i++) {
+                if (items[i].IsActive && items[i].IsCollisionsAffected) {
                     //check collisions with next items
-                    for (int j = i+1; j < items.Count; j++)
-                    {
-                        if(items[j].IsActive && items[j].IsCollisionsAffected)
-                        {
+                    for (int j = i + 1; j < items.Count; j++) {
+                        if (items[j].IsActive && items[j].IsCollisionsAffected) {
                             //check if one of the RB is interested in collision check
 
                             bool firstCheck = items[i].CollisionTypeMatches(items[j].Type);
                             bool secondCheck = items[j].CollisionTypeMatches(items[i].Type);
 
-                            if ((firstCheck || secondCheck) && items[i].Collides(items[j]))
-                            {
-                                if (firstCheck)
-                                {
+                            if ((firstCheck || secondCheck) && items[i].Collides(items[j])) {
+                                if (firstCheck) {
                                     items[i].GameObject.OnCollide(items[j].GameObject);
                                 }
 
-                                if (secondCheck)
-                                {
+                                if (secondCheck) {
                                     items[j].GameObject.OnCollide(items[i].GameObject);
                                 }
                             }
@@ -69,8 +50,7 @@ namespace GGJam_2021 {
             }
         }
 
-        public static void ClearAll()
-        {
+        public static void ClearAll() {
             items.Clear();
         }
     }

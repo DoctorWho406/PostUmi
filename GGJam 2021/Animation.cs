@@ -1,11 +1,8 @@
 ﻿using OpenTK;
 
-namespace GGJam_2021
-{
-    class Animation
-    {
-        public bool IsPlaying
-        {
+namespace GGJam_2021 {
+    class Animation {
+        public bool IsPlaying {
             get; protected set;
         }
 
@@ -19,40 +16,29 @@ namespace GGJam_2021
 
         public bool Loop;
 
-        public Animation(int frameW, int frameH, float framePerSeconds, int numFrames, bool loop = true)
-        {
+        public Animation(int frameW, int frameH, float framePerSeconds, int numFrames, bool loop = true) {
             frameWidth = frameW;
             frameHeight = frameH;
-            if (framePerSeconds > 0)
-            {
+            if (framePerSeconds > 0) {
                 frameDuration = 1 / framePerSeconds;
-            }
-            else
-            {
+            } else {
                 frameDuration = 0;
             }
             this.numFrames = numFrames;
             Loop = loop;
         }
 
-        public virtual void Update(ref Vector2 offset)
-        {
-            if (IsPlaying)
-            {
+        public virtual void Update(ref Vector2 offset) {
+            if (IsPlaying) {
                 elapsedTime += Game.DeltaTime;
-                if (elapsedTime >= frameDuration)
-                {
+                if (elapsedTime >= frameDuration) {
                     currentFrame++;
                     elapsedTime = 0;
-                    if (currentFrame >= numFrames)
-                    {
+                    if (currentFrame >= numFrames) {
                         //animation ended
-                        if (Loop)
-                        {
+                        if (Loop) {
                             currentFrame = 0;
-                        }
-                        else
-                        {
+                        } else {
                             OnAnimationEnd();
                             return;
                         }
@@ -62,26 +48,22 @@ namespace GGJam_2021
             }
         }
 
-        protected virtual void OnAnimationEnd()
-        {
+        protected virtual void OnAnimationEnd() {
             IsPlaying = false;
         }
 
-        public virtual void Play()
-        {
+        public virtual void Play() {
             IsPlaying = true;
         }
 
-        public virtual void Stop(ref Vector2 offset)
-        {
+        public virtual void Stop(ref Vector2 offset) {
             IsPlaying = false;
             currentFrame = 0;
             elapsedTime = 0;
             offset.X = frameWidth * currentFrame;
         }
 
-        public virtual void Pause()
-        {
+        public virtual void Pause() {
             IsPlaying = false;
         }
     }

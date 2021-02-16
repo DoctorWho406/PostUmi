@@ -22,7 +22,7 @@ namespace GGJam_2021 {
 
             barOffset = innerBarOffset;
 
-            barTexture = GFXManager.GetTexture(barTextureName);
+            barTexture = GfxManager.GetTexture(barTextureName);
             barSprite = new Sprite(barTexture.Width, barTexture.Height);
             barWidth = (int)barSprite.Width;
         }

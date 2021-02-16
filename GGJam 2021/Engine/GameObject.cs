@@ -10,7 +10,8 @@ namespace GGJam_2021 {
         Count
     }
 
-    abstract class GameObject : IUpdatable, IDrawable{
+    abstract class GameObject : IUpdatable, IDrawable {
+        public bool IsActive;
         public virtual Vector2 Position {
             get => sprite.position;
             set {
@@ -25,22 +26,29 @@ namespace GGJam_2021 {
 
         protected Sprite sprite, spriteGlitch1, spriteGlitch2;
         protected Texture texture;
+        protected Animation animation;
+        protected Vector2 textureOffset;
         protected Vector2 halfSize {
             get; private set;
         }
         protected bool glitch;
         private float timer;
         protected bool glithched;
-        
-        public GameObject(string textureName, LayerMask layerMask, Scene scene, int w = 0, int h = 0) {
+
+        public GameObject(string textureName, LayerMask layerMask, int w = 0, int h = 0, float fps = 0) {
             //Set LayerMask
             LayerMask = layerMask;
             //Set Texture and Sprite
             texture = TextureManager.GetTexture(textureName);
-            this.scene = scene;
-            sprite = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h);
-            spriteGlitch1 = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h);
-            spriteGlitch2 = new Sprite(w == 0 ? texture.Width : w, h == 0 ? texture.Height : h);
+            w = w == 0 ? texture.Width : w;
+            h = h == 0 ? texture.Height : h;
+            //Create Animation
+            animation = new Animation(w , h, fps, texture.Width / w);
+            textureOffset = Vector2.Zero;
+
+            sprite = new Sprite(w, h);
+            spriteGlitch1 = new Sprite(w, h);
+            spriteGlitch2 = new Sprite(w, h);
 
             spriteGlitch1.SetMultiplyTint(Constants.tintaBlue);
             spriteGlitch2.SetMultiplyTint(Constants.tintaGialla);
@@ -51,8 +59,6 @@ namespace GGJam_2021 {
 
             Size = new Vector2(sprite.Width, sprite.Height);
             halfSize = new Vector2(Size.X * 0.5f, Size.Y * 0.5f);
-            //Add to Scene
-            SceneManager.AddGOToScene(scene, this);
         }
 
         public virtual void Scale(float scaleFactory) {
@@ -66,9 +72,11 @@ namespace GGJam_2021 {
         public virtual void SetGlitch(bool value) {
             glitch = value;
         }
+
         public bool GetGlitch() {
             return glitch;
         }
+
         public virtual void Update() {
             if (glitch) {
                 timer += Game.DeltaTime;
@@ -81,18 +89,18 @@ namespace GGJam_2021 {
 
         public virtual void Draw() {
             if (!glitch) {
-                sprite.DrawTexture(texture);
+                sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
             } else {
                 if (glithched) {
-                    spriteGlitch1.DrawTexture(texture);
+                    spriteGlitch1.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
                 } else {
-                    spriteGlitch2.DrawTexture(texture);
+                    spriteGlitch2.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
                 }
             }
         }
 
-        public virtual void OnCollide(GameObject other) { 
-        
+        public virtual void OnCollide(GameObject other) {
+
         }
     }
 }
