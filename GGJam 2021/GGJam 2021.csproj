@@ -56,8 +56,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Engine\Colliders\BoxCollider.cs" />
+    <Compile Include="Engine\Colliders\CircleCollider.cs" />
+    <Compile Include="Engine\Colliders\Collider.cs" />
+    <Compile Include="Engine\Colliders\ColliderFactory.cs" />
+    <Compile Include="Engine\Colliders\CompoundCollider.cs" />
+    <Compile Include="Engine\GUI\ProgressBar.cs" />
     <Compile Include="Engine\IDrawable.cs" />
     <Compile Include="Engine\IUpdatable.cs" />
+    <Compile Include="Engine\PhysicsMgr.cs" />
     <Compile Include="Engine\RigidBody.cs" />
     <Compile Include="GameObject\Button.cs" />
     <Compile Include="GameObject\ChangeSceneObject.cs" />
@@ -78,15 +85,18 @@
     <Compile Include="GameObject\Player.cs" />
     <Compile Include="Manager\AudioClipInitManager.cs" />
     <Compile Include="Manager\AudioManager.cs" />
+    <Compile Include="Manager\DrawMgr.cs" />
     <Compile Include="Manager\InteractableObjectManager.cs" />
     <Compile Include="Manager\MusicManager.cs" />
     <Compile Include="Manager\TextureInitManager.cs" />
     <Compile Include="Manager\InputManager.cs" />
     <Compile Include="Manager\StatsManager.cs" />
     <Compile Include="GameObject\Portrait.cs" />
+    <Compile Include="Manager\UpdateMgr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Manager\SceneManager.cs" />
     <Compile Include="Manager\SceneInitManager.cs" />
+    <Compile Include="RandomGenerator.cs" />
     <Compile Include="Slider.cs" />
     <Compile Include="Manager\TextureManager.cs" />
     <Compile Include="UiText.cs" />

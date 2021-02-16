@@ -118,7 +118,7 @@ namespace GGJam_2021 {
             Lab_Corridor.SetNextDoor(Corridor_Lab);
         }
 
-        #region STanze
+        #region Stanze
         private static void RoomLoad() {
             new Background("Room", Scene.Room, new Vector2(1173, 858)) { Position = Game.WindowCenter, ColliderCenter = new Vector2(979, 655) };
             new ColliderObject("Lampada", LayerMask.Middleground, Scene.Room, ColliderType.BoxCollider) { Position = new Vector2(1481, 980) };
