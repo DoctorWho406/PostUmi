@@ -16,7 +16,7 @@ namespace GGJam_2021 {
             get => sprite.position;
             set => sprite.position = value;
         }
-        public Vector2 halfSize {
+        public Vector2 HalfSize {
             get; private set;
         }
         public Rigidbody Rigidbody;
@@ -43,13 +43,16 @@ namespace GGJam_2021 {
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.5f);
 
             size = sprite.pivot * 2f;
-            halfSize = sprite.pivot;
+            HalfSize = sprite.pivot;
         }
 
-        public virtual void Scale(float scaleFactory) {
-            sprite.scale = new Vector2(scaleFactory);
-            size *= scaleFactory;
-            halfSize *= scaleFactory;
+        public virtual void Scale(float scaleFactor) {
+            sprite.scale = new Vector2(scaleFactor);
+            HalfSize *= scaleFactor;
+            size *= scaleFactor;
+            if (Rigidbody != null && Rigidbody.Collider != null) {
+                //Rigidbody.Collider.Scale(scaleFactor);
+            }
         }
 
         public virtual void OnCollide(GameObject other) {

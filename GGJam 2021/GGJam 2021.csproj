@@ -75,7 +75,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="GameObject\Cursor.cs" />
-    <Compile Include="GameObject\ColliderObject.cs" />
     <Compile Include="GameObject\Door.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject\GlitchableObject.cs" />

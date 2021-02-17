@@ -13,6 +13,7 @@ namespace GGJam_2021 {
             Offset = Vector2.Zero;
         }
 
+        public abstract void Scale(float scaleFactor);
         public abstract bool Collides(Collider other);
         public abstract bool Collides(CompoundCollider compoundCollider);
         public abstract bool Collides(CircleCollider circle);
