@@ -27,13 +27,11 @@ namespace GGJam_2021 {
             barWidth = (int)barSprite.Width;
         }
 
-        public virtual void Scale(float scale) {
+        public override void Scale(float scale) {
             scale = MathHelper.Clamp(scale, 0, 1);
 
             barSprite.scale.X = scale;
             barWidth = (int)(barSprite.Width * scale);
-
-            //barSprite.SetMultiplyTint((1 - scale) * 50, scale * 2, scale, 1);
         }
 
         public override void Draw() {
