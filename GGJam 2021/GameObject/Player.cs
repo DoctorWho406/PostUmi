@@ -71,8 +71,6 @@ namespace GGJam_2021 {
             }
         }
 
-
-
         public void Stop() {
             speed = Vector2.Zero;
             animation.Stop(ref textureOffset);
@@ -80,8 +78,11 @@ namespace GGJam_2021 {
         }
 
         public override void Update() {
-            sprite.position += speed * Game.DeltaTime;
             base.Update();
+            if (IsActive) {
+                StatsManager.Update();
+            }
+            sprite.position += speed * Game.DeltaTime;
             if (target != -Vector2.One) {
                 Vector2 distance = target - sprite.position;
                 if (distance.X < distance.Y) {
@@ -124,6 +125,10 @@ namespace GGJam_2021 {
         }
 
         public override void Draw() {
+            base.Draw();
+            if (IsActive) {
+                StatsManager.Draw();
+            }
             sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
             //((CircleCollider)Collider).Draw();
         }

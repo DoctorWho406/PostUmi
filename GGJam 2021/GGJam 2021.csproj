@@ -96,7 +96,6 @@
     <Compile Include="Manager\SceneManager.cs" />
     <Compile Include="Manager\SceneInitManager.cs" />
     <Compile Include="Engine\RandomGenerator.cs" />
-    <Compile Include="Slider.cs" />
     <Compile Include="Manager\TextureManager.cs" />
     <Compile Include="UiText.cs" />
   </ItemGroup>

@@ -14,7 +14,7 @@ namespace GGJam_2021 {
                 Game.Player.SetIsActive(false);
                 animation.Play();
                 eating = true;
-                StatsManager.AddStats(Constants.HungerFromFridge, Stat.Hunger);
+                StatsManager.AddStats(Constants.HungerFromFridge, Stats.Hunger);
             }
             if (eating && !animation.IsPlaying) {
                 Game.Player.SetIsActive(true);

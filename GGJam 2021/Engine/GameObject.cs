@@ -42,8 +42,8 @@ namespace GGJam_2021 {
             sprite = new Sprite(w, h);
             sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.5f);
 
-            size = new Vector2(sprite.Width, sprite.Height);
-            halfSize = new Vector2(size.X * 0.5f, size.Y * 0.5f);
+            size = sprite.pivot * 2f;
+            halfSize = sprite.pivot;
         }
 
         public virtual void Scale(float scaleFactory) {
@@ -57,7 +57,9 @@ namespace GGJam_2021 {
         }
 
         public virtual void Update() {
-
+            if (IsActive) {
+                animation.Update(ref textureOffset);
+            }
         }
 
         public virtual void Draw() {

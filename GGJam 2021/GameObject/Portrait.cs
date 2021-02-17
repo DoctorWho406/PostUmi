@@ -22,7 +22,7 @@ namespace GGJam_2021 {
             base.Update();
             if (animation != null) {
                 if (IsClicked()) {
-                    StatsManager.AddStats(paranoia, Stat.Paranoia);
+                    StatsManager.AddStats(paranoia, Stats.Paranoia);
                     SceneManager.LoadScene(nextScene);
                 }
                 animation.Update(ref textureOffset);

@@ -33,8 +33,7 @@ namespace GGJam_2021 {
             barSprite.scale.X = scale;
             barWidth = (int)(barSprite.Width * scale);
 
-            barSprite.SetMultiplyTint((1 - scale) * 50, scale * 2, scale, 1);
-
+            //barSprite.SetMultiplyTint((1 - scale) * 50, scale * 2, scale, 1);
         }
 
         public override void Draw() {

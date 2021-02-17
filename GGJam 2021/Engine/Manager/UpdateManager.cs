@@ -2,6 +2,7 @@
 
 namespace GGJam_2021 {
     static class UpdateManager {
+
         private static List<IUpdatable> items;
 
         static UpdateManager() {

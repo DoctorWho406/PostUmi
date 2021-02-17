@@ -41,10 +41,10 @@ namespace GGJam_2021 {
 
         //Player
         public const float PlayerSpeed = 250f;
-        public const float HungerMax = 250f;
-        public const float HungerDecrease = 2f;
-        public const float ParanoiaMax = 250f;
-        public const float ParanoiaDecrease = 1f;
+        public const float HungerMax = 1f;
+        public const float HungerDecrease = 0.008f;
+        public const float ParanoiaMax = 1;
+        public const float ParanoiaDecrease = 0.004f;
         public const float OffsetFromTarge = 10f;
         public const int FPSPlayerAnimation = 5;
 

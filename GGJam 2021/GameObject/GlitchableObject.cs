@@ -25,6 +25,8 @@ namespace GGJam_2021 {
 
             spriteGlitch1.pivot = sprite.pivot;
             spriteGlitch2.pivot = sprite.pivot;
+
+            StatsManager.AddGlitcableObject(this);
         }
 
         public override void Scale(float scaleFactory) {
