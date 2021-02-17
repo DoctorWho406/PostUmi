@@ -9,6 +9,10 @@ namespace GGJam_2021 {
             Radius = radius;
         }
 
+        public override void Scale(float scaleFactor) {
+            Radius *= scaleFactor;
+        }
+
         public override bool Collides(Collider other) {
             return other.Collides(this);
         }

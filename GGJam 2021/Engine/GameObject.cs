@@ -51,7 +51,7 @@ namespace GGJam_2021 {
             HalfSize *= scaleFactor;
             size *= scaleFactor;
             if (Rigidbody != null && Rigidbody.Collider != null) {
-                //Rigidbody.Collider.Scale(scaleFactor);
+                Rigidbody.Collider.Scale(scaleFactor);
             }
         }
 

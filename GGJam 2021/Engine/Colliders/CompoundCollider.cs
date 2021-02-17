@@ -11,6 +11,13 @@ namespace GGJam_2021 {
             innerColliders = new List<Collider>();
         }
 
+        public override void Scale(float scaleFactor) {
+            BoundingCollider.Scale(scaleFactor);
+            foreach (Collider collider in innerColliders) {
+                collider.Scale(scaleFactor);
+            }
+        }
+
         public virtual void AddCollider(Collider collider) {
             innerColliders.Add(collider);
         }

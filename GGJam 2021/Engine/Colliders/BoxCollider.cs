@@ -11,6 +11,10 @@ namespace GGJam_2021 {
             this.halfSize = halfSize;
         }
 
+        public override void Scale(float scaleFactor) {
+            halfSize *= scaleFactor;
+        }
+
         public override bool Collides(Collider collider) {
             return collider.Collides(this);
         }
