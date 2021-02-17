@@ -36,7 +36,7 @@ namespace GGJam_2021 {
             w = w == 0 ? texture.Width : w;
             h = h == 0 ? texture.Height : h;
             //Create Animation
-            animation = new Animation(w, h, fps, texture.Width / w);
+            animation = new Animation(w, h, fps, texture.Width / w, false);
             textureOffset = Vector2.Zero;
 
             sprite = new Sprite(w, h);

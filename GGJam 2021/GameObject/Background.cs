@@ -30,9 +30,5 @@ namespace GGJam_2021 {
         //    base.Draw();
         //    ((BoxCollider)collider).Draw();
         //}
-
-        public override void SetGlitch(bool value) {
-
-        }
     }
 }

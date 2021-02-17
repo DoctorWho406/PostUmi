@@ -11,9 +11,6 @@ namespace GGJam_2021 {
     }
 
     class Player : ColliderObject {
-        public bool IsActive {
-            get; private set;
-        }
         public bool IsVisible {
             get; private set;
         }
@@ -21,8 +18,6 @@ namespace GGJam_2021 {
         private Vector2 speed;
         private Vector2 target;
 
-        private Animation animation;
-        private Vector2 textureOffset;
         private Status status;
         private bool correctSide;
 
@@ -31,10 +26,8 @@ namespace GGJam_2021 {
         public static AudioClip Interaction;
 
         public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 654) {
-            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSPlayerAnimation, 8, true);
             status = Status.FrontWalk;
 
-            textureOffset = Vector2.Zero;
             correctSide = true;
 
             sprite.position = new Vector2(886, 570);

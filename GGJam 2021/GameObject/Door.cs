@@ -4,8 +4,6 @@ namespace GGJam_2021 {
     class Door : ChangeSceneObject {
         public Vector2 positionPlayer;
 
-        protected Animation animation;
-        private Vector2 textureOffset;
         private bool readyForChange;
 
         private Door nextDoor;
@@ -14,8 +12,6 @@ namespace GGJam_2021 {
             sprite.FlipX = Flip;
             spriteGlitch1.FlipX = Flip;
             spriteGlitch2.FlipX = Flip;
-            animation = new Animation((int)sprite.Width, (int)sprite.Height, Constants.FPSDoorAnimation, 5, false);
-            textureOffset = Vector2.Zero;
             this.positionPlayer = positionPlayer;
         }
 
