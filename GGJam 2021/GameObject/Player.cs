@@ -10,10 +10,8 @@ namespace GGJam_2021 {
         LeftWalk,
     }
 
-    class Player : ColliderObject {
-        public bool IsVisible {
-            get; private set;
-        }
+    class Player : GameObject {
+        public bool CanMove;
 
         private Vector2 speed;
         private Vector2 target;
@@ -25,35 +23,21 @@ namespace GGJam_2021 {
 
         public static AudioClip Interaction;
 
-        public Player() : base("Player", LayerMask.Middleground, Scene.Always, ColliderType.CircleCollider, 369, 654) {
+        public Player() : base("Player", LayerMask.Middleground, 369, 654, 5) {
+            IsActive = true;
+            CanMove = true;
+
+            Rigidbody = new Rigidbody(this);
+            ColliderFactory.CreateCircleFor(this);
+            Rigidbody.Type = RigidBodyType.Player;
+
             status = Status.FrontWalk;
-
             correctSide = true;
-
-            sprite.position = new Vector2(886, 570);
-            Collider.Position = sprite.position;
-            Collider.Scale(0.5f);
-            sprite.scale = new Vector2(0.5f);
-            sprite.pivot = new Vector2(sprite.Width * 0.5f, sprite.Height * 0.75f);
             target = -Vector2.One;
             //AudioStuff
             PlayerSoundEmitter = new AudioSource();
             Interaction = AudioManager.GetAudioClip("Interaction");
             PlayerSoundEmitter.Volume = 1f;
-        }
-
-        public void SetIsVisible(bool value) {
-            if (value) {
-                Stop();
-            }
-            IsVisible = value;
-        }
-
-        public void SetIsActive(bool value) {
-            if (value) {
-                Stop();
-            }
-            IsActive = value;
         }
 
         public void Input() {

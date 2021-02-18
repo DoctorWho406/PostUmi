@@ -2,11 +2,11 @@
 
 namespace GGJam_2021 {
     enum RigidBodyType {
+        Player = 1,
+        Cursor = 2,
     }
 
     class Rigidbody {
-        protected uint collisionMask;
-
         public Vector2 Velocity;
         public GameObject GameObject;
         public bool IsGravityAffected;
@@ -15,6 +15,8 @@ namespace GGJam_2021 {
         public RigidBodyType Type;
         public Collider Collider;
 
+        protected uint collisionMask;
+        protected Vector2 target;
 
         public bool IsActive {
             get => GameObject.IsActive; set => GameObject.IsActive = value;
@@ -26,15 +28,25 @@ namespace GGJam_2021 {
             PhysicsManager.AddItem(this);
         }
 
-        //Collider
+        public void MoveTo(Vector2 target) {
+            this.target = target;
+        }
 
         public void Update() {
             //gravity
             //if (IsGravityAffected)
             //{
-            //    Velocity.Y+= forza di gravità  *Game.DeltaTime;
+            //    Velocity.Y+= forza di gravità  * Game.DeltaTime;
             //}
-
+            if (target != GameObject.Position) {
+                Vector2 distance = target - GameObject.Position;
+                if (distance.Length <= Constants.OffsetFromTarge) {
+                    Velocity = Vector2.Zero;
+                    GameObject.Position = target;
+                } else {
+                    //Velocity = distance.Normalized();
+                }
+            }
             GameObject.Position += Velocity * Game.DeltaTime;
         }
 
