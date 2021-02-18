@@ -2,6 +2,7 @@
     class Cursor : GameObject {
         public Cursor() : base("Cursor", LayerMask.UI) {
             IsActive = true;
+            Position = Game.Window.MousePosition;
 
             Rigidbody = new Rigidbody(this);
             ColliderFactory.CreateCircleFor(this);

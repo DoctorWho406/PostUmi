@@ -2,17 +2,6 @@
     static class TextureInitManager {
         public static void Start() {
             //Background
-            ////Room
-            TextureManager.AddTexture("Room", Constants.BackgroundDirectory + "Room.png");
-            TextureManager.AddTexture("Computer", Constants.ItemsDirectory + "Computer.png");
-            TextureManager.AddTexture("Desk", Constants.CollidableObjectDirectory + "Desk.png");
-            TextureManager.AddTexture("Actionfigure", Constants.ItemsDirectory + "Actionfigure.png");
-            TextureManager.AddTexture("Lampada", Constants.CollidableObjectDirectory + "Lampada.png");
-            TextureManager.AddTexture("LettoRoom", Constants.CollidableObjectDirectory + "LettoRoom.png");
-            TextureManager.AddTexture("SediaRoom1", Constants.CollidableObjectDirectory + "SediaRoom1.png");
-            TextureManager.AddTexture("ArmadioRoom", Constants.CollidableObjectDirectory + "ArmadioRoom.png");
-            TextureManager.AddTexture("ComodinoRoom", Constants.CollidableObjectDirectory + "ComodinoRoom.png");
-
             ////Kitchen
             TextureManager.AddTexture("Whiskey", Constants.ItemsDirectory + "Whiskey.png");
             TextureManager.AddTexture("Kitchen", Constants.BackgroundDirectory + "Kitchen.png");
@@ -113,10 +102,6 @@
             TextureManager.AddTexture("LateralDoor", Constants.ItemsDirectory + "LateralDoor.png");
 
             //UI
-            TextureManager.AddTexture("Cursor", Constants.TextureDirectory + "cursore.png");
-            TextureManager.AddTexture("Hunger", Constants.TextureDirectory + "barrafame.png");
-            TextureManager.AddTexture("Paranoia", Constants.TextureDirectory + "barraparanoia.png");
-
             TextureManager.AddTexture("Player", Constants.TextureDirectory + "pg_walkstate.png");
 
             TextureManager.AddTexture("BackPlayer", Constants.TextureDirectory + "BackPlayer.png");

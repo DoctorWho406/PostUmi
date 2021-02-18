@@ -2,7 +2,7 @@
 using OpenTK;
 
 namespace GGJam_2021 {
-    enum Scene {
+    enum Scenes {
         Menu,
         Always,
         Room,

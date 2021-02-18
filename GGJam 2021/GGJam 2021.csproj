@@ -67,6 +67,7 @@
     <Compile Include="Engine\Manager\GfxManager.cs" />
     <Compile Include="Engine\Manager\PhysicsManager.cs" />
     <Compile Include="Engine\Rigidbody.cs" />
+    <Compile Include="Engine\Scene.cs" />
     <Compile Include="GameObject\Button.cs" />
     <Compile Include="GameObject\ChangeSceneObject.cs" />
     <Compile Include="GameObject\EndDoor.cs" />
@@ -95,7 +96,7 @@
     <Compile Include="Manager\SceneManager.cs" />
     <Compile Include="Manager\SceneInitManager.cs" />
     <Compile Include="Engine\RandomGenerator.cs" />
-    <Compile Include="Manager\TextureManager.cs" />
+    <Compile Include="Scenes\RoomScene.cs" />
     <Compile Include="UiText.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,7 +154,7 @@
     <Content Include="Assets\Textures\barraparanoia.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\cursore.png">
+    <Content Include="Assets\Textures\Cursor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\Dialogue\Start_1.jpg">
