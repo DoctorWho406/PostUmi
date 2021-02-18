@@ -11,7 +11,9 @@ namespace GGJam_2021 {
     }
 
     abstract class GameObject : IUpdatable, IDrawable {
-        public bool IsActive;
+        public virtual bool IsActive {
+            get; set;
+        }
         public virtual Vector2 Position {
             get => sprite.position;
             set => sprite.position = value;
@@ -66,7 +68,9 @@ namespace GGJam_2021 {
         }
 
         public virtual void Draw() {
-            sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
+            if (IsActive) {
+                sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
+            }
         }
     }
 }

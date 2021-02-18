@@ -7,6 +7,7 @@ namespace GGJam_2021 {
     }
 
     class Rigidbody {
+        public float Speed;
         public Vector2 Velocity;
         public GameObject GameObject;
         public bool IsGravityAffected;
@@ -32,6 +33,11 @@ namespace GGJam_2021 {
             this.target = target;
         }
 
+        public void Stop() {
+            Velocity = Vector2.Zero;
+            target = GameObject.Position;
+        }
+
         public void Update() {
             //gravity
             //if (IsGravityAffected)
@@ -44,7 +50,7 @@ namespace GGJam_2021 {
                     Velocity = Vector2.Zero;
                     GameObject.Position = target;
                 } else {
-                    //Velocity = distance.Normalized();
+                    Velocity = distance.Normalized() * Speed;
                 }
             }
             GameObject.Position += Velocity * Game.DeltaTime;

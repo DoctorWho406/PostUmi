@@ -11,11 +11,25 @@ namespace GGJam_2021 {
     }
 
     class Player : GameObject {
-        public bool CanMove;
+        public override bool IsActive {
+            set {
+                base.IsActive = value;
+                if (!value) {
+                    CanMove = false;
+                }
+            }
+        }
+        public bool CanMove {
+            get => canMove;
+            set {
+                canMove = value;
+                if (!value) {
+                    Stop();
+                }
+            }
+        }
 
-        private Vector2 speed;
-        private Vector2 target;
-
+        private bool canMove;
         private Status status;
         private bool correctSide;
 
@@ -33,7 +47,6 @@ namespace GGJam_2021 {
 
             status = Status.FrontWalk;
             correctSide = true;
-            target = -Vector2.One;
             //AudioStuff
             PlayerSoundEmitter = new AudioSource();
             Interaction = AudioManager.GetAudioClip("Interaction");
@@ -41,24 +54,21 @@ namespace GGJam_2021 {
         }
 
         public void Input() {
-            if (IsActive && IsVisible) {
+            if (CanMove) {
                 if (Game.Window.MouseRight) {
                     if (!InputManager.IsMovingButtonClicked) {
                         InputManager.IsMovingButtonClicked = true;
-                        target = Game.Window.MousePosition;
+                        Rigidbody.MoveTo(Game.Window.MousePosition);
                     }
                 } else {
                     InputManager.IsMovingButtonClicked = false;
                 }
-            } else {
-                Stop();
             }
         }
 
         public void Stop() {
-            speed = Vector2.Zero;
+            Rigidbody.Stop();
             animation.Stop(ref textureOffset);
-            target = -Vector2.One;
         }
 
         public override void Update() {
@@ -66,46 +76,45 @@ namespace GGJam_2021 {
             if (IsActive) {
                 StatsManager.Update();
             }
-            sprite.position += speed * Game.DeltaTime;
-            if (target != -Vector2.One) {
-                Vector2 distance = target - sprite.position;
-                if (distance.X < distance.Y) {
-                    if (distance.X < -distance.Y) {
-                        status = Status.RightWalk;
-                    } else {
-                        status = Status.FrontWalk;
-                    }
-                } else {
-                    if (distance.X < -distance.Y) {
-                        status = Status.TopWalk;
-                    } else {
-                        status = Status.LeftWalk;
-                    }
-                }
-                if (status == Status.LeftWalk) {
-                    if (correctSide) {
-                        correctSide = false;
-                        sprite.FlipX = false;
-                    }
-                    textureOffset.Y = 654;
-                } else if (status == Status.RightWalk && !correctSide) {
-                    correctSide = true;
-                    sprite.FlipX = true;
-                } else {
-                    textureOffset.Y = (int)status * 654;
-                }
-                animation.Update(ref textureOffset);
-                if (!animation.IsPlaying) {
-                    animation.Play();
-                }
-                if (distance.Length <= Constants.OffsetFromTarge) {
-                    sprite.position = target;
-                    Stop();
-                } else {
-                    speed = distance.Normalized() * Constants.PlayerSpeed;
-                    //FootStepTime();
-                }
-            }
+            //if (target != -Vector2.One) {
+            //    Vector2 distance = target - sprite.position;
+            //    if (distance.X < distance.Y) {
+            //        if (distance.X < -distance.Y) {
+            //            status = Status.RightWalk;
+            //        } else {
+            //            status = Status.FrontWalk;
+            //        }
+            //    } else {
+            //        if (distance.X < -distance.Y) {
+            //            status = Status.TopWalk;
+            //        } else {
+            //            status = Status.LeftWalk;
+            //        }
+            //    }
+            //    if (status == Status.LeftWalk) {
+            //        if (correctSide) {
+            //            correctSide = false;
+            //            sprite.FlipX = false;
+            //        }
+            //        textureOffset.Y = 654;
+            //    } else if (status == Status.RightWalk && !correctSide) {
+            //        correctSide = true;
+            //        sprite.FlipX = true;
+            //    } else {
+            //        textureOffset.Y = (int)status * 654;
+            //    }
+            //    animation.Update(ref textureOffset);
+            //    if (!animation.IsPlaying) {
+            //        animation.Play();
+            //    }
+            //    if (distance.Length <= Constants.OffsetFromTarge) {
+            //        sprite.position = target;
+            //        Stop();
+            //    } else {
+            //        speed = distance.Normalized() * Constants.PlayerSpeed;
+            //        //FootStepTime();
+            //    }
+            //}
         }
 
         public override void Draw() {
@@ -113,8 +122,6 @@ namespace GGJam_2021 {
             if (IsActive) {
                 StatsManager.Draw();
             }
-            sprite.DrawTexture(texture, (int)textureOffset.X, (int)textureOffset.Y, (int)sprite.Width, (int)sprite.Height);
-            //((CircleCollider)Collider).Draw();
         }
     }
 }
