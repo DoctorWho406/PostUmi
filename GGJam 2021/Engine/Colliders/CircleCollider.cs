@@ -10,6 +10,7 @@ namespace GGJam_2021 {
         }
 
         public override void Scale(float scaleFactor) {
+            base.Scale(scaleFactor);
             Radius *= scaleFactor;
         }
 

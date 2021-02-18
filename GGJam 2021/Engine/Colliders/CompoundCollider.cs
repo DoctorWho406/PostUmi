@@ -12,6 +12,7 @@ namespace GGJam_2021 {
         }
 
         public override void Scale(float scaleFactor) {
+            base.Scale(scaleFactor);
             BoundingCollider.Scale(scaleFactor);
             foreach (Collider collider in innerColliders) {
                 collider.Scale(scaleFactor);

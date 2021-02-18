@@ -4,6 +4,7 @@ namespace GGJam_2021 {
     enum RigidBodyType {
         Player = 1,
         Cursor = 2,
+        Background = 4,
     }
 
     class Rigidbody {
