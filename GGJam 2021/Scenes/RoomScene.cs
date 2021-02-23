@@ -7,13 +7,15 @@ using OpenTK;
 
 namespace GGJam_2021 {
     class RoomScene : Scene {
+        protected Player player;
         public RoomScene() : base(){
         }
 
         public override void Start() {
             base.Start();
             new Background("Room", new Vector2(-119, -115), new Vector2(1173, 858));
-            new Player();
+            player = new Player();
+            player.Scale(0.35f);
         }
 
         protected override void LoadAssets() {
@@ -31,6 +33,10 @@ namespace GGJam_2021 {
             GfxManager.AddTexture("Hunger", Constants.TextureDirectory + "barrafame.png");
             GfxManager.AddTexture("Paranoia", Constants.TextureDirectory + "barraparanoia.png");
             GfxManager.AddTexture("Player", Constants.TextureDirectory + "pg_walkstate.png");
+        }
+
+        public override void Input() {
+            player.Input();
         }
     }
 }

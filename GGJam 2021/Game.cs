@@ -14,8 +14,11 @@ namespace GGJam_2021 {
             get; private set;
         }
         public static float DeltaTime => Window.DeltaTime;
-        public static Player Player;
-        public static Cursor Cursor;
+
+        private static Scene currentScene;
+
+        //public static Player Player;
+        //public static Cursor Cursor;
 
         public static void Init() {
             //Init Random
@@ -26,38 +29,55 @@ namespace GGJam_2021 {
             Window.SetVSync(false);
             //Set WindowCenter
             WindowCenter = new Vector2(Window.Width * 0.5f, Window.Height * 0.5f);
-            TextureInitManager.Start();
-            AudioClipInitManager.Start();
-            Player = new Player() {
-                //IsActive = true,
-                //IsVisible = true,
-            };
-            Player.Scale(0.35f);
-            SceneInitManager.Start();
-            //Edit cursor
-            Cursor = new Cursor();
-            Cursor.Scale(0.2f);
+            //Hidden mouse
             Window.SetMouseVisible(false);
+
+            AudioClipInitManager.Start();
             MusicManager.Start();
+
+            //TextureInitManager.Start();
+            //Player = new Player() {
+            //    //IsActive = true,
+            //    //IsVisible = true,
+            //};
+            //Player.Scale(0.35f);
+            //SceneInitManager.Start();
+            ////Edit cursor
+            //Cursor = new Cursor();
+            //Cursor.Scale(0.2f);
+
+            currentScene = new RoomScene();
         }
 
         public static void Play() {
             while (Window.IsOpened) {
                 //Exit on esc
-                //Console.WriteLine(Window.MousePosition);
                 if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
                     break;
                 }
-                if (SceneManager.ActiveScene != Scene.BadEndGame && !StatsManager.PlayerIsAlive) {
-                    SceneManager.LoadScene(Scene.BadEndGame);
+                if (!currentScene.IsPlaying) {
+                    Scene nextScene = currentScene.OnExit();
+                    if (nextScene == null) {
+                        break;
+                    } else {
+                        currentScene = nextScene;
+                    }
                 }
 
-                Player.Input();
+                currentScene.Input();
+                currentScene.Update();
+                currentScene.Draw();
 
-                SceneManager.Update();
-                MusicManager.Update();
+                //if (SceneManager.ActiveScene != Scene.BadEndGame && !StatsManager.PlayerIsAlive) {
+                //    SceneManager.LoadScene(Scene.BadEndGame);
+                //}
 
-                SceneManager.Draw();
+                //Player.Input();
+
+                //SceneManager.Update();
+                //MusicManager.Update();
+
+                //SceneManager.Draw();
 
                 Window.Update();
             }
