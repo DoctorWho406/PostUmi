@@ -4,8 +4,12 @@ using OpenTK;
 
 namespace GGJam_2021 {
     static class Game {
-        public static Random Random;
-        public static Window Window;
+        public static Random Random {
+            get; private set;
+        }
+        public static Window Window {
+            get; private set;
+        }
         public static Vector2 WindowCenter {
             get; private set;
         }
