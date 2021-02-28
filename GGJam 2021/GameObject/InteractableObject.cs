@@ -1,7 +1,7 @@
 ﻿using OpenTK;
 
 namespace GGJam_2021 {
-    abstract class InteractableObject : ColliderObject {
+    abstract class InteractableObject : GameObject {
         protected Collider trigger;
 
         public InteractableObject(string textureName, LayerMask layerMask, Scene scene, ColliderType colliderType, int w = 0, int h = 0) : base(textureName, layerMask, scene, colliderType, w, h) {

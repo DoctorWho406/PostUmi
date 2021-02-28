@@ -51,6 +51,7 @@ namespace GGJam_2021 {
             PlayerSoundEmitter = new AudioSource();
             Interaction = AudioManager.GetAudioClip("Interaction");
             PlayerSoundEmitter.Volume = 1f;
+            Scale(0.35f);
         }
 
         public void Input() {

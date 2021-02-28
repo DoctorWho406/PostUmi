@@ -67,7 +67,8 @@
     <Compile Include="Engine\Manager\GfxManager.cs" />
     <Compile Include="Engine\Manager\PhysicsManager.cs" />
     <Compile Include="Engine\Rigidbody.cs" />
-    <Compile Include="Engine\Scene.cs" />
+    <Compile Include="Engine\Scenes\PlayScene.cs" />
+    <Compile Include="Engine\Scenes\Scene.cs" />
     <Compile Include="GameObject\Button.cs" />
     <Compile Include="GameObject\ChangeSceneObject.cs" />
     <Compile Include="GameObject\EndDoor.cs" />
@@ -337,7 +338,7 @@
     <Content Include="Assets\Textures\InteractableObject\Items\EndDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Textures\pg_walkstate.png">
+    <Content Include="Assets\Textures\Player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Textures\InteractableObject\Items\Retched.png">
