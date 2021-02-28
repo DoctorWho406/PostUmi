@@ -6,7 +6,7 @@ namespace GGJam_2021 {
 
 		}
 
-		protected bool IsNearAndClicked() {
+		public bool IsNearAndClicked() {
 			if (((CompoundCollider)Rigidbody.Collider).BoundingCollider.Collides(((PlayScene)Game.CurrentScene).Player.Rigidbody.Collider)) {
 				if (Game.Window./*MouseRight*/MouseLeft) {
 					if (!InputManager.IsTriggerButtonClicked) {

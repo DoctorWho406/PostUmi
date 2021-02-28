@@ -67,6 +67,7 @@
     <Compile Include="Engine\Manager\GfxManager.cs" />
     <Compile Include="Engine\Manager\PhysicsManager.cs" />
     <Compile Include="Engine\Rigidbody.cs" />
+    <Compile Include="Engine\Scenes\CorridorScene.cs" />
     <Compile Include="Engine\Scenes\PlayScene.cs" />
     <Compile Include="Engine\Scenes\Scene.cs" />
     <Compile Include="GameObject\Button.cs" />
