@@ -1,13 +1,20 @@
 ﻿namespace GGJam_2021 {
-    class Button : ChangeSceneObject {
-        public Button(string textureName, Scene scene, Scene nextscene, ColliderType colliderType) : base(textureName, LayerMask.Middleground, scene, nextscene, colliderType) {
-        }
+	class Button : GameObject {
+		public Button(string textureName, int w = 0, int h = 0, int fps = 0) : base(textureName, LayerMask.Middleground, w, h, fps) {
+		}
 
-        public override void Update() {
-            base.Update();
-            if (IsClicked()) {
-                SceneManager.LoadScene(nextScene);
-            }
-        }
-    }
+		protected bool IsClicked() {
+			if (Game.Window.MouseLeft) {
+				if (!InputManager.IsTriggerButtonClicked) {
+					InputManager.IsTriggerButtonClicked = true;
+					if (Rigidbody.Collider.Contains(Game.Window.MousePosition)) {
+						return true;
+					}
+				}
+			} else {
+				InputManager.IsTriggerButtonClicked = false;
+			}
+			return false;
+		}
+	}
 }
