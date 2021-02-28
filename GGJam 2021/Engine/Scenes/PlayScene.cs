@@ -4,10 +4,6 @@
 		protected PlayScene() : base() {
 		}
 
-		public override void Input() {
-			Player.Input();
-		}
-
 		public override void Start() {
 			base.Start();
 			Player = new Player();
@@ -16,6 +12,10 @@
 		protected override void LoadAssets() {
 			base.LoadAssets();
             GfxManager.AddTexture("Player", Constants.TextureDirectory + "Player.png");
+		}
+
+		public override void Input() {
+			Player.Input();
 		}
 	}
 }

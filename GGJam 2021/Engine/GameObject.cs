@@ -46,6 +46,9 @@ namespace GGJam_2021 {
 
             size = sprite.pivot * 2f;
             HalfSize = sprite.pivot;
+
+            UpdateManager.AddItem(this);
+            DrawManager.AddItem(this);
         }
 
         public virtual void Scale(float scaleFactor) {

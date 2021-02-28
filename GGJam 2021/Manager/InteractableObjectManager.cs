@@ -12,7 +12,7 @@ namespace GGJam_2021 {
 
         public static void Reset() {
             foreach (KeyValuePair<Portrait, Portrait> item in orderList) {
-                item.Key.isOpened = false;
+                item.Key.IsOpened = false;
             }
         }
 
@@ -25,7 +25,7 @@ namespace GGJam_2021 {
                 if (orderList[key] == null) {
                     return true;
                 }
-                if (orderList[key].isOpened) {
+                if (orderList[key].IsOpened) {
                     return true;
                 }
             }

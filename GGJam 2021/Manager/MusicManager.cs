@@ -71,7 +71,7 @@ namespace GGJam_2021 {
         public static void Update() {
             if (waitForMusic > 0) {
                 waitForMusic -= DeltaTime;
-            } else {
+            } else {/*
                 if (SceneManager.ActiveScene == Scene.Menu || SceneManager.ActiveScene == Scene.DialogueInit_1 || SceneManager.ActiveScene == Scene.DialogueInit_2 || SceneManager.ActiveScene == Scene.DialogueInit_3) {
                     AudioManager.FadeOut(CreditsEmitter, CreditsEmitter.Volume, Credits);
                     AudioManager.FadeIn(IntroEmitter, IntroEmitter.Volume, Intro);
@@ -113,7 +113,7 @@ namespace GGJam_2021 {
                     AudioManager.FadeOut(OutroEmitter03, OutroEmitter03.Volume, Outro03);
                     AudioManager.FadeIn(CreditsEmitter, CreditsEmitter.Volume, Credits);
                 }
-
+                */
             }
         }
     }
