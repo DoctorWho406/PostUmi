@@ -1,16 +1,16 @@
 ﻿namespace GGJam_2021 {
 	abstract class PlayScene : Scene {
-		private Player player;
+		public Player Player;
 		protected PlayScene() : base() {
 		}
 
 		public override void Input() {
-			player.Input();
+			Player.Input();
 		}
 
 		public override void Start() {
 			base.Start();
-			player = new Player();
+			Player = new Player();
 		}
 
 		protected override void LoadAssets() {

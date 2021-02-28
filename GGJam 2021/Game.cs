@@ -15,7 +15,7 @@ namespace GGJam_2021 {
         }
         public static float DeltaTime => Window.DeltaTime;
 
-        private static Scene currentScene;
+        public static Scene CurrentScene;
 
         //public static Player Player;
         //public static Cursor Cursor;
@@ -46,7 +46,7 @@ namespace GGJam_2021 {
             //Cursor = new Cursor();
             //Cursor.Scale(0.2f);
 
-            currentScene = new RoomScene();
+            CurrentScene = new RoomScene();
         }
 
         public static void Play() {
@@ -55,18 +55,18 @@ namespace GGJam_2021 {
                 if (Window.GetKey(KeyCode.Esc)/* || !Player.isAlive*/) {
                     break;
                 }
-                if (!currentScene.IsPlaying) {
-                    Scene nextScene = currentScene.OnExit();
+                if (!CurrentScene.IsPlaying) {
+                    Scene nextScene = CurrentScene.OnExit();
                     if (nextScene == null) {
                         break;
                     } else {
-                        currentScene = nextScene;
+                        CurrentScene = nextScene;
                     }
                 }
 
-                currentScene.Input();
-                currentScene.Update();
-                currentScene.Draw();
+                CurrentScene.Input();
+                CurrentScene.Update();
+                CurrentScene.Draw();
 
                 //if (SceneManager.ActiveScene != Scene.BadEndGame && !StatsManager.PlayerIsAlive) {
                 //    SceneManager.LoadScene(Scene.BadEndGame);
