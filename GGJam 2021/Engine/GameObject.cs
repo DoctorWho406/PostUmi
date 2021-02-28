@@ -34,7 +34,7 @@ namespace GGJam_2021 {
             //Set LayerMask
             LayerMask = layerMask;
             //Set Texture and Sprite
-            texture = TextureManager.GetTexture(textureName);
+            texture = GfxManager.GetTexture(textureName);
             w = w == 0 ? texture.Width : w;
             h = h == 0 ? texture.Height : h;
             //Create Animation

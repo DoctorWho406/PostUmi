@@ -22,22 +22,5 @@ namespace GGJam_2021 {
 			}
 			return false;
 		}
-
-		//protected bool IsClicked() {
-		//	//Controllo click
-		//	if (Game.Window./*MouseRight*/MouseLeft) {
-		//		if (!InputManager.IsTriggerButtonClicked) {
-		//			if (Collider.Collides((CircleCollider)Game.Cursor.Collider, out Vector2 v)) {
-		//				//System.Console.WriteLine("Hai cliccato su un InteractableObject");
-		//				InputManager.IsTriggerButtonClicked = true;
-		//				Player.PlayerSoundEmitter.Play(Player.Interaction);
-		//				return true;
-		//			}
-		//		}
-		//	} else {
-		//		InputManager.IsTriggerButtonClicked = false;
-		//	}
-		//	return false;
-		//}
 	}
 }

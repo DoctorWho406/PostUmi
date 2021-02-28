@@ -16,7 +16,7 @@ namespace GGJam_2021 {
             }
         }
 
-        public ProgressBar(string frameTextureName, string barTextureName, Vector2 innerBarOffset) : base(frameTextureName) {
+        public ProgressBar(string frameTextureName, string barTextureName, Vector2 innerBarOffset) : base(frameTextureName, LayerMask.UI) {
             sprite.pivot = Vector2.Zero;
             IsActive = true;
 
