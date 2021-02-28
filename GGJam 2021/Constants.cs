@@ -34,6 +34,7 @@ namespace GGJam_2021 {
         public const float ParanoiaValue = 15;
 
         //Fridge
+        public const int FPSFridgeAnimation = 5;
         public const float HungerFromFridge = 25;
 
         //Player

@@ -69,8 +69,6 @@ namespace GGJam_2021 {
         }
 
         public static void Update() {
-
-
             if (waitForMusic > 0) {
                 waitForMusic -= DeltaTime;
             } else {

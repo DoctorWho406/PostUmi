@@ -44,6 +44,7 @@ namespace GGJam_2021 {
         }
 
         public override void Update() {
+            base.Update();
             if (glitch) {
                 timer += Game.DeltaTime;
                 if (timer > Constants.GlitchTime) {

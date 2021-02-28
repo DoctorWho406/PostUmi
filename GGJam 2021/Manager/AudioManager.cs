@@ -37,7 +37,6 @@ namespace GGJam_2021 {
         public static void FadeIn(AudioSource s, float volume, AudioClip a) {
             s.Stream(a, DeltaTime);
             if (volume < 1f) {
-
                 //seconds = 1 -> FadeIn = 10seconds
                 volume += Game.DeltaTime * (2 * 0.1f);
                 s.Volume = volume;
@@ -46,7 +45,6 @@ namespace GGJam_2021 {
         public static void FadeIn(AudioSource s, float volume) {
 
             if (volume < 1f) {
-
                 //seconds = 1 -> FadeIn = 10seconds
                 volume += Game.DeltaTime * (2 * 0.1f);
                 s.Volume = volume;
@@ -75,7 +73,6 @@ namespace GGJam_2021 {
         public static void Radio() {
             if (RadioOn == true) {
                 MusicManager.RadioEmitter.Stream(MusicManager.RadioClip, Game.DeltaTime);
-
             } else {
                 MusicManager.RadioEmitter.Stop();
             }
