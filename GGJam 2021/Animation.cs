@@ -3,88 +3,67 @@
 namespace GGJam_2021 {
     class Animation {
         public bool IsPlaying {
-            get; private set;
+            get; protected set;
         }
-        public Vector2 Offset;
-        private bool Loop;
 
-        private AnimatedObject owner;
-        private Vector2 startOffset;
-        private int rows, actualRow, columns, actualColumn;
-        private float frameDuration, currentTime = 0.0f;
+        protected int numFrames;
+        protected float frameDuration;
+        protected int currentFrame;
+        protected float elapsedTime;
 
-        public Animation(AnimatedObject owner, int rows, int columns, float fps) {
-            startOffset = Vector2.Zero;
-            this.owner = owner;
-            this.rows = rows;
-            this.columns = columns;
-            if (fps > 0.0f) {
-                frameDuration = 1 / fps;
-            } else if (fps < 0.0f) {
-                frameDuration = -1 / fps;
+        protected int frameWidth;
+        protected int frameHeight;
+
+        public bool Loop;
+
+        public Animation(int frameW, int frameH, float framePerSeconds, int numFrames, bool loop = true) {
+            frameWidth = frameW;
+            frameHeight = frameH;
+            if (framePerSeconds > 0) {
+                frameDuration = 1 / framePerSeconds;
             } else {
-                frameDuration = 0.0f;
+                frameDuration = 0;
             }
+            this.numFrames = numFrames;
+            Loop = loop;
         }
 
-        public Animation(AnimatedObject owner, int rows, int columns, Vector2 offset, float fps) {
-            this.owner = owner;
-            this.rows = rows - 1;
-            this.columns = columns - 1;
-            Offset = offset;
-            startOffset = offset;
-            if (fps > 0.0f) {
-                frameDuration = 1 / fps;
-            } else if (fps < 0.0f) {
-                frameDuration = -1 / fps;
-            } else {
-                frameDuration = 0.0f;
-            }
-        }
-
-        public void Update() {
+        public virtual void Update(ref Vector2 offset) {
             if (IsPlaying) {
-                currentTime += Game.DeltaTime;
-                if (currentTime >= frameDuration) {
-                    currentTime = 0;
-                    if (actualColumn < columns) {
-                        Offset.X = startOffset.X + (actualColumn * owner.Size.X);
-                        actualColumn++;
-                    } else {
-                        actualColumn = 0;
-                        if (actualRow < rows) {
-                            Offset.Y = startOffset.Y + (actualRow * owner.Size.Y);
-                            actualRow++;
+                elapsedTime += Game.DeltaTime;
+                if (elapsedTime >= frameDuration) {
+                    currentFrame++;
+                    elapsedTime = 0;
+                    if (currentFrame >= numFrames) {
+                        //animation ended
+                        if (Loop) {
+                            currentFrame = 0;
                         } else {
-                            if (Loop) {
-                                Offset = startOffset;
-                                actualRow = 0;
-                            } else {
-                                Stop();
-                            }
+                            OnAnimationEnd();
+                            return;
                         }
                     }
+                    offset.X = frameWidth * currentFrame;
                 }
             }
         }
 
-        public void Play(bool loop) {
-            Play();
-            Loop = loop;
-        }
-
-        public void Play() {
-            IsPlaying = true;
-        }
-
-        public void Stop() {
-            Offset = startOffset;
-            actualRow = 1;
-            actualColumn = 1;
+        protected virtual void OnAnimationEnd() {
             IsPlaying = false;
         }
 
-        public void Pause() {
+        public virtual void Play() {
+            IsPlaying = true;
+        }
+
+        public virtual void Stop(ref Vector2 offset) {
+            IsPlaying = false;
+            currentFrame = 0;
+            elapsedTime = 0;
+            offset.X = frameWidth * currentFrame;
+        }
+
+        public virtual void Pause() {
             IsPlaying = false;
         }
     }
